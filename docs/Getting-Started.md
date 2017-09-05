@@ -1,2 +1,1 @@
-# This is a test
-ff
+# Getting Started With Vertcoin

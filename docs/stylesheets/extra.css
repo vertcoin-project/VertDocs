@@ -1,3 +1,17 @@
 .md-header {
     background-color: #1b5c2e !important;
 }
+.md-nav--secondary {
+    border-left: .4rem solid #1b5c2e;
+}
+
+.md-nav__link:active, .md-nav__link--active  {
+    color: #1b5c2e !important;
+}
+
+.md-nav__link:focus {
+    color: #23b02c; 
+}
+.md-nav__link:hover {
+   color: #23b02c;
+}

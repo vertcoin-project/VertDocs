@@ -3,24 +3,34 @@ site_name: "VertDocs"
 theme_dir: 'vdmaterial/material'
 site_description: 'Vertcoin Documentation'
 site_url: 'http://docs.vertcoin.org'
+site_favicon: 'images/favicon.png'
+
+pages:
+    - Home: index.md
+    - Getting Started: Getting-Started.md
+    - Wallets:     
+        - Core Wallet: Wallets/Core-Wallet.md
+        - Electrum Wallet: Wallets/Electrum.md
 
 extra_css:
   - 'stylesheets/extra.css'
   
-extra:
-  palette:
-    accent: 'green'
+extra:  
     
   social:
     - type: 'github'
       link: 'https://github.com/squidfunk'
     - type: 'twitter'
-      link: 'https://twitter.com/squidfunk'
-    - type: 'linkedin'
+      link: 'https://twitter.com/vertcoin'
+    - type: 'reddit'
+      link: 'https://www.reddit.com/r/vertcoin/'
+    - type: 'slack'
+      link: 'https://slack.vtconline.org/'
+    - type: 'facebook'
       link: 'https://linkedin.com/in/squidfunk'
       
    
-copyright: 'Copyright &copy; 2016 - 2017 John Doe'
+copyright: 'Copyright &copy; 2017 Vertcoin'
 
 
 markdown_extensions:
@@ -42,4 +52,5 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist(custom_checkbox=true)
   - pymdownx.tilde
+  
   

@@ -1,0 +1,1 @@
+# Vertcoin Core Wallet
