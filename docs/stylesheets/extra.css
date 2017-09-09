@@ -15,3 +15,11 @@
 .md-nav__link:hover {
    color: #23b02c;
 }
+
+@media only screen and (max-width: 76.1875em){
+    .md-nav--primary .md-nav__title--site {
+        background-color: #1b5c2e !important;
+    }
+}
+
+ 

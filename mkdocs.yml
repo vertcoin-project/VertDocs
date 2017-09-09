@@ -3,15 +3,26 @@ site_name: "VertDocs"
 theme_dir: 'vdmaterial/material'
 site_description: 'Vertcoin Documentation'
 site_url: 'http://docs.vertcoin.org'
-site_favicon: 'images/favicon.png'
+site_favicon: 'img/favicon.ico'
 
 pages:
     - Home: index.md
     - Getting Started: Getting-Started.md
-    - Wallets:     
+    - Wallets: 
+        - Wallet Overview: Wallets/Wallet-Overview.md
         - Core Wallet: Wallets/Core-Wallet.md
         - Electrum Wallet: Wallets/Electrum.md
+        - Web Wallet: Wallets/Web-Wallets.md
+        - Paper Wallets: Wallets/Paper-Wallets.md
+    - Mining:
+        - Getting Started with Mining: Mining/Getting-Started-With-Mining.md
+        - P2pool Overview: Mining/P2pool-overview.md
+        - NVidia Mining: Mining/Nvidia-Mining.md
+        - AMD Mining: Mining/AMD-Mining.md
+    - Buying Vertcoin:
+        - How to buy Vertcoin: BuyingVertcoin/How-to-buy-Vertcoin.md
 
+   
 extra_css:
   - 'stylesheets/extra.css'
   
