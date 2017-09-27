@@ -7,7 +7,7 @@ site_favicon: 'img/favicon.ico'
 
 pages:
     - Home: index.md
-    - Getting Started: Getting-Started.md
+    - Getting Started: getting-started.md
     - Wallets: 
         - Wallet Overview: Wallets/Wallet-Overview.md
         - Core Wallet: Wallets/Core-Wallet.md
