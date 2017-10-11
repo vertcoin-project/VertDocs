@@ -44,3 +44,33 @@ Once you have confirmed your Bittrex account and have logged in, you will genera
 
 
 On the Bittrex wallets page there is a box under "Account Balances" that lists all the currencies that Bittrex supports. At the top of that list there will be Bitcoin with a + and - sign to the left of it. Click the + sign and there will be a pop up where you can generate a new address from. To generate a new address just click the "New Address" button. Now there will be a Bitcoin address on the previous popup.
+
+
+### Convert Your Bitcoin to Vertcoin
+Now that you have made a Bitcoin address on Bittrex and you have bought Bitcoin with Coinbase you need to send your Bitcoin to Bittrex and Convert the Bitcoin to Vertcoin.
+
+
+#### Send Bitcoin From Coinbase to Bittrex
+Go to [Coinbase](https://coinbase.com) again and log in. From the main dashboard you will see the "Accounts" button on the top left. Click the "Accounts" button and you will see a few different wallets on the left. Click the send button under "BTC Wallet" and there will be a popup that asks for the BTC address you are sending to, where you want to withdraw the BTC from and how much BTC you want to send. In the BTC address field you need to input the BTC wallet address you generated in the "Create a Bitcoin Address" section earlier in this guide. Once you are done inputting the necessary information hit continue to complete the withdraw.
+
+
+#### Convert Your Bitcoin to Vertcoin in Bittrex
+Once you have sent your Bitcoin from Coinbase to Bittrex you will be able to see the Bitcoin under "Account Balances" in the "฿ Wallets" page. If the Bitcoin you sent is under the "Pending Deposit" column that means your transaction is still confirming on the Bitcoin blockchain, to check the status of the transaction scroll down until you see "Pending Deposits" where you can view the status of your deposit.
+
+
+Once your transaction is confirmed you can buy Vertcoin by going to the [Bittrex VTC -> BTC markets page](https://bittrex.com/Market/Index?MarketName=BTC-VTC) and you will see a lot of market information pop up. Under the value graph you will see the "Trading" section where you can buy and sell Vertcoin. To buy Vertcoin use the "Buy Vertcoin" section to buy Vertcoin. From the "Buy Vertcoin" section you need to input how much Vertcoin you want to buy, what price you want to buy it at (price in Bitcoin) and what type of order you want to place. Once you have inputted all the necessary information click "Buy Vertcoin" and confirm the buy order.  
+
+
+### Send Your Vertcoin From Bittrex to Your Vertcoin Core Wallet
+Once your buy order has filled, it is crucial to transfer your Vertcoin from Bittrex to your local wallet. When your coins are on an exchange you don't actually own your own coins and private keys, if the exchange were to lose your coins you would not be able to get them back. If you have not already set up your Vertcoin Core wallet, do so by going to the Core wallet page located in the wallets section.
+
+
+#### Get your Vertcoin Address from Vertcoin Core
+To get your Vertcoin address from Vertcoin Core, open Vertcoin Core and go to `File -> Recieving Addresses` and you will see all of your Vertcoin addresses, select one and hit copy to copy the address to your clipboard.
+
+
+#### Withdraw Vertcoin from Bittrex
+To withdraw your Vertcoin from Bittrex to your Core wallet go to the [Bittrex wallets page](bittrex.com/Balance) and click the - sign next to Vertcoin in the "Account Balances" section. There will be a popup where you will input the details of your withdraw such as: the address you got from Vertcoin Core and how much Vertcoin you want to withdraw. Once you are done inputting all the required information click withdraw and confirm the withdraw.
+
+
+Now that you have withdrawn your Vertcoin from Bittrex you will see the coins show up in your wallet after a few minutes. 
