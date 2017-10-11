@@ -62,7 +62,7 @@ Once your transaction is confirmed you can buy Vertcoin by going to the [Bittrex
 
 
 ### Send Your Vertcoin From Bittrex to Your Vertcoin Core Wallet
-Once your buy order has filled, it is crucial to transfer your Vertcoin from Bittrex to your local wallet. When your coins are on an exchange you don't actually own your own coins and private keys, if the exchange were to lose your coins you would not be able to get them back. If you have not already set up your Vertcoin Core wallet, do so by going to the Core wallet page located in the wallets section.
+Once your buy order has filled, it is crucial to transfer your Vertcoin from Bittrex to your local wallet. When your coins are on an exchange you don't actually own your own coins and private keys, if the exchange were to lose your coins you would not be able to get them back. If you have not already set up your Vertcoin Core wallet, do so by going to the [Core wallet page](https://docs.vertcoin.org/Wallets/Core-Wallet/) located in the wallets section.
 
 
 #### Get your Vertcoin Address from Vertcoin Core
@@ -73,4 +73,4 @@ To get your Vertcoin address from Vertcoin Core, open Vertcoin Core and go to `F
 To withdraw your Vertcoin from Bittrex to your Core wallet go to the [Bittrex wallets page](bittrex.com/Balance) and click the - sign next to Vertcoin in the "Account Balances" section. There will be a popup where you will input the details of your withdraw such as: the address you got from Vertcoin Core and how much Vertcoin you want to withdraw. Once you are done inputting all the required information click withdraw and confirm the withdraw.
 
 
-Now that you have withdrawn your Vertcoin from Bittrex you will see the coins show up in your wallet after a few minutes. 
+Now that you have withdrawn your Vertcoin from Bittrex you will see the coins show up in your wallet after a few minutes.
