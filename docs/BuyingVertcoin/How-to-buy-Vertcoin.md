@@ -28,7 +28,7 @@ If you choose credit card you need to input your credit card details (credit car
 Once you have finished the signup process on Coinbase you will be greeted by the Coinbase dashboard where you can buy and sell Bitcoin, Litecoin and Ethereum. To buy Bitcoin click on the "Buy and Sell" tab located in the top left.
 
 
-In the "Buy and Sell" page you can see a box on the left where you can see buy and sell options. Make sure you are on the Buy tab. From the Buy tab you can select: which currency you want to buy, you should buy Bitcoin, what payment method you want to use, how much Bitcoin you want to buy, and whether you want to repeat the current buy. Fill out all of the options and once you are done click "Buy Bitcoin" at the bottom of the screen. If you used a bank account to buy Bitcoin it will take a few business days to transfer the money from the bank account to Coinbase but if you used a credit card you will buy the Bitcoin instantly.
+In the "Buy and Sell" page you can see a box on the left where you can see buy and sell options. Make sure you are on the Buy tab. From the Buy tab you can select: which currency you want to buy, you should buy Bitcoin, what payment method you want to use, how much Bitcoin you want to buy, and whether you want to repeat the current buy. Fill out all of the options and once you are done click "Buy Bitcoin" at the bottom of the screen. If you used a non U.S bank account to buy Bitcoin it will take a few business days to transfer the money from the bank account to Coinbase but if you used a credit card you will buy the Bitcoin instantly. If you have an U.S bank account you can buy Bitcoin, Litecoin and Ethereum instantly
 
 
 ### Bittrex
