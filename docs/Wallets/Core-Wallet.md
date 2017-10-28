@@ -83,7 +83,7 @@ The first time you run Vertcoin Core, it wil ask where you would like to store i
     
 As the blockchain downloads, you'll see progress displayed as well as the latest block synced. Every time Vertcoin Core is launced, your local copy of the blockchain will need to be synced to the current block. 
 
-Alternitavely you can run Vertoin Core as a daemon, (```vertcoind```). This will allow you to run a vertcoin node without the GUI interface.
+Alternitavely you can run Vertoin Core as a daemon, (vertcoind). This will allow you to run a vertcoin node without the GUI interface.
 
 ## Backing Up Your Wallet
 

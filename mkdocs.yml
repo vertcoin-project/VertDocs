@@ -21,6 +21,8 @@ pages:
         - AMD Mining: Mining/AMD-Mining.md
     - Buying Vertcoin:
         - How to buy Vertcoin: BuyingVertcoin/How-to-buy-Vertcoin.md
+    - Contributing:
+        - Open bounties: Contributing/Bounties.md
 
    
 extra_css:
