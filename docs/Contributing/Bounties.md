@@ -53,6 +53,7 @@ some backend public P2Pool node.
 provided prominently. This will essentially become a landing page for P2Pool.
 * The scanner should check the github for the latest valid P2Pool versions and
 only list valid versions.
+* Preference for C++, Go or Node.js on the backend and HTML5 frontend.
 
 ### VertDocs
 
