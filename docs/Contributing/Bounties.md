@@ -51,6 +51,9 @@ provide a load balancing proxy endpoint that users can connect to to mine to
 some backend public P2Pool node.
 * Instructions for using P2Pool as a miner or node host should be
 provided prominently. This will essentially become a landing page for P2Pool.
+* The scanner should check the github for the latest valid P2Pool versions and
+only list valid versions.
+* Preference for C++, Go or Node.js on the backend and HTML5 frontend.
 
 ### VertDocs
 
