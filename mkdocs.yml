@@ -12,7 +12,7 @@ pages:
         - Wallet Overview: Wallets/Wallet-Overview.md
         - Core Wallet: Wallets/Core-Wallet.md
         - Electrum Wallet: Wallets/Electrum.md
-        - Web Wallet: Wallets/Web-Wallets.md
+        - Vertwalet: Wallets/Vertwallet.md
         - Paper Wallets: Wallets/Paper-Wallets.md
     - Mining:
         - Getting Started with Mining: Mining/Getting-Started-With-Mining.md
@@ -21,6 +21,8 @@ pages:
         - AMD Mining: Mining/AMD-Mining.md
     - Buying Vertcoin:
         - How to buy Vertcoin: BuyingVertcoin/How-to-buy-Vertcoin.md
+    - Contributing:
+        - Open bounties: Contributing/Bounties.md
 
    
 extra_css:
@@ -30,7 +32,7 @@ extra:
     
   social:
     - type: 'github'
-      link: 'https://github.com/squidfunk'
+      link: 'https://github.com/vertcoin'
     - type: 'twitter'
       link: 'https://twitter.com/vertcoin'
     - type: 'reddit'

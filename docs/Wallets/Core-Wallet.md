@@ -3,13 +3,17 @@
 ## Installation
 
 
-### Windows
-
-To install the Vertcoin Core wallet in Windows, navigate to the Vertcoin Core repository's [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the Windows binary file for the latest release. Both 64bit and 32 bit version are available.
 
 
+### Github Download
 
-Inside the zipped download you will find four applications;```vertcoin-qt```,```vertcoind```,```vertcoin-cli```,  and ```vertcoin-tx```.
+
+To install the Vertcoin Core wallet, navigate to the Vertcoin Core repository [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the binary file for the latest release. Windows, Linux and OSX versions are availiable.
+
+
+
+Inside the zipped download you will find four applications; vertcoin-qt, 
+vertcoind, vertcoin-cli and vertcoin-tx.
 
 
 | Application  | Description                                                      |
@@ -20,14 +24,49 @@ Inside the zipped download you will find four applications;```vertcoin-qt```,```
 | vertcoin-tx  | Command line interface to  create, parse, or modify transactions |
 
 
+To start the Vertcoin Core Wallet, launch the vertcoin-qt file. This will start the wallet with GUI interface. You could optionally launch the wallet as a deamon to run in the backgeound with vertcoind.
 
-### Linux
 
-Will update..
+### Linux Ubuntu PPA Download
 
-###MacOSX
 
-To install the Vertcoin Core wallet for MacOSX, navigate to the Vertcoin Core repository's [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the MacOSX binary file for the latest release. Both 64bit and 32 bit version are available.
+You can install vertcoind (headless daemon) or the GUI wallet vertcoin-qt via
+the Vertcoin ppa.
+
+``` shell
+$ sudo add-apt-repository ppa:vertcoin/ppa
+$ sudo apt-get update
+```
+
+##### vertcoind
+
+Then to install vertcoind run:
+``` shell
+$ sudo apt-get install vertcoind
+```
+
+
+Launch vertcoind from the command line with:
+``` shell
+$ vertcoind -daemon
+```
+
+
+And interact with vertcoind via:
+``` shell
+$ vertcoin-cli help
+```
+
+##### vertcoin-qt
+
+To install the GUI wallet:
+``` shell
+$ sudo apt-get install vertcoin-qt
+```
+
+You then can launch Vertcoin via the app icon installed  in the launcher.
+
+
 
 ##  Running Vertcoin Core
 
@@ -39,7 +78,7 @@ The first time you run Vertcoin Core, it wil ask where you would like to store i
 
 As the blockchain downloads, you'll see progress displayed as well as the latest block synced. Every time Vertcoin Core is launced, your local copy of the blockchain will need to be synced to the current block.
 
-Alternitavely you can run Vertoin Core as a daemon, (```vertcoind```). This will allow you to run a vertcoin node without the GUI interface.
+
 
 ## Backing Up Your Wallet
 
@@ -53,4 +92,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra, sapien
 
 ### Coin Controls
 
+
+
 ...
+
+
