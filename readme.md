@@ -37,14 +37,20 @@ Install the `mkdocs` package using pip:
 
 ```pip install mkdocs```
 
+
+
+#### Installing Pymdown Extentions
+
+Install `pymdown-extensions` using pip:
+
+```pip install pymdown-extensions```
+
 You should now have the `mkdocs` command installed on your system. Run ```mkdocs --version``` to check that everything worked okay.
 
 ```$ mkdocs --version
 $ mkdocs --version
 mkdocs, version 0.15.3
 ```
-
-
 
 ## Getting started
 
