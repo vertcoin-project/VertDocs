@@ -12,7 +12,7 @@ pages:
         - Wallet Overview: Wallets/Wallet-Overview.md
         - Core Wallet: Wallets/Core-Wallet.md
         - Electrum Wallet: Wallets/Electrum.md
-        - Web Wallet: Wallets/Web-Wallets.md
+        - Vertwalet: Wallets/Vertwallet.md
         - Paper Wallets: Wallets/Paper-Wallets.md
     - Mining:
         - Getting Started with Mining: Mining/Getting-Started-With-Mining.md

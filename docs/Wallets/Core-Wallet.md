@@ -4,10 +4,9 @@
 
 
 
-### Windows
+### Github Download
 
-To install the Vertcoin Core wallet in Windows, navigate to the Vertcoin Core repository [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the Windows binary file for the latest release. Both 64bit and 32 bit version are available.
-
+To install the Vertcoin Core wallet, navigate to the Vertcoin Core repository [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the binary file for the latest release. Windows, Linux and OSX versions are availiable.
 
 
 
@@ -23,10 +22,11 @@ vertcoind, vertcoin-cli and vertcoin-tx.
 | vertcoin-tx  | Command line interface to  create, parse, or modify transactions |
 
 
+To start the Vertcoin Core Wallet, launch the vertcoin-qt file. This will start the wallet with GUI interface. You could optionally launch the wallet as a deamon to run in the backgeound with vertcoind.
 
-### Linux
 
-#### Ubuntu
+### Linux Ubuntu PPA Download
+
 
 You can install vertcoind (headless daemon) or the GUI wallet vertcoin-qt via
 the Vertcoin ppa.
@@ -60,18 +60,8 @@ To install the GUI wallet:
 $ sudo apt-get install vertcoin-qt
 ```
 
-Then launch Vertcoin via the app icon installed the launcher.
+You then can launch Vertcoin via the app icon installed  in the launcher.
 
-#### Other Linux
-
-Navigate to the Vertcoin Core repository 
-[Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and 
-download the Linux binary file for the latest release. Both 64bit and 32 bit 
-version are available.
-
-###MacOSX
-
-To install the Vertcoin Core wallet for MacOSX, navigate to the Vertcoin Core repository [Releases Page](https://github.com/vertcoin/vertcoin/releases) on GitHub and download the MacOSX binary file for the latest release. Both 64bit and 32 bit version are available.
 
 ##  Running Vertcoin Core
  
@@ -83,7 +73,7 @@ The first time you run Vertcoin Core, it wil ask where you would like to store i
     
 As the blockchain downloads, you'll see progress displayed as well as the latest block synced. Every time Vertcoin Core is launced, your local copy of the blockchain will need to be synced to the current block. 
 
-Alternitavely you can run Vertoin Core as a daemon, (vertcoind). This will allow you to run a vertcoin node without the GUI interface.
+
 
 ## Backing Up Your Wallet
 
