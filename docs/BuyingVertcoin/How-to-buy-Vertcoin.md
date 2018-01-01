@@ -74,3 +74,15 @@ To withdraw your Vertcoin from Bittrex to your Core wallet go to the [Bittrex wa
 
 
 Now that you have withdrawn your Vertcoin from Bittrex you will see the coins show up in your wallet after a few minutes.
+
+
+### LiteBit
+If you don't want to use Coinbase and Bittrex, you can also use [LiteBit](https://litebit.eu). Here it is possible to buy and sell Vertcoin (and other coins) without converting to Bitcoin first. There is a catch however: LiteBit uses a "spread" between buying and selling prices of about 5%. Therefore, buying Vertcoin will be about 5% more expensive and selling will also be about 5% under the actual value.
+
+
+#### Creating an account
+Creating an account requires basic details like your name and e-mail address. Then there are tier 1, 2 and 3 validations to ensure you are a real person. This varies from bank account validation to copying a bill or bank note for address validation. The validation you have completed, influences the maximum trading amount. The process is relatively straightforward and can be done in a couple of minutes.
+
+
+#### Wallets
+You can store your Vertcoins in two ways: in your own wallet and in the online wallet provided by LiteBit. Trading is a lot easier when using the wallet provided, but do keep in mind that having your Vertcoins in their wallet might be a security risk. They would not be the first exchange to fall prey to hackers, so bear that in mind when making your decision.
