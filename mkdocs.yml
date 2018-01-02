@@ -1,10 +1,12 @@
 # Project information
 site_name: "VertDocs"
-theme_dir: 'vdmaterial/material'
+
 site_description: 'Vertcoin Documentation'
 site_url: 'http://docs.vertcoin.org'
-site_favicon: 'img/favicon.ico'
 repo_url: 'https://github.com/Bryangoodson/VertDocs'
+
+theme:
+  name: 'material'
 
 pages:
     - Home: index.md

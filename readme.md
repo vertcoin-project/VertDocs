@@ -37,7 +37,10 @@ Install the `mkdocs` package using pip:
 
 ```pip install mkdocs```
 
+#### Installing Theme
+Install VertDocs theme (material) using pip:
 
+```pip install mkdocs-material```
 
 #### Installing Pymdown Extentions
 
