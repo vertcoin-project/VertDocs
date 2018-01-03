@@ -41,22 +41,31 @@ To get started with Nvidia mining, you will require the following:
 #### Installing and setting programs up
 1.	Download and unzip `(a) Core Wallet`. Vertcoin-qt.exe will be the one you use most of the time as it is the one with the Graphical User Interface. During first start up you will be prompted to select your Blockchain Data location – put it on a storage with plenty of space.
  
+![VTC Core Wallet First Start](/images/core-first-start.png)
+ 
 2.	Open up (a) Core Wallet and let it sync – the rate at which the sync occurs should increase as you get more connections to other peers (it is p2p, which means other users share their data for you to download). You can increase the speed at which it syncs by downloading the bootstrap file.
+ 
+![VTC Core Wallet Sync](/images/core-sync.png)
  
 3.	Install (b) Vertcoin One Click Miner (OCM). When you run it for the first time it will prompt you to select your Vertcoin Blockchain Data (in this example it is D:\VTC Blockchain Data as indicated in the picture above)
 
 #### Getting your Miner’s Address (You will receive payment with this)
 4.	While the Core Wallet syncs, Click “Hide” to hide the sync progress window and reveal the User Interface.
- 
+
+![VTC Core Wallet UI](/images/core-ui.png)
 
 5.	Navigate to Receive and enter Label as appropriate (eg. Mining from Pool XYZ) > Click Request Payment and an address will be generated for you. Double click on your generated address to reveal more information.
- 
+
+![VTC Core Wallet Address Generating](/images/core-generate-address.png)
+
 6.	You may now minimize the Vertcoin Core Wallet to let it continue syncing – the generated receiving address will be used later.
 
 #### Setting up One Click Miner to mine on regular mining Pools (For P2Pools please skip to the next section.)
 7.	Open up OCM (Vertcoin One Click Miner.exe).
 
 8.	Navigate to "Add Pool" and enter the following:
+
+![VTC OCM Pool Setup](/images/ocm-pool-setup.png)
 
 	* Your Miner Address generated in Step (6) into Miners Address Field. Beware of any ninja “space” behind the address when pasting!
 	
@@ -69,13 +78,17 @@ To get started with Nvidia mining, you will require the following:
 9.	On the left side of the interface, select Nvidia (ccminer OR Vertminer) and click Start. OCM will prompt you to install whichever miner you have selected. 
 
 	(Note: Vertminer is a repackaged ccminer which includes 2% donation (you donate 2% of your hash time), but users typically report 2 to 8% increase in hashrate as it is optimized for VTC’s algorithm, so it may be well worth it. Feel free to experiment between both miners.)
+	
+![VTC OCM Miner Setup](/images/ocm-miner-setup.png)
  
 10.	Click settings on top, tick “Show CLI” – this will help you determine if you are mining correctly by showing the command line window. Once you have gotten the hang of it and you know your miner runs fine, you may untick it as it will not affect your mining in any way. 
 
 11.	If you would like to add more pool to the list, feel free to do so. Those pools will act as failovers – the miner switches over to those if the pool you are currently mining on goes down. OCM will pick the first pool in the list to begin mining. Move to Step (12) if you do not want to add more pools.
 
 12.	Once you have completed all the steps above, you may click “Start” to begin mining, and you should see something similar to below:
- 
+
+![VTC OCM Mining](/images/ocm-mining.png)
+
 	If you see something similar to the above, congratulations! You are now mining!
 
 13.	Continue to mine until you get your first payment. Once you get it, you can be sure that are mining Vertcoin!
@@ -92,8 +105,9 @@ If you are able to run everything, you may try to optimize your mining rate by l
 It is generally recommended to leave intensity as default “0” (max) so that the software can automatically optimize the miner to provide the best results. However, your mileage may vary and it is still recommended that you try it out to see the results for yourself.
 
 3.	Hardware: Casing airflow
-If you haven’t done so, it may be a good time now to investigate your casing’s airflow (fans etc.)
-Checklist:
+If you haven’t done so, it may be a good time now to investigate your casing’s airflow (fans etc.). A cool card is a happy card, and a happy card 
+
+### Quick TL;DR Checklist:
 Installed Vertcoin Core Wallet and One Click Miner.
 Added both items to Exclusion list of Anti-virus and Firewall
 Generated an address with Core Wallet
@@ -102,9 +116,9 @@ Miner hashrate on OCM is not 0 when start is clicked
  
 ### Troubleshooting:
 1.	Stratum Connection failed!
-* Check your Firewall/Antivirus settings. Miner programs occasionally get blocked or flagged as malicious.
-* Try a different pool instead, the pool could be down at the moment.
+	* Check your Firewall/Antivirus settings. Miner programs occasionally get blocked or flagged as malicious.
+	* Try a different pool instead, the pool could be down at the moment.
 2.	No hashrate shown in OCM despite successful connection in CLI
-* Check your graphic drivers
+	* Check your graphic drivers
 3.	Why don’t I see my payouts in the Core Wallet even after the pool says that it has paid?
-* Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it should show up as soon as it syncs up to the point where you are paid.
+	* Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it 		should show up as soon as it syncs up to the point where you are paid.
