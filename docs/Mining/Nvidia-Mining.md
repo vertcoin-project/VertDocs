@@ -1,4 +1,4 @@
-# Nvidia Mining Guide
+# Vertcoin Nvidia Mining Guide
 
 
 ## Table of Contents
@@ -16,24 +16,16 @@
 
 
 ### Introduction
-Vertcoin is GPU – mineable and uses the Lyra2REv2 Algorithm. 
+Vertcoin (VTC) is GPU – mineable and uses the Lyra2REv2 Algorithm. Most modern Nvidia GPUS (10 series) will be able to mine VTC profitably. However, this does not mean that older generation cards aren't able to mine at all - they can, but not as profitable as 10 series cards. As long as your card isn't overly dated (older than 9 series) you should be able to make a smaller profit or breakeven. As a benchmark to get you started, you can estimate your card's profitability using [online calculators](coinwarz.com/calculators/vertcoin-mining-calculator/). 
 
-Show Nvidia GPU and rough estimate for mining speeds
+Image/Table - Show Nvidia GPU and rough estimate for mining speeds
 
-At present, only the 10 series cards are profitable for mining. Lower generation cards does not necessarily mean that you are mining at a loss. Sometimes you may be able to make a smaller profit or breakeven. Get estimates from: [link coinwarz calculator].
-
-Use the following parameters for estimation:
-
-Standard Desktop with 1 GPU (120W + GPU draw). Leave the other fields as default.
-
-### Mining VTC Directly
-Manually (using ccminer and editing .bat file)
-Easier way (using One Click Miner)
+For starters (assuming you have Standard Desktop with 1 GPU) - Calculate your power as 100W (for all other components in PC) + GPU draw) and leave the other fields as default. 
 
 ### Getting Started 
-To get started with Nvidia mining, you will require the following:
-* (a) Vertcoin Core Wallet [Link] (Note: Do NOT mine to electrum wallet – here’s why)
-* (b) Vertcoin’s One Click Miner (Link)
+Vertcoin mining is simple and easy to get into. To get started with Nvidia mining, you will require the following:
+* (a) [Vertcoin Core Wallet](https://github.com/vertcoin/vertcoin/releases) (Note: Do NOT mine to electrum wallet – [here’s why](https://www.reddit.com/r/vertcoin/comments/7ix2jn/do_not_mine_to_a_ledger_or_electrum_wallet_use/))
+* (b) [Vertcoin’s One Click Miner](https://github.com/vertcoin/One-Click-Miner/releases)
 * (c) Address of the mining pool you wish to mine on (eg. stratum+tcp://vertpoolname:1234)
 * (d) To monitor/optimize – MSI Afterburner
 
@@ -43,11 +35,8 @@ To get started with Nvidia mining, you will require the following:
 
 ![VTC Core Wallet First Start](/images/core-first-start.png)
 
-2.  Open up (a) **Core Wallet** and let it sync – the rate at which the sync occurs should increase as you get more connections to other Core Wallet users (it is p2p, which means other users share their data for you to download). You can increase the speed at which it syncs by downloading the 
+2.  Open up (a) **Core Wallet** and let it sync – the rate at which the sync occurs should increase as you get more connections to other Core Wallet users (it is p2p, which means other users share their data for you to download). You can increase the speed at which it syncs by downloading the [Bootstrap file](https://www.reddit.com/r/vertcoin/comments/77eojk/sync_your_wallet_faster_with_the_bootstrapdat/).
 
-    [bootstrap file]: https://www.reddit.com/r/vertcoin/comments/77eojk/sync_your_wallet_faster_with_the_bootstrapdat/
-
-    .
 
 ![VTC Core Wallet Sync](/images/core-sync.png)
 
@@ -66,8 +55,8 @@ To get started with Nvidia mining, you will require the following:
 
 #### Setting up One Click Miner to mine on regular mining Pools (For P2Pools please skip to the next section.)
 7.	Open up the OCM (Vertcoin One Click Miner.exe) you have just installed.
-8.	Navigate to "Add Pool" and enter the following (refer to image below):
-  * Your Miner Address generated in Step (6) into Miners Address Field. Beware of any ninja 		“space” behind the address when pasting!
+  8.Navigate to "Add Pool" and enter the following (refer to image below):
+  * Your Miner Address generated in Step (5) into Miners Address Field. Beware of any ninja “space” behind the address when pasting!
   * Your (c) Pool Address into the Pool Address Field.
   * Leave password as x. It does not affect your mining.
   * (Optional) Add description as necessary to help remember pool details
@@ -94,9 +83,52 @@ To get started with Nvidia mining, you will require the following:
 
 	If you see something similar to the above, congratulations! You are now mining!
 
-13.	Continue to mine until you get your first payment. Once you get it, you can be sure that are mining Vertcoin!
+13.	Continue to mine until you get your first payment. Once you get it, you can be sure that you are mining Vertcoin!
+
+###Setting up One Click Miner to mine on P2Pools 
+
+If you are wondering where there is a need to mine on p2pool, read (Link to p2pool document). In essence P2Pool helps with decentralization and distribution of hashrate. For some, p2pool mining is also slightly more profitable since they can mine locally which eliminates issues arising due to latency and/or dependencies on other mining pools' uptime.
+
+14. Open up OCM, go to settings. For p2pool hosting there are a few settings that you should take note of:
+
+    - *Network* - Select the appropriate network based on your mining hashrate. Network 1 is made for miners with >100 Mh/s while Network 2 is made for miners with <100 Mh/s.
+    - *Fee* - This represents the fee you collect from miners who mine on your p2pool.
+    - *Fee* *Address* - Fees you collect will be in this address.
+    - *Donation* - % of Mining proceeds on your p2pool will go to the VTC developers
+
+    ![VTC OCM P2P Settings](/images/ocm-p2p-settings.png)
+
+15. In OCM, tick "Run Local Node". A CLI should open up as below: 
+
+    ![Vertcoin OCM p2pool start](/images/ocm-p2p-start.png)
+
+    It should then load up to something similar to below:
+
+    ![Vertcoin OCM P2pool running](/images/ocm-p2p-running.png)
+
+16. Once you get the above up and running, click on `Add Pool` and add the following in Pool Address field:
+
+    - Network 1: stratum+tcp://localhost:9171
+    - Network 2: stratum+tcp://localhost:9181
+
+    Worker address is taken from the one you generated in Step (5). Password can be x.
+
+17. After this is done, select the pool you just added and start mining away! You can verify that you are mining by checking the following:
+
+    1. In OCM, the <u>Miner Hashrate</u> isn't 0 kh/s
+
+    2. After a few minutes, open up your browser, go to (Network 1) http://localhost:9171/static/ or (Network 2) http://localhost:9181/static/. Your miner should be on the list and has a non-zero share difficulty associated with it. 
+
+    3. Similarly, if you mine on other people's pool, you should see something similar to below when you are mining correctly. 
+
+       ![VTC P2Pool Web Interface](/images/p2p-web-interface.png)
+
+       ​					**If yours look similar to the above, you are good to go!**
+
+Note: Mining on P2Pool involves a bit of luck and you may need to wait up to 24h before getting your first payout. 
 
 #### Optimizing:
+
 If you are able to run everything, you may try to optimize your mining rate by limiting certain parameters on your card – do this on your own risk! The optimizing mentioned here are just suggestions – please feel free to tweak as necessary.
 
 1.  MSI Afterburner
@@ -108,7 +140,7 @@ If you are able to run everything, you may try to optimize your mining rate by l
 
    It is generally recommended to leave intensity as default “0” (max) so that the software can automatically optimize the miner to provide the best results. However, your mileage may vary and it is still recommended that you try it out to see the results for yourself.
 
-3.	Hardware: Casing airflow
+3.  Hardware: Casing airflow
 
    If you haven’t done so, it may be a good time now to investigate your casing’s airflow (fans etc.). A cool GPU is a happy GPU, and a happy GPU gives the best results :) Once again, it is recommended to keep temperatures below 70°C.
 
@@ -124,7 +156,8 @@ Miner hashrate on OCM is not 0 when start is clicked
   * Check your Firewall/Antivirus settings. Miner programs occasionally get blocked or flagged as malicious.
   * Try a different pool instead, the pool could be down at the moment.
 2.	No Hashrate shown in OCM despite successful connection in CLI
-   * Check your Graphic Drivers and ensure they are up to date
-     ​
+    * Check your Graphic Drivers and ensure they are up to date
 3.	Why don’t I see my payouts in the Core Wallet even after the pool says that it has paid?
-  * Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it should show up as soon as it syncs up to the point where you are paid.
+   * Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it should show up as soon as it syncs up to the point where you are paid.
+4.	For the P2Pool web interface (http://localhost:91x1/static/) why does my miner have 0 share difficulty?
+   - You may have accidentally included a "ninja" space behind your Miner Address when pasting it during the Add Pool step!
