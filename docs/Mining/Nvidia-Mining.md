@@ -74,10 +74,8 @@ Vertcoin mining is simple and easy to get into. To get started with Nvidia minin
 ![VTC OCM Miner Setup](/images/ocm-miner-setup.png)
 
 10.  Click settings on top, tick “Show CLI” – this will help you determine if you are mining correctly by showing the command line window. Once you have gotten the hang of it and you know your miner runs fine, you may untick it as it will not affect your mining in any way. 
-
-  11.If you would like to add more pool to the list, feel free to do so. Those pools will act as failovers – the miner switches over to those if the pool you are currently mining on goes down. OCM will pick the first pool in the list to begin mining. Move to Step (12) if you do not want to add more pools.
-
-  12.Once you have completed all the steps above, you may click “Start” to begin mining, and you should see something similar to below:
+11.  If you would like to add more pool to the list, feel free to do so. Those pools will act as failovers – the miner switches over to those if the pool you are currently mining on goes down. OCM will pick the first pool in the list to begin mining. Move to Step (12) if you do not want to add more pools.
+12.  Once you have completed all the steps above, you may click “Start” to begin mining, and you should see something similar to below:
 
 ![VTC OCM Mining](/images/ocm-mining.png)
 
@@ -155,9 +153,15 @@ Miner hashrate on OCM is not 0 when start is clicked
 1.	Stratum Connection failed!
   * Check your Firewall/Antivirus settings. Miner programs occasionally get blocked or flagged as malicious.
   * Try a different pool instead, the pool could be down at the moment.
-2.	No Hashrate shown in OCM despite successful connection in CLI
-    * Check your Graphic Drivers and ensure they are up to date
-3.	Why don’t I see my payouts in the Core Wallet even after the pool says that it has paid?
-   * Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it should show up as soon as it syncs up to the point where you are paid.
-4.	For the P2Pool web interface (http://localhost:91x1/static/) why does my miner have 0 share difficulty?
-   - You may have accidentally included a "ninja" space behind your Miner Address when pasting it during the Add Pool step!
+
+2.No Hashrate shown in OCM despite successful connection in CLI
+
+* Check your Graphic Drivers and ensure they are up to date
+
+3.Why don’t I see my payouts in the Core Wallet even after the pool says that it has paid?
+
+ * Your core wallet may not be fully synced (not up to date with the latest blockchain data). Give it some more time and it should show up as soon as it syncs up to the point where you are paid.
+
+4.For the P2Pool web interface (http://localhost:91x1/static/) why does my miner have 0 share difficulty?
+
+ - You may have accidentally included a "ninja" space behind your Miner Address when pasting it during the Add Pool step!
