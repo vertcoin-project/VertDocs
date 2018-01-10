@@ -6,17 +6,19 @@ A paper wallet is an offline wallet that can be created to store vertcoin. Once 
 
 | Generator | Description |
 |----|----|
-| [vertaddress.org](https://vertaddress.org) | Wallet generator created by the Vertcoin team |
-| [walletgenerator.net](https://walletgenerator.net/?currency=Vertcoin) | Wallet generator for multiple currencies. Has nice full-color wallets |
+| [vertaddress.org](https://vertaddress.org) | Wallet generator created by the Vertcoin team. Supports bulk wallet creation and passphrase protected wallets |
+| [walletgenerator.net](https://walletgenerator.net/?currency=Vertcoin) | Wallet generator for multiple currencies, including Vertcoin |
 
 To create a paper wallet, simply visit one of the above sites and move your mouse around to create your random key. It will generate an address and corresponding private key for you.
 
 Next, print out the generated wallet, send funds to the address, and keep it in a safe place.
 
-## Security
+![](/images/wallet-paper-wallet.png)
 
 !!!important
-    Make sure to never show anyone the private key of your paper wallet, as this can allow them to access your funds.
+    Make sure to never show anyone the private key section of your paper wallet, as this can allow them to access your funds.
+
+## Security
 
 If you want to be 100% certain that no one is stealing your private keys during generation, you may download the vertaddress.org or walletgenerator.net repositories from GitHub and open either's main html file in your browser to create your keys completely offline.
 
