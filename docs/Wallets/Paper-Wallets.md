@@ -18,7 +18,7 @@ Next, print out the generated wallet, send funds to the address, and keep it in 
 !!!important
     Make sure to never show anyone the private key of your paper wallet, as this can allow them to access your funds.
 
-If you want to be 100% certain that no one is stealing your private keys during generation, you may download the vertaddress.org or walletgenerator.net repositores and open either's main html file in your browser to create your keys completely offline.
+If you want to be 100% certain that no one is stealing your private keys during generation, you may download the vertaddress.org or walletgenerator.net repositories from GitHub and open either's main html file in your browser to create your keys completely offline.
 
 While paper wallets are cool for easily giving Vertcoin to friends and family, it is not recommended that they be used to store large amounts of coin. If you are looking for a more secure offline storage of coins, you should invest in a [Hardware Wallet](./Hardware-Wallets/).
 
