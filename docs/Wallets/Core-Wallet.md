@@ -81,8 +81,34 @@ As the blockchain downloads, you'll see progress displayed as well as the latest
 
 
 ## Backing Up Your Wallet
+To ensure that you protect yourself against the loss of data on your computer, there is a single very important file that you will need to ensure survives above all else: wallet.dat. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra, sapien nec feugiat ultrices, tortor tellus euismod quam, vel luctus ipsum dolor eu quam. Duis lacinia consequat sapien, rutrum dignissim neque faucibus vitae.
+### From the GUI
+The simplest and likely preferred method to back up your wallet file, is using the Vertcoin Core GUI. 
+	
+Simply select File -> Backup Wallet
+You will then be asked to the location you would like to save your wallet information. 
+
+!!!caution "Note"
+    Please ensure that you are not too liberal with the storage of your wallet. Like keys to your home, it's good to have a backup in the event of loss, but you don't want them in the wrong hands! 
+
+
+### From the (linux) commandline
+Your wallet is likely to have been stored in respect to your username when you first installed the vertcoin application. 
+
+| Operating System  | Typical location                                            |
+|-------------------|-------------------------------------------------------------|
+| Linux             | ~/.vertcoin/wallet.dat                                      |
+
+This can safely be copied to an alternate location of your choosing as a backup method. 
+
+### I'm paraniod! What more can I do to secure my wallet?
+Great news! You should be paranoid if storing in easily accessible places. If your laptop gets stolen, if your backup drive goes missing at work, or whatever the case may be. 
+
+Storing your wallet within an encrypted disk is a great idea. There are many options out there. Google for gnome-disk-utility and crypt setup (sorry, it is outside the scope of this document) 
+
+From there, you can create an encrypted drive to store a backup copy of your wallet if on a USB drive, and you can create an encrypted partition to store your wallet details on your computer for everyday use!
+
 
 ## Sending & Recieving Vertcoin
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra, sapien nec feugiat ultrices, tortor tellus euismod quam, vel luctus ipsum dolor eu quam. Duis lacinia consequat sapien, rutrum dignissim neque faucibus vitae.
