@@ -1,6 +1,6 @@
 # Vertcoin Paper Wallets
 
-A paper wallet is an offline wallet that can be created to store vertcoin. Once created, you can send coins to the public address associated with your wallet for offline storage. Paper wallets are prefect for gifting small amounts to friends and family.
+A paper wallet is an offline wallet that can be created to store vertcoin. Once created, you can send coins to the public address associated with your wallet for offline storage. Paper wallets are perfect for gifting small amounts to friends and family.
 
 ## Getting Started
 
