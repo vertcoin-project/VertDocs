@@ -21,3 +21,7 @@ Next, print the generated wallet, send funds to the address, and keep it in a sa
 If you want to be 100% certain that no one is stealing your private keys during generation, you may download the vertaddress.org or walletgenerator.net repositores and run them on your computer while offline.
 
 While paper wallets are cool for easily giving Vertcoin to friends and family, it is not recommended that they be used to store large amounts of coin. If you are looking for a more secure offline storage of coins, you should invest in a hardware wallet.
+
+### Removing Funds
+
+To send coins from your paper wallet, you need to import the private key into a desktop wallet such as Core or Electrum.
