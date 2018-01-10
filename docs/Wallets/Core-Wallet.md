@@ -83,6 +83,11 @@ As the blockchain downloads, you'll see progress displayed as well as the latest
 ## Backing Up Your Wallet
 To ensure that you protect yourself against the loss of data on your computer, there is a single very important file that you will need to ensure survives above all else: wallet.dat. 
 
+!!!caution "Note"
+
+Restoring your Vertcoin Core Wallet requires the core wallet.dat file. There are no seed words.
+
+
 ### From the GUI
 The simplest and likely preferred method to back up your wallet file, is using the Vertcoin Core GUI. 
 	
