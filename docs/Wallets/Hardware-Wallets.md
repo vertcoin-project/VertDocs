@@ -7,7 +7,7 @@ If you are looking to store large amounts of Vertcoin offline, a Hardware Wallet
 At the moment, the only Hardware Wallet that supports Vertcoin is [Ledger](https://www.ledgerwallet.com/). Ledger has detailed instructions to set it up properly, and the wallet interface is in a simple Chrome app. Similarly to the other wallets, Ledger will have you write down a 24 word seed phrase that you must keep in a safe place in the event that you lose the device.
 
 !!!warning "Seed Phrase"
-    If you get a Ledger device, make sure it is from a trusted retailer. There have been instances of people purchasing devices with pre-generated seed phrases and had their funds stolen. If you believe your device may had been tampered with, or if it comes with pre-generated seed words, **reset the device in order to generate a new private key and seed phrase before sending any funds.**
+    Make sure you purchase your Ledger from a trusted retailer. People have had their funds stolen due to using pre-generated seed phrases that came with it from unauthorized resellers. If you believe your device may have been tampered with, or if it comes with a pre-generated seed phrase, **reset the device in order to generate a new private key and seed phrase before sending any funds.**
 
 ## Trezor
 
