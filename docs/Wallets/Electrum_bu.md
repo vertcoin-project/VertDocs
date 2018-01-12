@@ -69,7 +69,7 @@ Once that is done, you will be asked to key in your password. This password will
 
 Once you see this screen below - you're ready to go! As long as the bottom right of the UI shows a green color indicating that it is connected to the servers, you can basically start sending/receiving coins. 
 
-*Note: It is probably a good idea to try and send a small amount to test before sending the rest!*
+*Note: Its probably a good idea to try and send a small amount to test before sending the rest!*
 
 ![Electrum VTC UI 1](../images/electrum-vtc-ui-1.png)
 
@@ -77,65 +77,29 @@ Once you see this screen below - you're ready to go! As long as the bottom right
 
 ## Using Electrum-VTC
 
+### Sending Vertcoins 
+
+Using Electrum-VTC is easy - 
 
 
 
+###Receiving Payment
 
-###Receiving Vertcoins
-
-To receive payment in VTC, you'll need to have an address. Navigate to the `Receive` tab for your receive address (*Note: It should start with V. If it is anything else, check and make sure you are using Electrum-VTC!*). Copy the address or scan the QR code. 
-
-![Receiving Address](../images/electrum-vtc-receiving-1.png)
-
-In this example, 0.1 VTC will be sent to this wallet as a demonstration - this will be largely similar to when you receive payments from your buddy for that pizza/beer money and so on. Receiving payment is fairly straightforward - once the other party says that they have sent their Vertcoin, they should provide you with a Transaction ID (see below) which you would be able to look up on block explorer websites such as [Bitinfocharts](https://bitinfocharts.com/vertcoin/explorer/) or [CryptoID](https://bitinfocharts.com/vertcoin/explorer/).
-
-Under normal network load, you should see your transaction almost immediately on the wallet (see below) and you'll should see it as **"Unconfirmed"** - that means that your transaction has been broadcasted to the blockchain, but it has not been added to any blocks yet (also known as "to receive confirmations"). 
-
-If you need more information, you can double click the item for the transaction ID cross-check it with the one your sender has provided you with.
-
-![Unconfirmed Transaction](../images/electrum-vtc-receiving-2.png)
-
-At this point, your payment should be secure - give it more time and you will see that a timestamp appears:
-
-![Confirming transaction](../images/electrum-vtc-receiving-3.png)
-
-Description can be added as necessary for your to remember the payment details. The little red pie on the left side will slowly turn green as your transaction gets more and more confirmations on the blockchain.
-
-That's it - that's all there is to receiving payments! Lets move on to sending now.
+To receive payment (Electrum-VTC is for VTC only!) in VTC, you'll need to have an address.
 
 
 
-### Sending Vertcoins
-
-We will try sending the 0.1 VTC above - it will be similar when you try to send funds to someone else as well.
+Click on the Receive Tab on the Left side, and then ...
 
 
 
 ### Monitoring transactions
 
-Once you have sent any amount of VTC, you can proceed to the `Overview` tab to check the said transaction out. Initially you will see that a transaction is *"Unconfirmed"*  - that means that your transaction has been broadcasted to the blockchain, but it has not been added to any blocks yet. 
-
-(insert image with unconfirmed transaction showing)
-
-Once the blockchain accepts your transaction (i.e it gets added onto a block), it should turn to a clock-like icon that slowly turns fully green. 
-
-(insert image to show progress)
-
-Additionally, if you'd like to monitor the transaction in more detail, double click/right click on the transaction and look for transaction ID. 
-
-(image to txid page)
-
-You may copy the transaction ID and navigate to explorers such as [Bitinfocharts](https://bitinfocharts.com/vertcoin/explorer/) or [CryptoID](https://bitinfocharts.com/vertcoin/explorer/). Paste the transaction ID in the search bar (usually on top) and you'll be able to see the status of your transaction. If you've only just sent your transaction, give it at least 30 seconds if it doesn't show up yet.
-
-
-
-As it progressively gets more confirmation, the "clock" should fill up.
 
 
 
 
-
-## Electrum-VTC Security Explained
+## Electrum-VTC Security
 
 Seed
 
