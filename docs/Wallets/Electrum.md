@@ -1,27 +1,49 @@
 # Electrum Wallet for Vertcoin
 
-The [Vertcoin Electrum Wallet (Electrum-VTC)](https://github.com/vertcoin/electrum-vtc) is a lightweight wallet which does not require you to download the blockchain data onto your computer (unlike the [Core Wallet](https://github.com/vertcoin/vertcoin)). Instead, it relies on a server-client protocol which means that there is a server somewhere that provides the blockchain information to you on demand. Electrum is first released on 2011 for Bitcoin ([wiki](https://en.bitcoin.it/wiki/Electrum)), but has proven itself sufficiently to be adapted for use by many other cryptocurrencies. 
+The [Vertcoin Electrum Wallet (Electrum-VTC)](https://github.com/vertcoin/electrum-vtc) is a lightweight wallet which does not require you to download the blockchain data onto your computer (unlike the [Core Wallet](https://github.com/vertcoin/vertcoin)). Instead, it relies on a server-client protocol which means that there is a server that provides the blockchain information to you on demand. Electrum is first released on 2011 for Bitcoin ([wiki](https://en.bitcoin.it/wiki/Electrum)), but has proven itself sufficiently to be adapted for use by many other cryptocurrencies. 
 
-Table of Content/Overview
+## Table of Content/Overview
 
-Installation
+**PSA: Do not mine to Electrum Wallet!**
+
+**Getting Started**
+
+* Installation for Windows
+
+**Using Electrum-VTC**
+
+* Receiving Vertcoins
+* Sending Vertcoins
+* Making Backups
+
+**Recovering using backups**
+
+* Importing Wallet File
+* Importing Seed/Private Keys
+
+**Electrum-VTC Security Explained**
+
+* Difference between Seed key and Password
+* Various Scenarios and What to do
+
+**Conclusion**
 
 
 
-###[PSA: Do not mine to Electrum Wallet! (reddit link)](https://www.reddit.com/r/vertcoin/comments/7ix2jn/do_not_mine_to_a_ledger_or_electrum_wallet_use/)
+##[PSA: Do not mine to Electrum Wallet! (heres why)](https://www.reddit.com/r/vertcoin/comments/7ix2jn/do_not_mine_to_a_ledger_or_electrum_wallet_use/)
 
 If you are mining, **DO NOT** mine to Electrum-VTC. Use the [Core Wallet (download link)](https://github.com/vertcoin/vertcoin/releases) instead - the reason being, mining generates a lot of small payments (dust payments) and Electrum-VTC is written with Python, which does not handle all these transactions that well compared to the Core Wallet. Also, since it relies on external servers (which anyone can host), if there is too much volume from mining transactions and the servers get overloaded your transactions will be very very slow to process.
 
-That said, lets get started with Electrum-VTC!
+That said, lets get started with Electrum-VTC !
 
 ## Getting Started
 
-The guide will include the following series of steps:
+In short, this guide will include the essential steps which most users would need to comfortably use this wallet.
 
 1. Installing Electrum-VTC
 2. Using Electrum-VTC to send/receive funds
 3. Backing up - How to do a backup, what to keep, and how to restore your wallet
-4. ​
+4. Security things you need to know to keep your funds safe
 
 ### Installation for Windows 
 
@@ -29,7 +51,7 @@ To start, navigate to the [Vertcoin-Electrum's Github releases page](https://git
 
 ![Electrum VTC downloading](../images/electrum-vtc-select.PNG)
 
-Either version works; the difference being:
+Either version will work; the difference being:
 
 * **Installer Version:** Creates files/folders in your PC's windows directories.
 * **Portable Version:** Creates file/folders in the directory the .exe file is located - benefits of this is that you can carry it on a USB Drive/Portable HDD.
@@ -48,9 +70,9 @@ In this guide, we will focus on **Standard wallet**. Select standard wallet and 
 
 ![Electrum VTC 3](../images/electrum-vtc-install-3.png)
 
-*Note: A multi-signature wallet is a wallet that requires 2 or more signatures before funds can be released. Useful when you have a joint account with someone else, or when you want to make your funds even more difficult for any potential attackers to steal. You can read more about this in the [Electrum.org Documentation](http://docs.electrum.org/en/latest/multisig.html).*
+> *Note: A multi-signature wallet is a wallet that requires 2 or more signatures before funds can be released. Useful when you have a joint account with someone else, or when you want to make your funds even more difficult for any potential attackers to steal. You can read more about this in the [Electrum.org Documentation](http://docs.electrum.org/en/latest/multisig.html).*
 
-Select `Create a new seed` and click `Next` and you will see 12 words - these are your seed keys a.k.a private keys. **WRITE THESE DOWN AND KEEP THEM SOMEWHERE SAFE!** If someone gets them, they get all your funds.
+Select `Create a new seed` and click `Next` and you will see 12 words - these are your **seed keys (also known as private keys)**. **WRITE THESE DOWN AND KEEP THEM SOMEWHERE SAFE!** If someone gets them, they get all your funds.
 
 ![Electrum VTC 4](../images/electrum-vtc-install-4.png)
 
@@ -62,23 +84,15 @@ Once that is done, you will be asked to key in your password. This password will
 
 ![Electrum VTC 6](../images/electrum-vtc-install-6.png)
 
-
-
-
-
 Once you see this screen below - you're ready to go! As long as the bottom right of the UI shows a green color indicating that it is connected to the servers, you can basically start sending/receiving coins. 
 
-*Note: It is probably a good idea to try and send a small amount to test before sending the rest!*
+> Note: It is probably a good idea to try and send a small amount to test before sending the rest!
 
 ![Electrum VTC UI 1](../images/electrum-vtc-ui-1.png)
 
 
 
 ## Using Electrum-VTC
-
-
-
-
 
 ###Receiving Vertcoins
 
@@ -102,7 +116,7 @@ Description can be added as necessary for your to remember the payment details. 
 
 ![Confirmed transaction](../images/electrum-vtc-receiving-4.png)
 
-*Note: You can spend the VTC even if there is only one confirmation.*
+> Note: You can spend the VTC even if there is only one confirmation.
 
 That's it - that's all there is to receiving payments! Lets move on to sending now.
 
@@ -147,15 +161,63 @@ And that is all when it comes to Sending Vertcoins!
 
 
 
+### Making Backups (VERY IMPORTANT!)
+
+Backups are important since we store them digitally. Even more important - ways to recover them a.k.a your seed keys. No one but the seed key holder can recover your funds! 
+
+Electrum-VTC is a [Deterministic Wallet (wiki link)](https://en.bitcoin.it/wiki/Electrum) where the seed keys (which you should have written down by now!) can be used to recover your wallet should anything go wrong. Remember to keep your seed keys safe - if someone gets them, they get to spend ALL your funds.
+
+In addition to that, you can always make a backup of your wallet.dat file - note that this is different from the seed keys. 
+
+* **Seed keys** - Used to prove to the network that you own these funds. Don't show it to anyone. Electrum can recover 	your wallet.dat file with the seed keys.
+* **Wallet.dat file** - The wallet file.
+* **Password** - Encrypts your wallet.dat file so people can't spend the funds even if they get their hands on it.
+
+In short, you need to keep your **(1) Seed Keys**, **(2) Wallet.dat file** and **(3) Password** safe. At this point, you should have **(1) seed keys** written down in a secure place. 
+
+To backup your **(2) wallet.dat file**, navigate to the toolbar on top, click "File" > "Save Copy". Put it in a secure location such as a thumb drive that is private and offline. And then you're done with backing up.
+
+![Backing up wallet.dat](../images/electrum-vtc-backup-1.png)
+
+> Note 1: It is **NOT RECOMMENDED** to store your wallet file on cloud storages like Dropbox/Google Drive. An attacker can try to brute force your wallet file if they get their hands on it. 
+
+> Note 2: It is recommended that you do a backup every month or so. 
+
+## Recovering your funds
+
+### Importing Wallet file
+
+Now that we have our wallet.dat backed up, we'll simulate the catastrophic event where a computer's storage has failed and the user is left with no wallet except the backup in the thumb drive.
+
+On another computer, download Electrum-VTC and open it:
+
+![Electrum VTC 1](../images/electrum-vtc-install-1.png)
+
+Navigate to where your wallet.dat backup is, and open it with Electrum. If it is encrypted your password, you need to enter them to open up the wallet. You can now use your wallet as usual!
+
+
+
+### Importing Seed/Private Keys
+
+Another important function to take note of in Electrum-VTC is the function to **Sweep Private Keys.** Usually, this function is used to recover coins from a wallet which you have lost your access to, but still have the private keys. 
+
+To do that, first make sure you have the private keys of the wallet you want to recover. Then, navigate to toolbar on top, go to "Wallet" > "Private keys" > "Sweep"
+
+![Sweep keys option](../images/electrum-vtc-sweep-1.png)
+
+Then, paste the private keys you have onto the box.
+
+![Sweeping](../images/electrum-vtc-sweep-2.png)
+
+When you are ready, hit `Sweep`. Electrum will do the rest and you should see the corresponding amount swept reflect onto your balance.
+
+> IMPORTANT: The two methods listed above basically underlines the importance of keeping your (1) Seed keys, (2) Wallet file and (3) Password safe. This cannot be emphasized enough!
+
+
+
 ## Electrum-VTC Security Explained
 
-Seed
-
-Password
-
-Security Summary
-
-### Difference Between the Seed Phrase and Password 
+### Difference between the Seed Keys and Password 
 
 At this point you may wonder - what is the difference between the **Seed keys** you wrote down earlier, and this **password**?
 
@@ -164,6 +226,8 @@ At this point you may wonder - what is the difference between the **Seed keys** 
 
 That said, if someone gets your **SEED KEYS**, they basically get your private keys. They can use those to prove to the blockchain that they "own" those coins (*your coins!*). They can then use those seed keys to transfer your balance into their wallet and start spending it for themselves - hence the emphasis throughout this guide to remind you to keep your **Seed Keys** safe!
 
+### Various Scenarios and What To Do
+
 A table below summarizes the various scenarios and steps to take if they should happen.
 
 * ✓ - indicates that you are confident it is safe and only you have it.
@@ -171,16 +235,19 @@ A table below summarizes the various scenarios and steps to take if they should 
 
 | Password | Seed Keys | Wallet.dat file | Risk Level | To Do                                    |
 | :------- | --------- | --------------- | :--------: | :--------------------------------------- |
-| X        | ✓         | ✓               |    Low     | As long as you have your seed keys, you will be able to restore your wallet. |
-| ✓        | X         | ✓               |   Severe   | Quickly check to ensure your balance is still there. If yes, send it over to a new wallet with a new password. **DITCH THE OLD WALLET AFTERWARDS!** |
-| ✓        | ✓         | X               |    Low     | Create a new wallet, encrypt with a different passphrase and sweep the private keys of the old wallet file onto the receiving address of your new wallet. |
-| X        | X         | ✓               |   Severe   | Try to remember your password or your seed keys. Otherwise you will LOSE your funds. |
+| X        | ✓         | ✓               |    Low     | As long as you have your seed keys, you will be able to restore your wallet. Use the sweep function. |
+| ✓        | X         | ✓               |   Severe   | Quickly check to ensure your balance is still there. If yes, send it over to a new wallet with a new password. **DITCH the old wallet afterwards!** |
+| ✓        | ✓         | X               |    Low     | Create a new wallet, encrypt with a different passphrase and sweep the private keys of the old wallet file into your new wallet. |
+| X        | X         | ✓               |   Severe   | Try to remember your password or your seed keys, and then send the funds to a new wallet. Otherwise you will LOSE your funds. |
 | X        | ✓         | X               |   Severe   | Create a new wallet, secure with a different password and sweep your private keys to retrieve your funds. If you lose both your wallet.dat file and passphrase, your funds are at risk since someone who has both can access your funds. |
-| X        | X         | ✓               |   Severe   |                                          |
+| ✓        | X         | X               |   Severe   | You can't do anything if you have the password and not the seed or wallet.dat file. |
+
+> **IMPORTANT**: If anyone tells you they can recover your funds for you, they are lying. **DO NOT GIVE THEM ANYTHING.**
 
 
 
+## Conclusion
 
+Electrum-VTC is a lightweight wallet that allows you to send/receive funds without needing to download the blockchain data and most importantly, without compromising and security features. As long as you follow the guide and take steps to secure your seed keys, wallet file and password - your funds will be safe.
 
-
-
+Thank you for taking the time to read through this guide. I hope you enjoyed it as much as I have writing it! Stay safe!
