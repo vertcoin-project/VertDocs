@@ -23,7 +23,7 @@ The guide will include the following series of steps:
 3. Backing up - How to do a backup, what to keep, and how to restore your wallet
 4. ​
 
-### Installation 
+### Installation for Windows 
 
 To start, navigate to the [Vertcoin-Electrum's Github releases page](https://github.com/vertcoin/electrum-vtc/releases) and download the appropriate version for your computer's Operating System. You may notice that there are two different files that look the same:
 
@@ -31,11 +31,10 @@ To start, navigate to the [Vertcoin-Electrum's Github releases page](https://git
 
 Either version works; the difference being:
 
-**Installer Version:** Creates files/folders in your PC's windows directories.
+* **Installer Version:** Creates files/folders in your PC's windows directories.
+* **Portable Version:** Creates file/folders in the directory the .exe file is located - benefits of this is that you can carry it on a USB Drive/Portable HDD.
 
-**Portable Version:** Creates file/folders in the directory the .exe file is located - benefits of this is that you can carry it on a USB Drive/Portable HDD.
-
-Security wise, both versions are equal. One added risk for the portable version may be present IF you choose to use the USB drive on just other computers which may not be secure or are infected with malware.
+**Usage & security wise, both versions are equal**. The difference is, if you choose to use the Portable Version one on a USB stick you'd have to be wary of computers which are not secure and/or infected with malware.
 
 Once you double click on your downloaded Electrum-VTC.exe file it should open up to this screen:
 
@@ -99,7 +98,11 @@ At this point, your payment should be secure - give it more time and you will se
 
 ![Confirming transaction](../images/electrum-vtc-receiving-3.png)
 
-Description can be added as necessary for your to remember the payment details. The little red pie on the left side will slowly turn green as your transaction gets more and more confirmations on the blockchain.
+Description can be added as necessary for your to remember the payment details. The little red pie on the left side will slowly turn green as your transaction gets more and more confirmations on the blockchain. You will get a tick when it has  >= 6 confirmations.
+
+![Confirmed transaction](../images/electrum-vtc-receiving-4.png)
+
+*Note: You can spend the VTC even if there is only one confirmation.*
 
 That's it - that's all there is to receiving payments! Lets move on to sending now.
 
@@ -107,31 +110,40 @@ That's it - that's all there is to receiving payments! Lets move on to sending n
 
 ### Sending Vertcoins
 
-We will try sending the 0.1 VTC above - it will be similar when you try to send funds to someone else as well.
+We will try sending the 0.1 VTC above - it will be similar when you try to send funds to someone else as well. The receiving party should give you their Vertcoin receiving address (much like the one we have earlier up there, in the `Receive` tab). Copy that down, and navigate to the `Send` tab on the left side. 
 
+You'll see a couple of fields where you can fill in:
 
+* Pay to - Paste the receiver's address here! Double check the make sure the address is correct.
+* Description - Add something for your own reference, so you know what you paid for.
+* Amount - How much did the pizza cost you? 
+* Fee - Default is 0.002 VTC. More on fees below.
 
-### Monitoring transactions
+![Sending](../images/electrum-vtc-sending-1.png)
 
-Once you have sent any amount of VTC, you can proceed to the `Overview` tab to check the said transaction out. Initially you will see that a transaction is *"Unconfirmed"*  - that means that your transaction has been broadcasted to the blockchain, but it has not been added to any blocks yet. 
+A little snip below will shed more light on how the fee affects your payment. Miners automatically process transactions with higher fees first.
 
-(insert image with unconfirmed transaction showing)
+![Sending fees](../images/electrum-vtc-sending-2.png)
 
-Once the blockchain accepts your transaction (i.e it gets added onto a block), it should turn to a clock-like icon that slowly turns fully green. 
+Once again, make sure all details are correct! Click the green `Send` and you'll be prompted to enter your passphrase to authorize the transaction. 
 
-(insert image to show progress)
+![Authorizing transaction](../images/electrum-vtc-sending-3.png)
 
-Additionally, if you'd like to monitor the transaction in more detail, double click/right click on the transaction and look for transaction ID. 
+Once the transaction is authorized and broadcasted to the network, you'll see a window with the transaction ID. As with receiving payment, you can use the ID on blockchain explorers such as [Bitinfocharts](https://bitinfocharts.com/vertcoin/explorer/) or [CryptoID](https://bitinfocharts.com/vertcoin/explorer/) for more info.
 
-(image to txid page)
+![Payment sent](../images/electrum-vtc-sending-4.png)
 
-You may copy the transaction ID and navigate to explorers such as [Bitinfocharts](https://bitinfocharts.com/vertcoin/explorer/) or [CryptoID](https://bitinfocharts.com/vertcoin/explorer/). Paste the transaction ID in the search bar (usually on top) and you'll be able to see the status of your transaction. If you've only just sent your transaction, give it at least 30 seconds if it doesn't show up yet.
+You can then navigate to the `History` tab on the left side if you wish to track it. Initially the payment will be shown as "Unconfirmed". Double click on the transaction to see the status.
 
+![Authorizing transaction](../images/electrum-vtc-sending-5.png)
 
+Once the payment is through, you will see that it starts receiving confirmation.
 
-As it progressively gets more confirmation, the "clock" should fill up.
+![Transaction complete](../images/electrum-vtc-sending-6.png)
 
+At this point the other party should see the payment reflect in their balance.
 
+And that is all when it comes to Sending Vertcoins!
 
 
 
@@ -145,19 +157,26 @@ Security Summary
 
 ### Difference Between the Seed Phrase and Password 
 
-At this point you may wonder - what is the difference between the **Seed Phrase** you wrote down earlier, and this **password**?
+At this point you may wonder - what is the difference between the **Seed keys** you wrote down earlier, and this **password**?
 
-**Seed keys** - They form your private keys, which helps your to prove ownership of one particular set of coins.
+* **Seed keys** - They form your private keys, which helps your to prove ownership of one particular set of coins.
+* **Password** - They encrypt your wallet file, meaning if anyone logged onto your computer and/or got hold of your wallet.dat file, they cannot access your funds without your password.
 
-**Password** - They encrypt your wallet file, meaning if anyone logged onto your computer and/or got hold of your wallet.dat file, they cannot access your funds without your password.
+That said, if someone gets your **SEED KEYS**, they basically get your private keys. They can use those to prove to the blockchain that they "own" those coins (*your coins!*). They can then use those seed keys to transfer your balance into their wallet and start spending it for themselves - hence the emphasis throughout this guide to remind you to keep your **Seed Keys** safe!
 
-However, if someone gets your SEED KEYS, its game over. They can basically use those to prove to the blockchain that they "own" those coins (your coins!). They can then use those seed keys to reconstruct a wallet and start spending it for themselves - see why its important to keep your seed keys safe?
+A table below summarizes the various scenarios and steps to take if they should happen.
 
-| Scenario             | Risk Level | To Do                                    |
-| :------------------- | :--------: | ---------------------------------------- |
-| Forget Password      |    Low     | As long as you have your seed keys, you will be able to restore your wallet. |
-| Lose wallet.dat file |  Moderate  | Create a new wallet, encrypt with a different passphrase and send all funds over. Ditch the old one. |
-| Lose Seed Keys       |   Severe   | Quickly check to ensure your balance is still there. If yes, send it over to a new wallet and secure with password. If not, |
+* ✓ - indicates that you are confident it is safe and only you have it.
+* X - indicates it has been compromised, or that you do not remember it. 
+
+| Password | Seed Keys | Wallet.dat file | Risk Level | To Do                                    |
+| :------- | --------- | --------------- | :--------: | :--------------------------------------- |
+| X        | ✓         | ✓               |    Low     | As long as you have your seed keys, you will be able to restore your wallet. |
+| ✓        | X         | ✓               |   Severe   | Quickly check to ensure your balance is still there. If yes, send it over to a new wallet with a new password. **DITCH THE OLD WALLET AFTERWARDS!** |
+| ✓        | ✓         | X               |    Low     | Create a new wallet, encrypt with a different passphrase and sweep the private keys of the old wallet file onto the receiving address of your new wallet. |
+| X        | X         | ✓               |   Severe   | Try to remember your password or your seed keys. Otherwise you will LOSE your funds. |
+| X        | ✓         | X               |   Severe   | Create a new wallet, secure with a different password and sweep your private keys to retrieve your funds. If you lose both your wallet.dat file and passphrase, your funds are at risk since someone who has both can access your funds. |
+| X        | X         | ✓               |   Severe   |                                          |
 
 
 
