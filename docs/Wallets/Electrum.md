@@ -26,6 +26,10 @@ The [Vertcoin Electrum Wallet (Electrum-VTC)](https://github.com/vertcoin/electr
 * Difference between Seed key and Password
 * Various Scenarios and What to do
 
+**Electrum-VTC Troubleshooting/FAQ**
+
+* Wallet not showing balance (unable to connect with a red dot on bottom right corner)
+
 **Conclusion**
 
 
@@ -242,12 +246,46 @@ A table below summarizes the various scenarios and steps to take if they should 
 | X        | ✓         | X               |   Severe   | Create a new wallet, secure with a different password and sweep your private keys to retrieve your funds. If you lose both your wallet.dat file and passphrase, your funds are at risk since someone who has both can access your funds. |
 | ✓        | X         | X               |   Severe   | You can't do anything if you have the password and not the seed or wallet.dat file. |
 
-> **IMPORTANT**: If anyone tells you they can recover your funds for you, they are lying. **DO NOT GIVE THEM ANYTHING.**
+> **IMPORTANT**: If anyone tells you they can recover your funds for you, there is a possibility that they are **lying**. **DO NOT give them any information UNLESS** you are sure of what you are doing - eg. hiring a known person to brute force the wallet file. 
+
+
+
+## Troubleshooting/FAQ
+
+### My wallet isn't displaying my balance!
+
+First, look at the bottom right corner to check the connectivity for your electrum client.
+
+<u>If you see a green button,</u> 
+
+Everything is working fine, and you should see your balance. If not, make sure that you have loaded the correct wallet.dat file.
+
+<u>If you see a "refresh" looking icon with two arrows,</u> 
+
+It is loading and do give it a little more time.
+
+<u>If you see a persistent yellow/red icon,</u>
+
+Look at the bottom left corner to see if there is a message. If there is nothing, click on the icon to see the "Network" settings page, and see if the server you are currently connected to is updated.
+
+![Network](../images/electrum-vtc-network-1.png)
+
+You can check to see if your current server is updated by comparing the block height with others in the list below, or by visiting the [Block Explorer (Link)](http://explorer.vertcoin.info/) and looking at the latest block found on the left.
+
+* If block height of current server is lower than the latest one, its likely that it is lagging. Untick "Select server automatically" and go to `Server` tab and right click on a server name that is updated to use it.
+
+Electrum relies on connecting to an external server to provide the blockchain data, which in turn tells you how much you have as your balance. 
+
+### My transaction has remained unconfirmed for an extended period of time (> 1 week) - what now?
+
+Your Vertcoin transactions become valid as soon as they are accepted/processed by miners to be written onto the blockchain, and subsequently broadcasted. In general, speed of confirmation is directly proportional to your fees paid - miners prioritize transaction with higher fees automatically.
+
+Here is a link to a post in the BitcoinTalk forum that explains in detail about [Stuck Transactions and what you can do about it with Electrum (Link)](https://bitcointalk.org/index.php?topic=1802212.0).
 
 
 
 ## Conclusion
 
-Electrum-VTC is a lightweight wallet that allows you to send/receive funds without needing to download the blockchain data and most importantly, without compromising and security features. As long as you follow the guide and take steps to secure your seed keys, wallet file and password - your funds will be safe.
+Electrum-VTC is a lightweight wallet that allows you to send/receive funds without needing to download the blockchain data and most importantly, without compromising on security features. As long as you follow the guide and take steps to secure your seed keys, wallet file and password - your funds will be safe.
 
 Thank you for taking the time to read through this guide. I hope you enjoyed it as much as I have writing it! Stay safe!
