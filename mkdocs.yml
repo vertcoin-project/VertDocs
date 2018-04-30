@@ -22,6 +22,8 @@ pages:
         - P2pool Overview: Mining/P2pool-overview.md
         - NVidia Mining: Mining/Nvidia-Mining.md
         - AMD Mining: Mining/AMD-Mining.md
+    - Full Nodes:
+        - Raspberry Pi 3 B/B+: Full Nodes/raspberry-pi.md
     - Buying Vertcoin:
         - How to buy Vertcoin: BuyingVertcoin/How-to-buy-Vertcoin.md
     - Contributing:
