@@ -1,0 +1,1730 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Vertcoin Documentation">
+      
+      
+        <link rel="canonical" href="http://docs.vertcoin.org/FullNodes/raspberry-pi/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.5.0">
+    
+    
+      
+        <title>Raspberry Pi 3 B/B+ - VertDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.2a88008a.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://docs.vertcoin.org" title="VertDocs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                VertDocs
+              </span>
+              <span class="md-header-nav__topic">
+                Raspberry Pi 3 B/B+
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Bryangoodson/VertDocs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    VertDocs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Bryangoodson/VertDocs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Wallets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Wallets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Wallets/Wallet-Overview/" title="Wallet Overview" class="md-nav__link">
+      Wallet Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Wallets/Core-Wallet/" title="Core Wallet" class="md-nav__link">
+      Core Wallet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Wallets/Electrum/" title="Electrum Wallet" class="md-nav__link">
+      Electrum Wallet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Wallets/Vertwallet/" title="Vertwalet" class="md-nav__link">
+      Vertwalet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Wallets/Paper-Wallets/" title="Paper Wallets" class="md-nav__link">
+      Paper Wallets
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Mining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Mining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Mining/Getting-Started-With-Mining/" title="Getting Started with Mining" class="md-nav__link">
+      Getting Started with Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Mining/P2pool-overview/" title="P2pool Overview" class="md-nav__link">
+      P2pool Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Mining/Nvidia-Mining/" title="NVidia Mining" class="md-nav__link">
+      NVidia Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Mining/AMD-Mining/" title="AMD Mining" class="md-nav__link">
+      AMD Mining
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Full Nodes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Full Nodes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Raspberry Pi 3 B/B+
+      </label>
+    
+    <a href="./" title="Raspberry Pi 3 B/B+" class="md-nav__link md-nav__link--active">
+      Raspberry Pi 3 B/B+
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-vertcoin-full-node" title="Why a Vertcoin Full node?" class="md-nav__link">
+    Why a Vertcoin Full node?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-raspberry-pi" title="Why a Raspberry Pi?" class="md-nav__link">
+    Why a Raspberry Pi?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" title="Index" class="md-nav__link">
+    Index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-parts-list" title="1.) Parts List" class="md-nav__link">
+    1.) Parts List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-download-and-sync-vertcoin-core" title="2.) Download and sync Vertcoin Core" class="md-nav__link">
+    2.) Download and sync Vertcoin Core
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-you-choose-not-to-follow-this-step-create-a-new-folder-named-vertcoin-on-your-usb-flash-drive-that-you-will-format-in-the-next-step" title="If you choose not to follow this step, create a new folder named vertcoin on your USB Flash Drive that you will format in the next step." class="md-nav__link">
+    If you choose not to follow this step, create a new folder named vertcoin on your USB Flash Drive that you will format in the next step.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-format-usb-flash-drive" title="3.) Format USB Flash Drive" class="md-nav__link">
+    3.) Format USB Flash Drive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-raspbian-stretch-lite" title="4.) Install Raspbian Stretch Lite" class="md-nav__link">
+    4.) Install Raspbian Stretch Lite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-copy-blockchain-to-usb-flash-drive" title="5.) Copy Blockchain to USB Flash Drive" class="md-nav__link">
+    5.) Copy Blockchain to USB Flash Drive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-setup-raspberry-pi" title="6.) Setup Raspberry Pi" class="md-nav__link">
+    6.) Setup Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-setup-usb-flash-drive-and-auto-mount" title="7.) Setup USB Flash Drive and Auto-Mount" class="md-nav__link">
+    7.) Setup USB Flash Drive and Auto-Mount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-create-vertcoinconf-and-soft-link-to-usb-flash-drive" title="8.) Create vertcoin.conf and soft link to USB Flash Drive" class="md-nav__link">
+    8.) Create vertcoin.conf and soft link to USB Flash Drive
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-swap-file-space-for-raspberry-pi" title="Create swap file space for Raspberry Pi" class="md-nav__link">
+    Create swap file space for Raspberry Pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-vertcoin-core-crontab-for-auto-start-on-reboot" title="Setup Vertcoin Core Crontab for auto-start on reboot" class="md-nav__link">
+    Setup Vertcoin Core Crontab for auto-start on reboot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-note-about-blockchain-syncing" title="Quick note about blockchain syncing" class="md-nav__link">
+    Quick note about blockchain syncing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configure-firewall-to-allow-vertcoin-core-traffic" title="9.) Configure firewall to allow Vertcoin Core traffic" class="md-nav__link">
+    9.) Configure firewall to allow Vertcoin Core traffic
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-will-make-your-node-public-supporting-the-health-of-the-vertcoin-network-by-keeping-it-decentralized-and-populated-with-one-more-node" title="This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node." class="md-nav__link">
+    This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-congratulations-thanks-for-doing-your-part-and-running-a-vertcoin-full-node-3" title="10.) Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3" class="md-nav__link">
+    10.) Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Buying Vertcoin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Buying Vertcoin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../BuyingVertcoin/How-to-buy-Vertcoin/" title="How to buy Vertcoin" class="md-nav__link">
+      How to buy Vertcoin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Contributing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Contributing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Contributing/Bounties/" title="Open bounties" class="md-nav__link">
+      Open bounties
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-vertcoin-full-node" title="Why a Vertcoin Full node?" class="md-nav__link">
+    Why a Vertcoin Full node?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-raspberry-pi" title="Why a Raspberry Pi?" class="md-nav__link">
+    Why a Raspberry Pi?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" title="Index" class="md-nav__link">
+    Index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-parts-list" title="1.) Parts List" class="md-nav__link">
+    1.) Parts List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-download-and-sync-vertcoin-core" title="2.) Download and sync Vertcoin Core" class="md-nav__link">
+    2.) Download and sync Vertcoin Core
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-you-choose-not-to-follow-this-step-create-a-new-folder-named-vertcoin-on-your-usb-flash-drive-that-you-will-format-in-the-next-step" title="If you choose not to follow this step, create a new folder named vertcoin on your USB Flash Drive that you will format in the next step." class="md-nav__link">
+    If you choose not to follow this step, create a new folder named vertcoin on your USB Flash Drive that you will format in the next step.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-format-usb-flash-drive" title="3.) Format USB Flash Drive" class="md-nav__link">
+    3.) Format USB Flash Drive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-raspbian-stretch-lite" title="4.) Install Raspbian Stretch Lite" class="md-nav__link">
+    4.) Install Raspbian Stretch Lite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-copy-blockchain-to-usb-flash-drive" title="5.) Copy Blockchain to USB Flash Drive" class="md-nav__link">
+    5.) Copy Blockchain to USB Flash Drive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-setup-raspberry-pi" title="6.) Setup Raspberry Pi" class="md-nav__link">
+    6.) Setup Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-setup-usb-flash-drive-and-auto-mount" title="7.) Setup USB Flash Drive and Auto-Mount" class="md-nav__link">
+    7.) Setup USB Flash Drive and Auto-Mount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-create-vertcoinconf-and-soft-link-to-usb-flash-drive" title="8.) Create vertcoin.conf and soft link to USB Flash Drive" class="md-nav__link">
+    8.) Create vertcoin.conf and soft link to USB Flash Drive
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-swap-file-space-for-raspberry-pi" title="Create swap file space for Raspberry Pi" class="md-nav__link">
+    Create swap file space for Raspberry Pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-vertcoin-core-crontab-for-auto-start-on-reboot" title="Setup Vertcoin Core Crontab for auto-start on reboot" class="md-nav__link">
+    Setup Vertcoin Core Crontab for auto-start on reboot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-note-about-blockchain-syncing" title="Quick note about blockchain syncing" class="md-nav__link">
+    Quick note about blockchain syncing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configure-firewall-to-allow-vertcoin-core-traffic" title="9.) Configure firewall to allow Vertcoin Core traffic" class="md-nav__link">
+    9.) Configure firewall to allow Vertcoin Core traffic
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-will-make-your-node-public-supporting-the-health-of-the-vertcoin-network-by-keeping-it-decentralized-and-populated-with-one-more-node" title="This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node." class="md-nav__link">
+    This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-congratulations-thanks-for-doing-your-part-and-running-a-vertcoin-full-node-3" title="10.) Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3" class="md-nav__link">
+    10.) Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Bryangoodson/VertDocs/edit/master/docs/FullNodes/raspberry-pi.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="raspberry-pi-3-bb-vertcoin-full-node-installation-done-on-windows">Raspberry Pi 3 B/B+ Vertcoin full node installation done on Windows<a class="headerlink" href="#raspberry-pi-3-bb-vertcoin-full-node-installation-done-on-windows" title="Permanent link">&para;</a></h1>
+<p><img alt="Raspberry Pi 3 Zebra Black Ice Case" src="https://i.imgur.com/zgx4uiu.jpg" /> </p>
+<h4 id="why-a-vertcoin-full-node">Why a Vertcoin Full node?<a class="headerlink" href="#why-a-vertcoin-full-node" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Vertcoin is a digital currency supported by a peer-to-peer network. In order to run efficiently and effectively, it needs peers run by different people... and the more the better. [1]</p>
+<p>This tutorial will describe how to create a Vertcoin “full node” (a Vertcoin server that contains the full blockchain and propagates transactions throughout the Vertcoin network via peers). This system will not mine for Vertcoins... it will play its part to keep the Vertcoin peer-to-peer network healthy and strong. For a detailed explanation for why it is important to have a healthy Vertcoin peer-to-peer network, read this <a href="https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf">article</a> about Bitcoin full nodes. [2]</p>
+<p>Also please note this will be a “headless” server... meaning we will not be using a GUI to configure Vertcoin or check to see how things are running. In fact, once the server is set up, you will only interact with it using command line calls over SSH. The idea is to have this full node be simple, low-power, and something that “just runs” in your basement, closet, etc.</p>
+</blockquote>
+<h4 id="why-a-raspberry-pi">Why a Raspberry Pi?<a class="headerlink" href="#why-a-raspberry-pi" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Raspberry Pi is an inexpensive computing hardware platform that generates little heat, draws little power, and can run silently 24 hours a day without having to think about it. [1]</p>
+</blockquote>
+<h4 id="index">Index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code class="codehilite">Parts List</code></li>
+<li><code class="codehilite">Download and sync Vertcoin Core QT *</code></li>
+<li><code class="codehilite">Format USB Flash Drive</code></li>
+<li><code class="codehilite">Install Raspbian Stretch Lite</code></li>
+<li><code class="codehilite">Copy Blockchain to USB Flash Drive</code></li>
+<li><code class="codehilite">Setup Raspberry Pi</code></li>
+<li><code class="codehilite">Setup USB Flash Drive and Auto-Mount</code></li>
+<li><code class="codehilite">Create vertcoin.conf and soft link to USB Flash Drive</code></li>
+<li><code class="codehilite">Configure firewall to allow Vertcoin Core traffic</code>  </li>
+<li><code class="codehilite">Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3</code></li>
+</ol>
+<p><code class="codehilite">* EXPIRMENTAL: Setup p2pool-vtc</code><br />
+<code class="codehilite">* EXPIRMENTAL: Setup Unitus full node to merge mine on p2pool-vtc</code>   </p>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1-parts-list">1.) Parts List<a class="headerlink" href="#1-parts-list" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parts</th>
+<th>Price</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CanaKit Raspberry Pi 3 B+</td>
+<td>$49.99 USD</td>
+<td><a href="https://www.amazon.com/CanaKit-Raspberry-Power-Supply-Listed/dp/B07BC6WH7V/">https://www.amazon.com/CanaKit-Raspberry-Power-Supply-Listed/dp/B07BC6WH7V/</a></td>
+</tr>
+<tr>
+<td>Samsung 32GB 95MB/s (U1) MicroSD EVO Select Memory Card</td>
+<td>$12.99 USD</td>
+<td><a href="https://www.amazon.com/Samsung-MicroSD-Adapter-MB-ME32GA-AM/dp/B06XWN9Q99/">https://www.amazon.com/Samsung-MicroSD-Adapter-MB-ME32GA-AM/dp/B06XWN9Q99/</a></td>
+</tr>
+<tr>
+<td>SanDisk Ultra Fit 128GB USB 3.0 Flash Drive</td>
+<td>$27.49 USD</td>
+<td><a href="https://www.amazon.com/SanDisk-Ultra-128GB-Flash-Drive/dp/B01BGTG2A0/">https://www.amazon.com/SanDisk-Ultra-128GB-Flash-Drive/dp/B01BGTG2A0/</a></td>
+</tr>
+<tr>
+<td>Transcend USB 3.0 SDHC / SDXC / microSDHC / SDXC Card Reader</td>
+<td>$9.23 USD</td>
+<td><a href="https://www.amazon.com/Transcend-microSDHC-Reader-TS-RDF5K-Black/dp/B009D79VH4/">https://www.amazon.com/Transcend-microSDHC-Reader-TS-RDF5K-Black/dp/B009D79VH4/</a></td>
+</tr>
+<tr>
+<td>*OPTIONAL: Zebra Black Ice Case for Raspberry Pi by C4Labs</td>
+<td>$14.95 USD</td>
+<td><a href="https://www.amazon.com/Zebra-Black-Case-Raspberry-C4labs/dp/B00M6G9YBM/">https://www.amazon.com/Zebra-Black-Case-Raspberry-C4labs/dp/B00M6G9YBM/</a></td>
+</tr>
+</tbody>
+</table>
+<p>You may change the USB Flash Drive to match your preference. I <code class="codehilite">highly recommend</code> that a USB Flash Drive (16GB - 128GB) or an External Hard Drive is paired with the Raspberry Pi. </p>
+<p>The case in the parts list is a personal preference, it is your choice how you wish to protect your Raspberry Pi. The Zebra Black Ice case was chosen for it's cut out on the bottom of the case, allowing for the placement of a heatsink on the <code class="codehilite">RAM</code> of the Raspberry Pi. </p>
+<h3 id="2-download-and-sync-vertcoin-core">2.) Download and sync Vertcoin Core<a class="headerlink" href="#2-download-and-sync-vertcoin-core" title="Permanent link">&para;</a></h3>
+<p>This step is <code class="codehilite">optional</code> but recommended. <a href="https://github.com/vertcoin-project/vertcoin-core/releases">Download</a> the latest stable release of Vertcoin Core and launch <code class="codehilite">vertcoin-qt.exe</code> to begin the syncing process. I use my desktop PC to sync the blockchain first because it has better specs than a $35 Raspberry Pi. The PC will sync headers, download blocks and verify blocks faster than the Raspberry Pi can.</p>
+<p>We will use this copy of the blockchain that is syncing to side-load onto our Raspberry Pi later.</p>
+<h4 id="if-you-choose-not-to-follow-this-step-create-a-new-folder-named-vertcoin-on-your-usb-flash-drive-that-you-will-format-in-the-next-step">If you choose not to follow this step, create a new folder named <code class="codehilite">vertcoin</code> on your USB Flash Drive that you will format in the next step.<a class="headerlink" href="#if-you-choose-not-to-follow-this-step-create-a-new-folder-named-vertcoin-on-your-usb-flash-drive-that-you-will-format-in-the-next-step" title="Permanent link">&para;</a></h4>
+<p><code class="codehilite">Vertcoin Core Download Link: https://github.com/vertcoin-project/vertcoin-core/releases</code><br />
+<code class="codehilite">Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin</code>  </p>
+<h3 id="3-format-usb-flash-drive">3.) Format USB Flash Drive<a class="headerlink" href="#3-format-usb-flash-drive" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The Vertcoin blockchain is about 4GB today (4/23/2018) which means that a 16GB USB Flash Drive will have more than enough space to store everything we need, but you can easily future proof with a 128GB USB Flash Drive.  </p>
+</blockquote>
+<p>Insert the USB Flash Drive into your Windows PC. Then access the drive with Windows Explorer <code class="codehilite">Win+E</code>, right click on the removable drive you wish to format and <code class="codehilite">Format...</code></p>
+<p>Format the USB Flash Drive to an <code class="codehilite">NTFS</code> File system. </p>
+<p>This USB Flash Drive will contain our Vertcoin data directory as well as our swap space file. We will give the Raspberry Pi some extra memory to work with we will ensure a swap file large enough to handle the memory demand to bootstrap the blockchain. </p>
+<p>It is worth mentioning that constantly writing data to the MicroSD card can be damaging, in this guide we will configure the swap file to reside off of the card.</p>
+<h3 id="4-install-raspbian-stretch-lite">4.) Install Raspbian Stretch Lite<a class="headerlink" href="#4-install-raspbian-stretch-lite" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Raspbian is a free operating system based on Debian, optimised for the Raspberry Pi hardware. Raspbian comes with over 35,000 packages: precompiled software bundled in a nice format for easy installation on your Raspberry Pi.</p>
+<p><code class="codehilite">https://www.raspberrypi.org/documentation/raspbian/</code></p>
+</blockquote>
+<p>I recommend downloading the latest stable version of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Stretch Lite</a>. </p>
+<p>We will utilize the software 'Win32 Disk Imager' to format and install Raspbian on the MicroSD card. Please follow the <a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">guide</a> below for details on installing the Rasbian image to the MicroSD card.</p>
+<p><code class="codehilite">Raspberry Pi - Installing Operating System Images Using Windows: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md</code></p>
+<p>Once Win32 Disk Imager is finished writing to the MicroSD card please access the 'boot' partition of the MicroSD card with Windows Explorer <code class="codehilite">Win+E</code>. Create a new empty text file named <code class="codehilite">ssh</code> like so...</p>
+<p><img alt="MicroSD card - ssh" src="https://i.imgur.com/m14rGdV.png" /><br />
+This enables SSH access on the Raspberry Pi's first boot sequence. Please safely remove the USB Card Reader / MicroSD card as to ensure the data is not corrupted.</p>
+<p><code class="codehilite">Raspian Download Link: https://www.raspberrypi.org/downloads/raspbian/</code>  </p>
+<p><code class="codehilite">Win32 Disk Imager Documentation: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md</code></p>
+<h3 id="5-copy-blockchain-to-usb-flash-drive">5.) Copy Blockchain to USB Flash Drive<a class="headerlink" href="#5-copy-blockchain-to-usb-flash-drive" title="Permanent link">&para;</a></h3>
+<p>When <code class="codehilite">Vertcoin Core</code> is finished syncing the blockchain please navigate to the data directory for <code class="codehilite">Vertcoin</code></p>
+<p><code class="codehilite">Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin</code>  </p>
+<p>Create a new folder named <code class="codehilite">vertcoin</code> on your USB Flash Drive that was formatted as an <code class="codehilite">NTFS</code> file system earlier and copy the folders <code class="codehilite">blocks</code> and <code class="codehilite">chainstate</code> to the <code class="codehilite">vertcoin</code> folder on your USB Flash Drive. This will allow us to side-load the Vertcoin blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. </p>
+<h3 id="6-setup-raspberry-pi">6.) Setup Raspberry Pi<a class="headerlink" href="#6-setup-raspberry-pi" title="Permanent link">&para;</a></h3>
+<p>Please insert the MicroSD card that was safely removed into the slot located on the bottom of the Raspberry Pi. Connect an Ethernet cable to the Raspberry Pi that has internet access. When you are ready to power on the Pi, plug the power supply in and the Raspberry Pi will immediately begin to boot.</p>
+<p>We will access our Raspberry Pi through an SSH session on our Windows PC. I like to use <code class="codehilite">Git Bash</code> which is included in the Windows <a href="https://git-scm.com/downloads">download</a> of <code class="codehilite">Git</code>.</p>
+<p><code class="codehilite">Git download link: https://git-scm.com/downloads</code>  </p>
+<p>Open a web browser page and navigate to your router page and identify the <code class="codehilite">IP</code> address of the freshly powered on Raspberry Pi. In my case the <code class="codehilite">IP</code> address is <code class="codehilite">192.168.1.2</code>, please make note of your Raspberry Pi's <code class="codehilite">IP</code> address as we will need to use it to login via <code class="codehilite">SSH</code>.  </p>
+<p># Open <code class="codehilite">Git Bash</code> and ...<br />
+<code class="codehilite">~ $ ssh 192.168.1.2 -l pi</code><br />
+<code class="codehilite">default password: raspberry</code></p>
+<p># Download and install latest system updates<br />
+<code class="codehilite"><span class="nt">pi</span><span class="p">@</span><span class="k">raspberrypi</span><span class="o">:~</span> <span class="o">$</span> <span class="nt">sudo</span> <span class="nt">apt-get</span> <span class="nt">update</span> <span class="p">;</span> <span class="nt">sudo</span> <span class="nt">apt-get</span> <span class="nt">upgrade</span> <span class="nt">-y</span></code></p>
+<p># Remove orphaned packages and clean <code class="codehilite">apt</code><br />
+<code class="codehilite"><span class="nt">pi</span><span class="p">@</span><span class="k">raspberrypi</span><span class="o">:~</span> <span class="o">$</span> <span class="nt">sudo</span> <span class="nt">apt-get</span> <span class="nt">autoremove</span> <span class="p">;</span> <span class="nt">sudo</span> <span class="nt">apt-get</span> <span class="nt">autoclean</span></code></p>
+<p># Initiate <code class="codehilite">raspi-config</code> script<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo raspi-config</code></p>
+<p><div class="codehilite"><pre><span></span>1.) [8] Update                  # update raspi-config script first
+2.) [1] Change User Password    # change password for current user
+3.) [4] Localization Options    #
+    &gt; [I2] Change Timezone      # set your timezone
+4.) [7] Advanced Options        #
+    &gt; [A1] Expand Filesystem    # expand filesystem 
+</pre></div>
+<code class="codehilite">&lt;Finish&gt;</code> and choose to reboot.</p>
+<p># Wait a minute, then log back in via <code class="codehilite">SSH</code><br />
+<code class="codehilite">ssh 192.168.1.2 -l pi</code>  </p>
+<p># Download and install useful software packages<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install git ntfs-3g -y</code>  </p>
+<p># Install <code class="codehilite">bitcoin</code> dependencies <code class="codehilite">https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y</code>  </p>
+<div class="codehilite"><pre><span></span># * OPTIONAL: DISABLE WIRELESS &amp; BLUETOOTH
+
+# Create our blacklist file  
+`pi@raspberrypi:~ $ cd /etc/modprobe.d/`  
+`pi@raspberrypi:/etc/modprobe.d $ sudo nano raspi-blacklist.conf`
+
+```
+# disable wireless
+blacklist brcmfmac
+blacklist brcmutil
+
+# disable bluetooth
+blacklist btbcm
+blacklist hci_uart
+```  
+`ctrl+x` to save
+
+# Reboot Raspberry Pi for changes to take effect  
+`pi@raspberrypi:/etc/modprobe.d $ sudo reboot`
+
+# Wait a minute, then log back in via `SSH`   
+`ssh 192.168.1.2 -l pi`
+</pre></div>
+
+
+<p># Download latest stable version of vertcoin-core for <code class="codehilite">ARM</code> architecture to Raspberry Pi<br />
+<code class="codehilite">pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.0/vertcoind-v0.13.0-linux-armhf.zip</code>  </p>
+<p># Unzip <code class="codehilite">vertcoind-v0.13.0-linux-armhf.zip</code><br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ unzip vertcoind-v0.13.0-linux-armhf.zip
+Archive:  vertcoind-v0.13.0-linux-armhf.zip
+  inflating: vertcoin-cli
+  inflating: vertcoind
+  inflating: vertcoin-tx
+</pre></div>
+# Remove <code class="codehilite">vertcoind-v0.13.0-linux-armhf.zip</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ rm *.zip</code>  </p>
+<p># Give privileges to <code class="codehilite">vertcoin</code> binaries<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo chmod +x vertcoin*</code></p>
+<p># Move <code class="codehilite">vertcoin-cli</code>, <code class="codehilite">vertcoind</code>, <code class="codehilite">vertcoin-tx</code> to <code class="codehilite">/usr/bin/</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo mv vertcoin* /usr/bin/</code>  </p>
+<h3 id="7-setup-usb-flash-drive-and-auto-mount">7.) Setup USB Flash Drive and Auto-Mount<a class="headerlink" href="#7-setup-usb-flash-drive-and-auto-mount" title="Permanent link">&para;</a></h3>
+<p>Please insert the USB Flash Drive that contains the folders <code class="codehilite">blocks</code> and <code class="codehilite">chainstate</code> into the Raspberry Pi. We will mount the USB Flash Drive to the Raspberry Pi and configure the device to auto-mount on reboot ensuring the blockchain stays accessible to the <code class="codehilite">Vertcoin</code> daemon after reboot.  </p>
+<p># Find your USB Flash Drive<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ sudo blkid
+/dev/mmcblk0p1: LABEL=&quot;boot&quot; UUID=&quot;5DB0-971B&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;efbdd15e-01&quot;
+/dev/mmcblk0p2: LABEL=&quot;rootfs&quot; UUID=&quot;060b57a8-62bd-4d48-a471-0d28466d1fbb&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;efbdd15e-02&quot;
+/dev/mmcblk0: PTUUID=&quot;efbdd15e&quot; PTTYPE=&quot;dos&quot;
+/dev/sda1: UUID=&quot;0DC965316518EB7C&quot; TYPE=&quot;ntfs&quot; PARTUUID=&quot;00e3d476-01&quot;
+</pre></div>
+My USB device appears as <code class="codehilite">/dev/sda1</code> which shows a filesystem type of <code class="codehilite">NTFS</code>, your device may be listed differently. Please take note of the <code class="codehilite">/dev/*</code> information that identifies your USB Flash Drive.  </p>
+<p># Make sure a mount point exists for the USB Flash Drive<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ sudo mkdir /mnt
+mkdir: cannot create directory ‘/mnt’: File exists
+</pre></div>
+# Give <code class="codehilite">/mnt</code> privileges<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo chmod 755 /mnt</code>  </p>
+<p># Mount USB Flash Drive to mount point<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo mount /dev/sda1 /mnt</code>  </p>
+<p># Confirm USB Flash Drive was successfully mounted to <code class="codehilite">/mnt</code>
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls /mnt/vertcoin/
+blocks  chainstate  
+</pre></div>
+# Setup <code class="codehilite">fstab</code> file to auto-mount the USB Flash Drive on reboot<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo nano /etc/fstab</code> 
+<div class="codehilite"><pre><span></span>proc            /proc           proc    defaults          0       0
+PARTUUID=efbdd15e-01  /boot           vfat    defaults          0       2
+PARTUUID=efbdd15e-02  /               ext4    defaults,noatime  0       1
+
+# replace /dev/sda1 with your USB device, [tab] between each value
+/dev/sda1       /mnt    ntfs    defaults        0       0
+
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save</p>
+<p># Reboot to confirm auto-mount is successful<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo reboot</code>  </p>
+<p># Wait a minute, then log back in via <code class="codehilite">SSH</code><br />
+<code class="codehilite">ssh 192.168.1.2 -l pi</code>  </p>
+<p># Confirm USB Flash Drive auto-mounted<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls /mnt/vertcoin
+blocks  chainstate 
+</pre></div></p>
+<h3 id="8-create-vertcoinconf-and-soft-link-to-usb-flash-drive">8.) Create <code class="codehilite">vertcoin.conf</code> and soft link to USB Flash Drive<a class="headerlink" href="#8-create-vertcoinconf-and-soft-link-to-usb-flash-drive" title="Permanent link">&para;</a></h3>
+<p># Change directory to <code class="codehilite">/mnt/vertcoin</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ cd /mnt/vertcoin</code></p>
+<p># Create <code class="codehilite">vertcoin.conf</code> for Vertcoin Core<br />
+<code class="codehilite">pi@raspberrypi:/mnt/vertcoin $ sudo nano vertcoin.conf</code>
+<div class="codehilite"><pre><span></span>server=1
+rpcuser=vertnode
+rpcpassword=yoursecurepasswordgoeshere
+
+# makes client run in background
+daemon=1
+
+# https://jlopp.github.io/bitcoin-core-config-generator/ lopp.net optimizations
+dbcache=100
+maxorphantx=10
+maxmempool=50
+maxconnections=40
+maxuploadtarget=5000
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save  </p>
+<p><code class="codehilite">* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file</code>
+<div class="codehilite"><pre><span></span>pi@raspberrypi:/mnt/vertcoin $ touch randomfilename
+pi@raspberrypi:/mnt/vertcoin $ md5sum randomfilename
+d41d8cd98f00b204e9800998ecf8427e  randomfilename
+
+# Clean up 
+pi@raspberrypi:~/.vertcoin $ rm randomfilename
+</pre></div></p>
+<p># Change directory back home<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:/mnt/vertcoin $ cd
+pi@raspberrypi:~ $ pwd
+/home/pi
+</pre></div>
+ # Create soft link (symbolic link) connecting <code class="codehilite">/mnt/vertcoin/</code> &lt;---&gt; <code class="codehilite">/home/pi/.vertcoin</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo ln -s /mnt/vertcoin/ /home/pi/.vertcoin</code>  </p>
+<p># List all files in home<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls -a
+.  ..  .bash_history  .bash_logout  .bashrc  .config  .profile  .vertcoin  .wget-hsts
+</pre></div>
+# List files in <code class="codehilite">/home/pi/.vertcoin</code>, confirm blockchain and <code class="codehilite">vertcoin.conf</code> is there<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls .vertcoin
+blocks  chainstate  vertcoin.conf
+</pre></div></p>
+<h4 id="create-swap-file-space-for-raspberry-pi">Create swap file space for Raspberry Pi<a class="headerlink" href="#create-swap-file-space-for-raspberry-pi" title="Permanent link">&para;</a></h4>
+<p>Here we ensure that <code class="codehilite">dphys-swapfile</code> is installed and configured to save the swap file in <code class="codehilite">/mnt/swap</code>, allocate <code class="codehilite">1024 MB</code> of swap file space. You can choose a smaller amount of space for a swap file, I would not recommend going lower than <code class="codehilite">300 MB</code>. </p>
+<p># Install <code class="codehilite">dphys-swapfile</code> 
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ sudo apt-get install dphys-swapfile
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+dphys-swapfile is already the newest version (20100506-3).
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+</pre></div></p>
+<p># Configure swap file<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo nano /etc/dphys-swapfile</code><br />
+<div class="codehilite"><pre><span></span># /etc/dphys-swapfile - user settings for dphys-swapfile package
+# author Neil Franklin, last modification 2010.05.05
+# copyright ETH Zuerich Physics Departement
+#   use under either modified/non-advertising BSD or GPL license
+# this file is sourced with . so full normal sh syntax applies
+# the default settings are added as commented out CONF_*=* lines
+
+# reconfigure swapfile to reside on /mnt/swap
+CONF_SWAPFILE=/mnt/swap
+
+# set size to absolute value, leaving empty (default) then uses computed value
+#   you most likely don&#39;t want this, unless you have an special disk situation
+CONF_SWAPSIZE=1024
+
+# set size to computed value, this times RAM size, dynamically adapts,
+#   guarantees that there is enough swap without wasting disk space on excess
+#CONF_SWAPFACTOR=2
+
+# restrict size (computed and absolute!) to maximally this limit
+#   can be set to empty for no limit, but beware of filled partitions!
+#   this is/was a (outdated?) 32bit kernel limit (in MBytes), do not overrun it
+#   but is also sensible on 64bit to prevent filling /var or even / partition
+#CONF_MAXSWAP=2048
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save  </p>
+<p># Restart swap file service<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ sudo /etc/init.d/dphys-swapfile stop
+[ ok ] Stopping dphys-swapfile (via systemctl): dphys-swapfile.service.
+</pre></div>
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ sudo /etc/init.d/dphys-swapfile start
+[ ok ] Starting dphys-swapfile (via systemctl): dphys-swapfile.service.
+</pre></div></p>
+<h4 id="setup-vertcoin-core-crontab-for-auto-start-on-reboot">Setup Vertcoin Core Crontab for auto-start on reboot<a class="headerlink" href="#setup-vertcoin-core-crontab-for-auto-start-on-reboot" title="Permanent link">&para;</a></h4>
+<p>We will configure the <code class="codehilite">crontab</code> file to start <code class="codehilite">vertcoind</code> on reboot and on each hour to ensure <code class="codehilite">vertcoind</code> always has a process thats alive. If <code class="codehilite">vertcoind</code> is already running when the hourly <code class="codehilite">crontab</code> executes it will simply fail to spawn a new process. </p>
+<p># Configure <code class="codehilite">crontab</code> file to start <code class="codehilite">vertcoind</code> hourly and on reboot  </p>
+<p><code class="codehilite">pi@raspberrypi:~ $ crontab -u pi -e</code>
+<div class="codehilite"><pre><span></span><span class="k">no</span> <span class="nn">crontab</span> <span class="k">for</span> <span class="n">pi</span> <span class="o">-</span> <span class="n">using</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">one</span>
+
+<span class="n">Select</span> <span class="n">an</span> <span class="n">editor</span><span class="o">.</span>  <span class="n">To</span> <span class="n">change</span> <span class="n">later</span><span class="p">,</span> <span class="n">run</span> <span class="s">&#39;select-editor&#39;</span><span class="o">.</span>
+  <span class="mi">1</span><span class="o">.</span> <span class="sr">/bin/</span><span class="n">ed</span>
+  <span class="mi">2</span><span class="o">.</span> <span class="sr">/bin/</span><span class="n">nano</span>        <span class="o">&lt;----</span> <span class="n">easiest</span>
+  <span class="mi">3</span><span class="o">.</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">vim</span><span class="o">.</span><span class="n">tiny</span>
+
+<span class="n">Choose</span> <span class="mi">1</span><span class="o">-</span><span class="mi">3</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">2</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="c1"># Edit this file to introduce tasks to be run by cron.</span>
+<span class="c1">#</span>
+<span class="c1"># Each task to run has to be defined through a single line</span>
+<span class="c1"># indicating with different fields when the task will be run</span>
+<span class="c1"># and what command to run for the task</span>
+<span class="c1">#</span>
+<span class="c1"># To define the time you can provide concrete values for</span>
+<span class="c1"># minute (m), hour (h), day of month (dom), month (mon),</span>
+<span class="c1"># and day of week (dow) or use &#39;*&#39; in these fields (for &#39;any&#39;).#</span>
+<span class="c1"># Notice that tasks will be started based on the cron&#39;s system</span>
+<span class="c1"># daemon&#39;s notion of time and timezones.</span>
+<span class="c1">#</span>
+<span class="c1"># Output of the crontab jobs (including errors) is sent through</span>
+<span class="c1"># email to the user the crontab file belongs to (unless redirected).</span>
+<span class="c1">#</span>
+<span class="c1"># For example, you can run a backup of all your user accounts</span>
+<span class="c1"># at 5 a.m every week with:</span>
+<span class="c1"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span>
+<span class="c1">#</span>
+<span class="c1"># For more information see the manual pages of crontab(5) and cron(8)</span>
+<span class="c1">#</span>
+<span class="c1"># m h  dom mon dow   command</span>
+
+<span class="nv">@reboot</span> <span class="n">vertcoind</span>
+
+<span class="c1"># This is optional, this can cause for an annoying execution of a resource heavy </span>
+<span class="c1"># application on load while troubleshooting an issue. Just be mindful that crontab</span>
+<span class="c1"># is setup this way if you choose to use it. Uncomment line to enable.</span>
+<span class="c1">#@hourly vertcoind </span>
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save  </p>
+<p># Reboot and confirm <code class="codehilite">vertcoind</code> process spawns on reboot<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo reboot</code>  </p>
+<p># Wait a minute, then log back in via SSH<br />
+<code class="codehilite">ssh 192.168.1.2 -l pi</code><br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ps aux | grep vertcoin               
+pi         406 99.9  9.5 169160 90256 ?        Rsl  22:43   1:46 vertcoind -daemon
+pi         530  0.0  0.0   4372   560 pts/0    S+   22:45   0:00 grep --color=auto vertcoin
+</pre></div></p>
+<h3 id="quick-note-about-blockchain-syncing">Quick note about blockchain syncing<a class="headerlink" href="#quick-note-about-blockchain-syncing" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>Vertcoin Core is now synchronizing to the side-loaded blockchain located in `/mnt/` 
+(linked to `/home/pi/.vertcoin`). This process can take up to an hour to sync 
+headers and verify all of the downloaded blocks. Vertcoin 0.13.0 has shown major
+improvements to loading time of the blockchain and can take as little as 
+two minutes to fully load.
+
+You can monitor system resources by issuing the htop command and check up on 
+vertcoind by issuing the following commands:
+
+# Display output of Vertcoin debug.log; ctrl+c to stop  
+pi@raspberrypi:~ $ tailf .vertcoin/debug.log
+
+# Show blockchain information  
+pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
+
+# Show current block  
+pi@raspberrypi:~ $ vertcoin-cli getblockcount
+</pre></div>
+
+
+<p>You may continue on while <code class="codehilite">vertcoind</code> catches up to the blockchain ...  </p>
+<h3 id="9-configure-firewall-to-allow-vertcoin-core-traffic">9.) Configure firewall to allow Vertcoin Core traffic<a class="headerlink" href="#9-configure-firewall-to-allow-vertcoin-core-traffic" title="Permanent link">&para;</a></h3>
+<p>Please note that your <code class="codehilite">IP</code> range may be different than what I have listed below. If your router <code class="codehilite">IP</code> address is <code class="codehilite">192.168.1.1</code> then the instructions above require no alterations. If your <code class="codehilite">IP</code> address is something like <code class="codehilite">192.168.56.1</code> or <code class="codehilite">10.0.0.1</code> then you will need to modify the 'ufw allow from <code class="codehilite">192.168.1.0/24</code> to any port 22' to 'ufw allow from <code class="codehilite">192.168.56.0/24</code>(...)' or 'ufw allow from <code class="codehilite">10.0.0.0/24</code>(...)' respectively. </p>
+<p># Install <code class="codehilite">UFW</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install ufw</code>  </p>
+<p># Escalate to <code class="codehilite">root</code> and configure <code class="codehilite">UFW</code></p>
+<p><code class="codehilite">pi@raspberrypi:~ $ sudo su</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw default deny incoming</code><br />
+<div class="codehilite"><pre><span></span>Default incoming policy changed to &#39;deny&#39;
+(be sure to update your rules accordingly)
+</pre></div>
+<code class="codehilite">root@raspberrypi:/home/pi# ufw default allow outgoing</code><br />
+<div class="codehilite"><pre><span></span>Default outgoing policy changed to &#39;allow&#39;
+(be sure to update your rules accordingly)
+</pre></div>
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow from 192.168.1.0/24 to any port 22 comment &#39;allow SSH from local LAN&#39;</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 5889 comment &#39;allow vertcoin core&#39;</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw enable</code><br />
+<div class="codehilite"><pre><span></span>Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+</pre></div>
+<code class="codehilite">root@raspberrypi:/home/pi# systemctl enable ufw</code><br />
+<div class="codehilite"><pre><span></span>Synchronizing state of ufw.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable ufw
+</pre></div>
+<code class="codehilite">root@raspberrypi:/home/pi# ufw status</code><br />
+<div class="codehilite"><pre><span></span><span class="n">Status</span><span class="o">:</span> <span class="n">active</span>
+
+<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
+<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
+<span class="mi">22</span>                         <span class="n">ALLOW</span>       <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span>             <span class="err">#</span> <span class="n">allow</span> <span class="n">SSH</span> <span class="n">from</span> <span class="n">local</span> <span class="n">LAN</span>
+<span class="mi">5889</span>                       <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                   <span class="err">#</span> <span class="n">allow</span> <span class="n">vertcoin</span> <span class="n">core</span>
+<span class="mi">5889</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>                  <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>              <span class="err">#</span> <span class="n">allow</span> <span class="n">vertcoin</span> <span class="n">core</span>
+</pre></div>
+# Give up <code class="codehilite">root</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# exit</code>  </p>
+<p>Open a browser window and navigate to your router page, from there you can port forward your Raspberry Pi.<br />
+<code class="codehilite">TCP/UDP Port: 5889</code>  </p>
+<h4 id="this-will-make-your-node-public-supporting-the-health-of-the-vertcoin-network-by-keeping-it-decentralized-and-populated-with-one-more-node">This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.<a class="headerlink" href="#this-will-make-your-node-public-supporting-the-health-of-the-vertcoin-network-by-keeping-it-decentralized-and-populated-with-one-more-node" title="Permanent link">&para;</a></h4>
+<h3 id="10-congratulations-thanks-for-doing-your-part-and-running-a-vertcoin-full-node-3">10.) Congratulations! Thanks for doing your part and running a Vertcoin full node &lt;3<a class="headerlink" href="#10-congratulations-thanks-for-doing-your-part-and-running-a-vertcoin-full-node-3" title="Permanent link">&para;</a></h3>
+<p>You have successfully setup a full Vertcoin Core node on a Raspberry Pi. Thank you for following along and contributing to the Vertcoin network by helping keep it populated with nodes and distributed. You help give meaning to "the peoples" coin'!
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
+{
+  &quot;chain&quot;: &quot;main&quot;,
+  &quot;blocks&quot;: 919881,
+  &quot;headers&quot;: 919881,
+  &quot;bestblockhash&quot;: &quot;846ae520eebe3ecfc33c0bc427ab1414e9f45010623e00f9a7e24697d5a3fa12&quot;,
+  &quot;difficulty&quot;: 39708.0468186609,
+  &quot;mediantime&quot;: 1525044381,
+  &quot;verificationprogress&quot;: 0.9999867830498936,
+  &quot;initialblockdownload&quot;: false,
+  &quot;chainwork&quot;: &quot;000000000000000000000000000000000000000000000001b087526cfafa4e4a&quot;,
+  &quot;size_on_disk&quot;: 3459943082,
+  &quot;pruned&quot;: false,
+  &quot;bip9_softforks&quot;: {
+    &quot;csv&quot;: {
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;startTime&quot;: 1488326400,
+      &quot;timeout&quot;: 1519862400,
+      &quot;since&quot;: 691488
+    },
+    &quot;segwit&quot;: {
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;startTime&quot;: 1488326400,
+      &quot;timeout&quot;: 1519862400,
+      &quot;since&quot;: 713664
+    },
+    &quot;nversionbips&quot;: {
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;startTime&quot;: 1488326400,
+      &quot;timeout&quot;: 1519862400,
+      &quot;since&quot;: 691488
+    }
+  },
+  &quot;warnings&quot;: &quot;&quot;
+}
+pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
+30
+</pre></div></p>
+<hr />
+<h2 id="expirmental-setup-p2pool-vtc"><code class="codehilite">* EXPIRMENTAL:</code> Setup p2pool-vtc<a class="headerlink" href="#expirmental-setup-p2pool-vtc" title="Permanent link">&para;</a></h2>
+<p>If you are serious about mining <code class="codehilite">Vertcoin</code> please check out the <code class="codehilite">One Click Miner: https://github.com/vertcoin-project/One-Click-Miner</code>. <code class="codehilite">OCM</code> gives the best mining experience with the least technical setup. </p>
+<p>This section gives you the techncial know how of setting up an instance of a Vertcoin P2Pool on the Raspberry Pi to run alongside the <code class="codehilite">vertcoind</code> daemon. I <code class="codehilite">DO NOT RECOMMEND</code> anyone who is serious about mining <code class="codehilite">Vertcoin</code> to mine on a <code class="codehilite">p2pool</code> setup on the Raspberry Pi <code class="codehilite">Vertcoin</code> full node. I have experienced connectivity issues between <code class="codehilite">p2pool</code> and the <code class="codehilite">vertcoin daemon</code> losing connection to the full node for minutes at a time creating numerous <code class="codehilite">stratum</code> timeouts. This section exists only for those wishing to experiment. </p>
+<blockquote>
+<p>P2Pool is a decentralized Bitcoin mining pool that works by creating a peer-to-peer network of miner nodes.</p>
+<p>P2Pool creates a new block chain in which the difficulty is adjusted so a new block is found every 30 seconds. The blocks that get into the P2Pool block chain (called the "share chain") are the same blocks that would get into the Bitcoin block chain, only they have a lower difficulty target. Whenever a peer announces a new share found (new block in the P2Pool block chain), it is received by the other peers, and the other peers verify that this block contains payouts for all the previous miners who found a share (and announced it) that made it into the P2Pool share chain. This continues until some peer finds a block that has a difficulty that meets the Bitcoin network's difficulty target. This peer announces this block to the Bitcoin network and miners who have submitted shares for this block are paid in the generation transaction, proportionally to how many shares they have found in the last while. - Unknown author [3]</p>
+<p>Decentralized payout pooling solves the problem of centralized mining pools degrading the decentralization of Bitcoin and avoids the risk of hard to detect theft by pool operators.</p>
+<p>Miners are configured to connect to a P2Pool node that can be run locally, alongside the miner. P2Pool users must run a full Bitcoin node which serves the purpose of independently validating transactions and the Bitcoin blockchain.</p>
+<p>P2Pool nodes work on a chain of shares similar to Bitcoin's blockchain. Each node works on a block that includes payouts to the previous shares' owners and the node itself, which can also result in a share if it meets P2Pool's difficulty. </p>
+</blockquote>
+<p># Install <code class="codehilite">p2pool-vtc</code> dependencies and <code class="codehilite">python-pip</code>   </p>
+<p><code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install python-rrdtool python-pygame python-scipy python-twisted python-twisted-web python-imaging python-pip -y</code>  </p>
+<p># Install <code class="codehilite">bitcoin</code> dependencies and <code class="codehilite">libffi-dev</code> </p>
+<p><code class="codehilite">pi@raspberrypi:~/p2pool-vtc $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libffi-dev libssl-dev libevent-dev bsdmainutils python3 -y</code></p>
+<p># Clone <code class="codehilite">p2pool-vtc</code><br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ git clone https://github.com/vertcoin-project/p2pool-vtc.git
+Cloning into &#39;p2pool-vtc&#39;...
+remote: Counting objects: 8393, done.
+remote: Total 8393 (delta 0), reused 0 (delta 0), pack-reused 8393
+Receiving objects: 100% (8393/8393), 2.54 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (5611/5611), done.
+</pre></div></p>
+<p># Change directory to <code class="codehilite">p2pool-vtc</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ cd p2pool-vtc/</code>  </p>
+<p># Install <code class="codehilite">requirements.txt</code> dependencies<br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc $ pip install -r requirements.txt</code></p>
+<p># Configure P2Pool<br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc $ cd lyra2re-hash-python/</code><br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ git submodule init</code><br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ git submodule update</code><br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ sudo python setup.py install</code>  </p>
+<p># Download alternate  web frontend for P2Pool<br />
+<code class="codehilite">pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ cd</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ git clone https://github.com/hardcpp/P2PoolExtendedFrontEnd.git</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ cd P2PoolExtendedFrontEnd</code>  </p>
+<p># Move all files in <code class="codehilite">P2PoolExtendedFrontEnd</code> to the <code class="codehilite">web-static</code> folder in <code class="codehilite">p2pool-vtc</code><br />
+<code class="codehilite">pi@raspberrypi:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc/web-static/</code><br />
+<code class="codehilite">pi@raspberrypi:~/P2PoolExtendedFrontEnd $ cd</code>  </p>
+<p># Clean up<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo rm -r P2PoolExtendedFrontEnd/</code></p>
+<h4 id="network-1-firewall-configuration">Network 1 - Firewall Configuration<a class="headerlink" href="#network-1-firewall-configuration" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.</p>
+</blockquote>
+<p># Escalate to <code class="codehilite">root</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo su</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 9346 comment &#39;allow --network 1 p2p port&#39;</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 9171 comment &#39;allow --network 1 mining port&#39;</code>  </p>
+<p># Give up <code class="codehilite">root</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# exit</code></p>
+<h4 id="network-2-firewall-configuration">Network 2 - Firewall Configuration<a class="headerlink" href="#network-2-firewall-configuration" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.</p>
+</blockquote>
+<p># Escalate to <code class="codehilite">root</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo su</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 9347 comment &#39;allow --network 2 p2p port&#39;</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 9181 comment &#39;allow --network 2 mining port&#39;</code>  </p>
+<p># Give up <code class="codehilite">root</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# exit</code>  </p>
+<h4 id="setup-p2pool-bash-script-for-execution-on-reboot">Setup P2Pool bash script for execution on reboot<a class="headerlink" href="#setup-p2pool-bash-script-for-execution-on-reboot" title="Permanent link">&para;</a></h4>
+<p><code class="codehilite">pi@raspberrypi:~ $ nano start-p2pool.sh</code><br />
+<div class="codehilite"><pre><span></span><span class="nl">NOTE</span><span class="p">:</span> <span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">allow</span> <span class="k">for</span> <span class="n">merged</span> <span class="n">mining</span> <span class="n">please</span> <span class="n">replace</span> <span class="n">python</span> <span class="n">run_p2pool</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">net</span> <span class="n">vertcoin</span> <span class="n">with</span> <span class="nl">this</span><span class="p">:</span>
+<span class="n">python</span> <span class="n">run_p2pool</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">net</span> <span class="n">vertcoin</span> <span class="o">--</span><span class="n">merged</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># run p2pool with pre-configured settings</span>
+<span class="c1">#</span>
+<span class="c1"># network 1 = --net vertcoin</span>
+<span class="c1"># network 2 = --net vertcoin2</span>
+<span class="c1">#</span>
+<span class="nb">cd</span> p2pool-vtc
+python run_p2pool.py --net vertcoin
+
+<span class="c1"># !!! NOTE: If you want to allow for merged mining please replace python run_p2pool.py --net vertcoin with this</span>
+<span class="c1"># python run_p2pool.py --net vertcoin --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699</span>
+</pre></div></p>
+<p># Give execute privileges to <code class="codehilite">start-p2pool.sh</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ chmod +x start-p2pool.sh</code>  </p>
+<p># Configure <code class="codehilite">crontab</code> file to execute <code class="codehilite">start-p2pool.sh</code> on reboot<br />
+<code class="codehilite">pi@raspberrypi:~ $ crontab -u pi -e</code><br />
+<div class="codehilite"><pre><span></span><span class="c1"># Edit this file to introduce tasks to be run by cron.</span>
+<span class="c1">#</span>
+<span class="c1"># Each task to run has to be defined through a single line</span>
+<span class="c1"># indicating with different fields when the task will be run</span>
+<span class="c1"># and what command to run for the task</span>
+<span class="c1">#</span>
+<span class="c1"># To define the time you can provide concrete values for</span>
+<span class="c1"># minute (m), hour (h), day of month (dom), month (mon),</span>
+<span class="c1"># and day of week (dow) or use &#39;*&#39; in these fields (for &#39;any&#39;).#</span>
+<span class="c1"># Notice that tasks will be started based on the cron&#39;s system</span>
+<span class="c1"># daemon&#39;s notion of time and timezones.</span>
+<span class="c1">#</span>
+<span class="c1"># Output of the crontab jobs (including errors) is sent through</span>
+<span class="c1"># email to the user the crontab file belongs to (unless redirected).</span>
+<span class="c1">#</span>
+<span class="c1"># For example, you can run a backup of all your user accounts</span>
+<span class="c1"># at 5 a.m every week with:</span>
+<span class="c1"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span>
+<span class="c1">#</span>
+<span class="c1"># For more information see the manual pages of crontab(5) and cron(8)</span>
+<span class="c1"># m h  dom mon dow   command</span>
+
+<span class="nv">@reboot</span> <span class="n">vertcoind</span>
+<span class="c1"># Uncomment the line to enable.</span>
+<span class="c1">#@reboot unitusd </span>
+
+<span class="c1"># This is optional, this can cause for an annoying execution of a resource heavy </span>
+<span class="c1"># application on load while troubleshooting an issue. Just be mindful that crontab</span>
+<span class="c1"># is setup this way if you choose to use it. Uncomment the line to enable.</span>
+<span class="nv">@hourly</span> <span class="n">vertcoind</span> 
+<span class="c1">#@hourly unitusd</span>
+
+<span class="c1"># sleep 15 minutes then start p2pool, allow for blockchain(s) to load first</span>
+<span class="nv">@reboot</span> <span class="nb">sleep</span> <span class="mi">120</span><span class="p">;</span> <span class="sr">/home/</span><span class="n">pi</span><span class="o">/</span><span class="n">start</span><span class="o">-</span><span class="n">p2pool</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+<code class="codehilite">Note:</code> Running P2Pool 2 minutes after reboot allows the Raspberry Pi resources and time to verify, load the <code class="codehilite">vertcoin</code> blockchain and catch up if needed.</p>
+<p># Display output of P2Pool's <code class="codehilite">debug</code> log; <code class="codehilite">ctrl+c</code> to stop<br />
+<code class="codehilite">pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log</code></p>
+<h4 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h4>
+<p><code class="codehilite">https://github.com/vertcoin-project/p2pool-vtc</code><br />
+<code class="codehilite">https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md</code>  </p>
+<h2 id="expirmental-setup-unitus-full-node-for-merged-mining-with-p2pool-vtc"><code class="codehilite">* EXPIRMENTAL:</code> Setup Unitus Full Node for merged mining with p2pool-vtc<a class="headerlink" href="#expirmental-setup-unitus-full-node-for-merged-mining-with-p2pool-vtc" title="Permanent link">&para;</a></h2>
+<h4 id="stability-issues-have-been-experienced-using-locally-compiled-binaries-when-syncing-to-the-blockchain-an-armhf-release-is-prefered-over-compiling-from-source">Stability issues have been experienced using locally compiled binaries when syncing to the blockchain. An <code class="codehilite">armhf</code> release is prefered over compiling from source.<a class="headerlink" href="#stability-issues-have-been-experienced-using-locally-compiled-binaries-when-syncing-to-the-blockchain-an-armhf-release-is-prefered-over-compiling-from-source" title="Permanent link">&para;</a></h4>
+<p>A <code class="codehilite">Unitus</code> full node may be setup to allow for merged mining rewards when mining with <code class="codehilite">p2pool-vtc</code>. Running two full nodes together on the same Raspberry Pi will mean that you will be storing two blockchains on your USB Flash Drive rather than one, and you will be using more resources on load and at idle. </p>
+<h4 id="note-this-section-will-require-compiling-unitus-from-source-this-is-a-memory-intensive-process-and-can-take-up-to-2-hours-and-30-minutes-to-compile-everything"><code class="codehilite">NOTE:</code> This section will require compiling <code class="codehilite">unitus</code> from source, this is a memory intensive process and can take up to ~2 hours and 30 minutes to compile everything<a class="headerlink" href="#note-this-section-will-require-compiling-unitus-from-source-this-is-a-memory-intensive-process-and-can-take-up-to-2-hours-and-30-minutes-to-compile-everything" title="Permanent link">&para;</a></h4>
+<p># Install <code class="codehilite">bitcoin</code> dependencies <code class="codehilite">https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y</code></p>
+<p># Install <code class="codehilite">boost</code> dependencies for <code class="codehilite">bitcoin</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y</code></p>
+<p># Install dependencies for <code class="codehilite">unitus</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo apt-get install libminiupnpc-dev libzmq3-dev -y</code>  </p>
+<p># Clone <code class="codehilite">unitusdev</code> repository into <code class="codehilite">/home/pi/</code>  <code class="codehilite">https://github.com/unitusdev/unitus</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ git clone https://github.com/unitusdev/unitus.git</code>  </p>
+<p># Download Berkley database, build from source and install
+<div class="codehilite"><pre><span></span># Download and configure BerkleyDB
+pi@raspberrypi:~ $ wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+pi@raspberrypi:~ $ tar -xzvf db-4.8.30.NC.tar.gz
+pi@raspberrypi:~ $ cd db-4.8.30.NC/build_unix/
+pi@raspberrypi:~/db-4.8.30.NC/build_unix $ ../dist/configure --enable-cxx
+
+# This will take ~10 minutes on the RPi3
+pi@raspberrypi:~/db-4.8.30.NC/build_unix $ make -j4
+
+# Compile and install BerkleyDB
+pi@raspberrypi:~/db-4.8.30.NC/build_unix $ sudo make install
+
+# Change directories to the cloned git repo in home
+pi@raspberrypi:~/db-4.8.30.NC/build_unix $ cd
+</pre></div>
+# Download and build <code class="codehilite">arm-linux-gnueabihf</code> compiler from source so we can compile <code class="codehilite">ARM</code> compatible binaries
+<div class="codehilite"><pre><span></span># Download and install arm-linux-gnueabihf ; This will take ~20 minutes on the RPi3
+pi@raspberrypi:~ $ cd unitus/
+pi@raspberrypi:~/unitus $ cd depends
+pi@raspberrypi:~/unitus/depends $ make HOST=arm-linux-gnueabihf NO_QT=1
+pi@raspberrypi:~/unitus/depends $ cd ..
+</pre></div>
+# Configure <code class="codehilite">unitus</code> source and build</p>
+<div class="codehilite"><pre><span></span># Run the autogen.sh to allow for ./configure
+pi@raspberrypi:~/unitus $ ./autogen.sh
+
+# Configure without GUI, use only static libraries, and minimize memory usage for building 
+./configure --without-gui --with-incompatible-bdb --disable-shared --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++ CXXFLAGS=&quot;--param ggc-min-expand=1 --param ggc-min-heapsize=32768&quot;
+
+# Compile ; This will take ~1 hour 20 minutes to compile on the RPi3
+pi@raspberrypi:~/unitus $ sudo make clean &amp;&amp; make
+
+# Copy unitus tools to /usr/bin/ 
+pi@raspberrypi:~/unitus $ cd src
+pi@raspberrypi:~/unitus/src $ sudo cp unitusd unitus-cli unitus-tx /usr/bin/
+
+# Copy unitus tools to USB Flash Drive to avoid having to compile this again
+pi@raspberrypi:~/unitus/src $ sudo cp unitusd unitus-cli unitus-tx /mnt/
+</pre></div>
+
+<p># Change directory to <code class="codehilite">/mnt/</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ cd /mnt/</code></p>
+<p># Create a directory for Unitus Core<br />
+<code class="codehilite">pi@raspberrypi:/mnt $ sudo mkdir unitus</code>  </p>
+<p># Change to the <code class="codehilite">unitus</code> directory<br />
+<code class="codehilite">pi@raspberrypi:/mnt $ cd unitus</code>  </p>
+<p># Create <code class="codehilite">unitus.conf</code> for Unitus Core <br />
+<code class="codehilite">pi@raspberrypi:/mnt/vertcoin $ sudo nano unitus.conf</code>
+<div class="codehilite"><pre><span></span># merged mining values documentation
+# https://cdn.discordapp.com/attachments/370500771168518155/415547042807676929/Merged-Mining_Guide.pdf
+server=1
+rpcuser=unitusnode
+rpcpassword=yoursecurepasswordgoeshere
+rpcport=6699
+rpcallowip=127.0.0.1
+algo=lyra2re2
+
+# makes client run in background
+daemon=1
+
+# https://jlopp.github.io/bitcoin-core-config-generator/ lopp.net optimizations
+dbcache=100
+maxorphantx=10
+maxmempool=50
+maxconnections=40
+maxuploadtarget=5000
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save  </p>
+<p><code class="codehilite">* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file</code><br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:/mnt/unitus $ touch randomfilename
+pi@raspberrypi:/mnt/unitus $ md5sum randomfilename
+d41d8cd98f00b204e9800998ecf8427e  randomfilename
+
+# Clean up 
+pi@raspberrypi:/mnt/unitus $ rm randomfilename
+</pre></div></p>
+<p># Change directory back home<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:/mnt/unitus $ cd
+pi@raspberrypi:~ $ pwd
+/home/pi
+</pre></div>
+ # Create soft link (symbolic link) connecting <code class="codehilite">/mnt/unitus/</code> &lt;---&gt; <code class="codehilite">/home/pi/.unitus</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo ln -s /mnt/unitus/ /home/pi/.unitus</code>  </p>
+<p># List all files in home<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls -a
+.   .bash_history  .bashrc  db-4.8.30.NC         .nano     .selected_editor  .vertcoin
+..  .bash_logout   .config  db-4.8.30.NC.tar.gz  .profile  .unitus           .wget-hsts
+</pre></div>
+# List files in <code class="codehilite">/home/pi/.unitus</code>, confirm our configuration file <code class="codehilite">unitus.conf</code> is there<br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls .unitus
+unitus.conf
+</pre></div></p>
+<p># <code class="codehilite">poweroff</code> the Raspberry Pi so we can copy the Unitus blockchain over to the USB Flash Drive
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ vertcoin-cli stop
+pi@raspberrypi:~ $ sudo poweroff
+</pre></div></p>
+<h5 id="copy-unitus-blockchain-to-usb-flash-drive">Copy Unitus Blockchain to USB Flash Drive<a class="headerlink" href="#copy-unitus-blockchain-to-usb-flash-drive" title="Permanent link">&para;</a></h5>
+<p>Once the Raspberry Pi is powered off unplug the micro USB power cable from it, then remove the USB Flash Drive from the Pi and insert it into the computer that you synced Unitus Core on. When Unitus Core is finished syncing the blockchain please navigate to the data directory for Unitus.</p>
+<p><code class="codehilite">Default Windows Directory (Unitus): C:\Users\%USER%\AppData\Roaming\Unitus</code></p>
+<p>Copy the folders <code class="codehilite">blocks</code> and <code class="codehilite">chainstate</code> to the <code class="codehilite">unitus</code> folder on your USB Flash Drive. This will allow us to side-load the Unitus blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. Once you have copied the <code class="codehilite">blocks</code> and <code class="codehilite">chainstate</code> folders for Unitus to the <code class="codehilite">unitus</code> folder on the USB Flash Drive please safely remove it as to make sure we do not corrupt the drive. </p>
+<p>Place the USB Flash Drive back into the Raspberry Pi and plug the micro USB cable back into the Raspberry Pi. It will begin to boot, return to your <code class="codehilite">ssh</code> command window</p>
+<p># Wait a minute, then log back in via <code class="codehilite">SSH</code> <br />
+<code class="codehilite">ssh 192.168.1.2 -l pi</code></p>
+<p># Confirm the Unitus blockchain is in <code class="codehilite">/home/pi/.unitus</code><br />
+<div class="codehilite"><pre><span></span>pi@raspberrypi:~ $ ls .unitus
+blocks  chainstate  unitus.conf
+</pre></div></p>
+<h4 id="edit-crontab-file-to-start-unitus-hourly-and-on-reboot-to-ensure-the-process-is-alive">Edit <code class="codehilite">crontab</code> file to start Unitus hourly and on reboot to ensure the process is alive<a class="headerlink" href="#edit-crontab-file-to-start-unitus-hourly-and-on-reboot-to-ensure-the-process-is-alive" title="Permanent link">&para;</a></h4>
+<p>Here we will configure the crontab file to start vertcoind as a daemon on reboot and on each hour to ensure vertcoind always has a process thats alive. If vertcoind is already running when the hourly crontab executes it will simply fail to spawn a new process.</p>
+<p># Configure crontab file to start <code class="codehilite">unitusd</code> hourly and on reboot
+<code class="codehilite">pi@raspberrypi:~ $ crontab -u pi -e</code><br />
+<div class="codehilite"><pre><span></span><span class="c1"># Edit this file to introduce tasks to be run by cron.</span>
+<span class="c1">#</span>
+<span class="c1"># Each task to run has to be defined through a single line</span>
+<span class="c1"># indicating with different fields when the task will be run</span>
+<span class="c1"># and what command to run for the task</span>
+<span class="c1">#</span>
+<span class="c1"># To define the time you can provide concrete values for</span>
+<span class="c1"># minute (m), hour (h), day of month (dom), month (mon),</span>
+<span class="c1"># and day of week (dow) or use &#39;*&#39; in these fields (for &#39;any&#39;).#</span>
+<span class="c1"># Notice that tasks will be started based on the cron&#39;s system</span>
+<span class="c1"># daemon&#39;s notion of time and timezones.</span>
+<span class="c1">#</span>
+<span class="c1"># Output of the crontab jobs (including errors) is sent through</span>
+<span class="c1"># email to the user the crontab file belongs to (unless redirected).</span>
+<span class="c1">#</span>
+<span class="c1"># For example, you can run a backup of all your user accounts</span>
+<span class="c1"># at 5 a.m every week with:</span>
+<span class="c1"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span>
+<span class="c1">#</span>
+<span class="c1"># For more information see the manual pages of crontab(5) and cron(8)</span>
+<span class="c1">#</span>
+<span class="c1"># m h  dom mon dow   command</span>
+
+<span class="nv">@reboot</span> <span class="n">vertcoind</span>
+<span class="nv">@reboot</span> <span class="n">unitusd</span>
+
+<span class="c1"># This is optional, this can cause for an annoying execution of a resource heavy </span>
+<span class="c1"># application on load while troubleshooting an issue. Just be mindful that crontab</span>
+<span class="c1"># is setup this way if you choose to use it. Uncomment line to enable.</span>
+<span class="c1">#@hourly vertcoind</span>
+<span class="c1">#@hourly unitusd</span>
+</pre></div>
+<code class="codehilite">ctrl+x</code> to save</p>
+<p># Clean up<br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo rm -r db-4.8.30.NC db-4.8.30.NC.tar.gz unitus</code> </p>
+<p># Reboot and allow <code class="codehilite">crontab</code> to execute <code class="codehilite">unitusd</code> and <code class="codehilite">vertcoind</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo reboot</code></p>
+<p># Wait a minute, then log back in via <code class="codehilite">SSH</code><br />
+<code class="codehilite">ssh 192.168.1.2 -l pi</code>  </p>
+<p># You can monitor your processes in real time with <code class="codehilite">htop</code> to confirm the processes spawn as expected<br />
+<code class="codehilite">pi@raspberrypi:~ $ htop</code>  </p>
+<h4 id="35-monitor-the-debuglog-of-unitusd-to-troubleshoot-the-unitusd-process-if-needed"># Monitor the <code class="codehilite">debug.log</code> of <code class="codehilite">unitusd</code> to troubleshoot the <code class="codehilite">unitusd</code> process if needed.<a class="headerlink" href="#35-monitor-the-debuglog-of-unitusd-to-troubleshoot-the-unitusd-process-if-needed" title="Permanent link">&para;</a></h4>
+<p><code class="codehilite">pi@raspberrypi:~ $ tailf .unitus/debug.log</code>  </p>
+<p><code class="codehilite">ctrl+c</code> to stop</p>
+<div class="codehilite"><pre><span></span><span class="err">#</span> <span class="nt">Troubleshooting</span> <span class="nt">example</span><span class="o">:</span>
+<span class="nt">pi</span><span class="p">@</span><span class="k">raspberrypi</span><span class="o">:~</span> <span class="o">$</span> <span class="nt">tailf</span> <span class="p">.</span><span class="nc">unitus</span><span class="o">/</span><span class="nt">debug</span><span class="p">.</span><span class="nc">log</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="o">*</span> <span class="nt">Using</span> <span class="nt">90</span><span class="p">.</span><span class="nc">0MiB</span> <span class="nt">for</span> <span class="nt">in-memory</span> <span class="nt">UTXO</span> <span class="nt">set</span> <span class="o">(</span><span class="nt">plus</span> <span class="nt">up</span> <span class="nt">to</span> <span class="nt">47</span><span class="p">.</span><span class="nc">7MiB</span> <span class="nt">of</span> <span class="nt">unused</span> <span class="nt">mempool</span> <span class="nt">space</span><span class="o">)</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">init</span> <span class="nt">message</span><span class="o">:</span> <span class="nt">Loading</span> <span class="nt">block</span> <span class="nt">index</span><span class="o">...</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">Opening</span> <span class="nt">LevelDB</span> <span class="nt">in</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">pi</span><span class="o">/</span><span class="p">.</span><span class="nc">unitus</span><span class="o">/</span><span class="nt">blocks</span><span class="o">/</span><span class="nt">index</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">Corruption</span><span class="o">:</span> <span class="nt">1</span> <span class="nt">missing</span> <span class="nt">files</span><span class="p">;</span> <span class="nt">e</span><span class="p">.</span><span class="nc">g</span><span class="o">.:</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">pi</span><span class="o">/</span><span class="p">.</span><span class="nc">unitus</span><span class="o">/</span><span class="nt">blocks</span><span class="o">/</span><span class="nt">index</span><span class="o">/</span><span class="nt">000005</span><span class="p">.</span><span class="nc">ldb</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="o">:</span> <span class="nt">Error</span> <span class="nt">opening</span> <span class="nt">block</span> <span class="nt">database</span><span class="o">.</span>
+<span class="nt">Please</span> <span class="nt">restart</span> <span class="nt">with</span> <span class="nt">-reindex</span> <span class="nt">or</span> <span class="nt">-reindex-chainstate</span> <span class="nt">to</span> <span class="nt">recover</span><span class="o">.</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">Aborted</span> <span class="nt">block</span> <span class="nt">database</span> <span class="nt">rebuild</span><span class="o">.</span> <span class="nt">Exiting</span><span class="o">.</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">scheduler</span> <span class="nt">thread</span> <span class="nt">interrupt</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">Shutdown</span><span class="o">:</span> <span class="nt">In</span> <span class="nt">progress</span><span class="o">...</span>
+<span class="nt">2018-04-27</span> <span class="nt">02</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">02</span> <span class="nt">Shutdown</span><span class="o">:</span> <span class="nt">done</span>
+</pre></div>
+
+<h5 id="configure-firewall-to-allow-unitus-traffic">Configure firewall to allow <code class="codehilite">unitus</code> traffic<a class="headerlink" href="#configure-firewall-to-allow-unitus-traffic" title="Permanent link">&para;</a></h5>
+<p># Escalate to <code class="codehilite">root</code> and configure <code class="codehilite">UFW</code><br />
+<code class="codehilite">pi@raspberrypi:~ $ sudo su</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw allow 50603 comment &#39;allow unitus core&#39;</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw enable</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# ufw status</code><br />
+<div class="codehilite"><pre><span></span><span class="n">Status</span><span class="o">:</span> <span class="n">active</span>
+
+<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
+<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
+<span class="mi">22</span>                         <span class="n">ALLOW</span>       <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span>             <span class="err">#</span> <span class="n">allow</span> <span class="n">SSH</span> <span class="n">from</span> <span class="n">local</span> <span class="n">LAN</span>
+<span class="mi">5889</span>                       <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                   <span class="err">#</span> <span class="n">allow</span> <span class="n">vertcoin</span> <span class="n">core</span>
+<span class="mi">50603</span>                      <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                   <span class="err">#</span> <span class="n">allow</span> <span class="n">unitus</span> <span class="n">core</span>
+<span class="mi">5889</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>                  <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>              <span class="err">#</span> <span class="n">allow</span> <span class="n">vertcoin</span> <span class="n">core</span>
+<span class="mi">50603</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>                 <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="o">(</span><span class="n">v6</span><span class="o">)</span>              <span class="err">#</span> <span class="n">allow</span> <span class="n">unitus</span> <span class="n">core</span>
+</pre></div>
+# Give up <code class="codehilite">root</code><br />
+<code class="codehilite">root@raspberrypi:/home/pi# exit</code>  </p>
+<p>Open a browser window and navigate to your router page, from there you can port forward your Raspberry Pi.<br />
+<code class="codehilite">TCP/UDP Port: 50603</code>  </p>
+<h5 id="this-will-make-your-node-public-supporting-the-health-of-the-unitus-network-by-keeping-it-decentralized-and-populated-with-one-more-node">This will make your node public, supporting the health of the Unitus network by keeping it decentralized and populated with one more node.<a class="headerlink" href="#this-will-make-your-node-public-supporting-the-health-of-the-unitus-network-by-keeping-it-decentralized-and-populated-with-one-more-node" title="Permanent link">&para;</a></h5>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite">[1] How to Create Your Own Bitcoin Full Node With a Raspberry Pi http://www.raspberrypifullnode.com/</code><br />
+<code class="codehilite">[2] Jameson Lopp - Bitcoin Nodes, how many is enough? https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf</code><br />
+<code class="codehilite">[3] Bitcoin Wiki - P2Pool https://en.bitcoin.it/wiki/P2Pool</code></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../Mining/AMD-Mining/" title="AMD Mining" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                AMD Mining
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../BuyingVertcoin/How-to-buy-Vertcoin/" title="How to buy Vertcoin" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How to buy Vertcoin
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 Vertcoin
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/vertcoin" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/vertcoin" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.reddit.com/r/vertcoin/" class="md-footer-social__link fa fa-reddit"></a>
+    
+      <a href="https://slack.vtconline.org/" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-facebook"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ce2ab4bf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

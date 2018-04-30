@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://docs.vertcoin.org/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://docs.vertcoin.org/getting-started/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Wallets/Wallet-Overview/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Wallets/Core-Wallet/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Wallets/Electrum/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Wallets/Vertwallet/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Wallets/Paper-Wallets/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Mining/Getting-Started-With-Mining/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Mining/P2pool-overview/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Mining/Nvidia-Mining/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Mining/AMD-Mining/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.vertcoin.org/FullNodes/raspberry-pi/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.vertcoin.org/BuyingVertcoin/How-to-buy-Vertcoin/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.vertcoin.org/Contributing/Bounties/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
