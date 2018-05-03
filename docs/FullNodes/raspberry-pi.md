@@ -14,20 +14,19 @@
 
 #### Index
 1. `Parts List`
-2. `Download and sync Vertcoin Core QT *`
-3. `Format USB Flash Drive`
-4. `Install Raspbian Stretch Lite`
-5. `Copy Blockchain to USB Flash Drive`
-6. `Setup Raspberry Pi`
-7. `Setup USB Flash Drive and Auto-Mount`
-8. `Create vertcoin.conf and soft link to USB Flash Drive`
-9. `Configure firewall to allow Vertcoin Core traffic`  
-10. `Congratulations! Thanks for doing your part and running a Vertcoin full node <3`
+2. `Download and Sync Vertcoin Core QT *`
+3. `Install Raspbian Stretch Lite`
+4. `Initial Setup of Raspberry Pi`
+5. `Format USB Flash Drive and Configure Auto-Mount`
+6. `Transfer Blockchain to USB Flash Drive, Create vertcoin.conf & Soft Link to USB Flash Drive`
+7. `Create Swap File space for Raspberry Pi & Start Syncing`
+8. `Configure firewall to allow Vertcoin Core traffic`  
+9. `Congratulations! Thanks for doing your part and running a Vertcoin full node <3`
 
-`* EXPIRMENTAL: Setup p2pool-vtc`  
-`* EXPIRMENTAL: Setup Unitus full node to merge mine on p2pool-vtc`   
+`* OPTIONAL: Setup Unitus full node to merge mine w/ p2pool-vtc`  
+`* OPTIONAL: Setup p2pool-vtc`   
 
-##
+-----------------------------------------
 
 ### 1.) Parts List
 
@@ -44,7 +43,9 @@ You may change the USB Flash Drive to match your preference. I `highly recommend
 
 The case in the parts list is a personal preference, it is your choice how you wish to protect your Raspberry Pi. The Zebra Black Ice case was chosen for it's cut out on the bottom of the case, allowing for the placement of a heatsink on the `RAM` of the Raspberry Pi. 
 
-### 2.) Download and sync Vertcoin Core  
+-----------------------------------------
+
+### 2.) Download and sync Vertcoin Core QT 
 
 This step is `optional` but recommended. [Download](https://github.com/vertcoin-project/vertcoin-core/releases) the latest stable release of Vertcoin Core and launch `vertcoin-qt.exe` to begin the syncing process. I use my desktop PC to sync the blockchain first because it has better specs than a $35 Raspberry Pi. The PC will sync headers, download blocks and verify blocks faster than the Raspberry Pi can.
 
@@ -55,21 +56,14 @@ We will use this copy of the blockchain that is syncing to side-load onto our Ra
 `Vertcoin Core Download Link: https://github.com/vertcoin-project/vertcoin-core/releases`  
 `Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin`  
 
-### 3.) Format USB Flash Drive
+If you intend on merge mining with `Unitus`, consider syncing `Unitus Core` now as well.
 
->The Vertcoin blockchain is about 4GB today (4/23/2018) which means that a 16GB USB Flash Drive will have more than enough space to store everything we need, but you can easily future proof with a 128GB USB Flash Drive.  
+`Unitus Core Download Link: https://github.com/unitusdev/unitus/releases`  
+`Default Windows Directory (Unitus): C:\Users\%USERS%\AppData\Roaming\Unitus`  
 
-Insert the USB Flash Drive into your Windows PC. Then access the drive with Windows Explorer `Win+E`, right click on the removable drive you wish to format and `Format...`
+-----------------------------------------
 
-Format the USB Flash Drive to an `NTFS` File system. 
-
-This USB Flash Drive will contain our Vertcoin data directory as well as our swap space file. We will give the Raspberry Pi some extra memory to work with we will ensure a swap file large enough to handle the memory demand to bootstrap the blockchain. 
-
-It is worth mentioning that constantly writing data to the MicroSD card can be damaging, in this guide we will configure the swap file to reside off of the card.
-
-
-
-### 4.) Install Raspbian Stretch Lite
+### 3.) Install Raspbian Stretch Lite
 
 >Raspbian is a free operating system based on Debian, optimised for the Raspberry Pi hardware. Raspbian comes with over 35,000 packages: precompiled software bundled in a nice format for easy installation on your Raspberry Pi.
 > 
@@ -79,6 +73,9 @@ I recommend downloading the latest stable version of [Raspbian Stretch Lite](htt
 
 We will utilize the software 'Win32 Disk Imager' to format and install Raspbian on the MicroSD card. Please follow the [guide](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md) below for details on installing the Rasbian image to the MicroSD card.
 
+![Write](https://i.imgur.com/fTyqpat.png)  
+![Writing...](https://i.imgur.com/DrGi0mb.png)  
+![Done](https://i.imgur.com/cfUjvKR.png)
 
 `Raspberry Pi - Installing Operating System Images Using Windows: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md`
 
@@ -91,15 +88,9 @@ This enables SSH access on the Raspberry Pi's first boot sequence. Please safely
 
 `Win32 Disk Imager Documentation: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md`
 
+-----------------------------------------
 
-### 5.) Copy Blockchain to USB Flash Drive
-When `Vertcoin Core` is finished syncing the blockchain please navigate to the data directory for `Vertcoin`
-
-`Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin`  
-
-Create a new folder named `vertcoin` on your USB Flash Drive that was formatted as an `NTFS` file system earlier and copy the folders `blocks` and `chainstate` to the `vertcoin` folder on your USB Flash Drive. This will allow us to side-load the Vertcoin blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. 
-
-### 6.) Setup Raspberry Pi
+### 4.) Initial Setup of Raspberry Pi
 
 Please insert the MicroSD card that was safely removed into the slot located on the bottom of the Raspberry Pi. Connect an Ethernet cable to the Raspberry Pi that has internet access. When you are ready to power on the Pi, plug the power supply in and the Raspberry Pi will immediately begin to boot.
 
@@ -111,7 +102,8 @@ Open a web browser page and navigate to your router page and identify the `IP` a
 
 \# Open `Git Bash` and ...  
 `~ $ ssh 192.168.1.2 -l pi`  
-`default password: raspberry`
+
+`default password: raspberry`  
 
 \# Download and install latest system updates  
 `pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get upgrade -y`
@@ -137,19 +129,25 @@ Open a web browser page and navigate to your router page and identify the `IP` a
 \# Wait a minute, then log back in via `SSH`  
 `ssh 192.168.1.2 -l pi`  
 
+\# Change `root` password  
+`pi@raspberrypi:~ $ sudo passwd root`  
+
 \# Download and install useful software packages  
-`pi@raspberrypi:~ $ sudo apt-get install git ntfs-3g -y`  
+```
+pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get install git 
+```
 
 \# Install `bitcoin` dependencies `https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md`  
-`pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y`  
-
+```
+pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y 
+```
     # * OPTIONAL: DISABLE WIRELESS & BLUETOOTH
   
     # Create our blacklist file  
-    `pi@raspberrypi:~ $ cd /etc/modprobe.d/`  
-    `pi@raspberrypi:/etc/modprobe.d $ sudo nano raspi-blacklist.conf`  
+    pi@raspberrypi:~ $ cd /etc/modprobe.d/
+    pi@raspberrypi:/etc/modprobe.d $ sudo nano raspi-blacklist.conf
 
-    ```
+    
     # disable wireless
     blacklist brcmfmac
     blacklist brcmutil
@@ -157,14 +155,10 @@ Open a web browser page and navigate to your router page and identify the `IP` a
     # disable bluetooth
     blacklist btbcm
     blacklist hci_uart
-    ```  
-    `ctrl+x` to save
+    
+    ctrl+x to save
 
-    # Reboot Raspberry Pi for changes to take effect  
-    `pi@raspberrypi:/etc/modprobe.d $ sudo reboot`  
-
-    # Wait a minute, then log back in via `SSH`   
-    `ssh 192.168.1.2 -l pi`  
+    # Note: Changes will not take effect until after reboot.
 
 \# Download latest stable version of vertcoin-core for `ARM` architecture to Raspberry Pi  
 `pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.0/vertcoind-v0.13.0-linux-armhf.zip`  
@@ -181,14 +175,24 @@ Archive:  vertcoind-v0.13.0-linux-armhf.zip
 `pi@raspberrypi:~ $ rm *.zip`  
 
 \# Give privileges to `vertcoin` binaries  
-`pi@raspberrypi:~ $ sudo chmod +x vertcoin*`
+`pi@raspberrypi:~ $ chmod +x vertcoin*`
 
 \# Move `vertcoin-cli`, `vertcoind`, `vertcoin-tx` to `/usr/bin/`  
 `pi@raspberrypi:~ $ sudo mv vertcoin* /usr/bin/`  
 
-### 7.) Setup USB Flash Drive and Auto-Mount
+-----------------------------------------
 
-Please insert the USB Flash Drive that contains the folders `blocks` and `chainstate` into the Raspberry Pi. We will mount the USB Flash Drive to the Raspberry Pi and configure the device to auto-mount on reboot ensuring the blockchain stays accessible to the `Vertcoin` daemon after reboot.  
+### 5.) Format USB Flash Drive and configure Auto-Mount
+
+>The Vertcoin blockchain is about 4GB today (4/23/2018) which means that a 16GB USB Flash Drive will have more than enough space to store everything we need, but you can easily future proof with a 128GB USB Flash Drive.  
+
+Insert the USB Flash Drive into your Raspberry Pi.
+
+This USB Flash Drive will contain our Vertcoin data directory as well as our swap space file. We will give the Raspberry Pi some extra memory to work with we will ensure a swap file large enough to handle the memory demand to bootstrap the blockchain. 
+
+It is worth mentioning that constantly writing data to the MicroSD card can be damaging, in this guide we will configure the swap file to reside off of the card.
+
+Please insert the USB Flash Drive into the Raspberry Pi. We will format the USB Flash Drive as an `ext4` filesystem, mount the USB Flash Drive to the Raspberry Pi and configure the device to auto-mount on reboot ensuring the blockchain stays accessible to the `Vertcoin` daemon after reboots.
 
 \# Find your USB Flash Drive  
 ```
@@ -196,26 +200,33 @@ pi@raspberrypi:~ $ sudo blkid
 /dev/mmcblk0p1: LABEL="boot" UUID="5DB0-971B" TYPE="vfat" PARTUUID="efbdd15e-01"
 /dev/mmcblk0p2: LABEL="rootfs" UUID="060b57a8-62bd-4d48-a471-0d28466d1fbb" TYPE="ext4" PARTUUID="efbdd15e-02"
 /dev/mmcblk0: PTUUID="efbdd15e" PTTYPE="dos"
-/dev/sda1: UUID="0DC965316518EB7C" TYPE="ntfs" PARTUUID="00e3d476-01"
+/dev/sda1: UUID="0DC965316518EB7C" TYPE="fat32" PARTUUID="00e3d476-01"
 ```  
-My USB device appears as `/dev/sda1` which shows a filesystem type of `NTFS`, your device may be listed differently. Please take note of the `/dev/*` information that identifies your USB Flash Drive.  
+My USB device appears as `/dev/sda1` which shows a filesystem type of `fat32`, your device may be listed differently. Please take note of the `/dev/*` information that identifies your USB Flash Drive.  
 
-\# Make sure a mount point exists for the USB Flash Drive  
+\# Format the USB Flash Drive as `ext4` filesystem   
+`pi@raspberrypi:~ $ sudo mkfs.ext4 /dev/sda1 -L untitled`  
 ```
-pi@raspberrypi:~ $ sudo mkdir /mnt
-mkdir: cannot create directory ‘/mnt’: File exists
-```  
-\# Give `/mnt` privileges  
-`pi@raspberrypi:~ $ sudo chmod 755 /mnt`  
+mke2fs 1.43.4 (31-Jan-2017)
+/dev/sda1 contains a fat32 file system
+	last mounted on /mnt on Thu Apr 19 22:06:19 2018
+Proceed anyway? (y,N) y
+Creating filesystem with 732566272 4k blocks and 183148544 inodes
+Filesystem UUID: 9f4ea777-a963-49ce-a9f9-37860021d621
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+	4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
+	102400000, 214990848, 512000000, 550731776, 644972544
 
-\# Mount USB Flash Drive to mount point  
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information: done       
+```  
+
+\# Mount USB Flash Drive to mount point   
 `pi@raspberrypi:~ $ sudo mount /dev/sda1 /mnt`  
 
-\# Confirm USB Flash Drive was successfully mounted to `/mnt`
-```
-pi@raspberrypi:~ $ ls /mnt/vertcoin/
-blocks  chainstate  
-```  
 \# Setup `fstab` file to auto-mount the USB Flash Drive on reboot  
 `pi@raspberrypi:~ $ sudo nano /etc/fstab` 
 ```
@@ -224,7 +235,7 @@ PARTUUID=efbdd15e-01  /boot           vfat    defaults          0       2
 PARTUUID=efbdd15e-02  /               ext4    defaults,noatime  0       1
 
 # replace /dev/sda1 with your USB device, [tab] between each value
-/dev/sda1       /mnt    ntfs    defaults        0       0
+/dev/sda1       /mnt    ext4    defaults        0       0
 
 # a swapfile is not a swap partition, no line here
 #   use  dphys-swapfile swap[on|off]  for that
@@ -232,18 +243,55 @@ PARTUUID=efbdd15e-02  /               ext4    defaults,noatime  0       1
 `ctrl+x` to save
 
 \# Reboot to confirm auto-mount is successful  
-`pi@raspberrypi:~ $ sudo reboot	`  
+`pi@raspberrypi:~ $ sudo reboot`  
 
 \# Wait a minute, then log back in via `SSH`  
 `ssh 192.168.1.2 -l pi`  
 
 \# Confirm USB Flash Drive auto-mounted  
 ```
-pi@raspberrypi:~ $ ls /mnt/vertcoin
-blocks  chainstate 
+pi@raspberrypi:~ $ ls /mnt/
+lost+found
 ```  
 
-### 8.) Create `vertcoin.conf` and soft link to USB Flash Drive
+\# Configure permissions for /mnt/  
+`pi@raspberrypi:~ $ sudo chmod -R 777 /mnt/`  
+
+\# Create `vertcoin` directory on USB Flash Drive  
+`pi@raspberrypi:~ $ cd /mnt/ ; mkdir vertcoin`  
+```
+pi@raspberrypi:/mnt $ ls
+lost+found  vertcoin
+```  
+
+-----------------------------------------
+
+### 6.) Transfer Blockchain to USB Flash Drive, Create `vertcoin.conf` & Soft Link to USB Flash Drive
+
+Download and install `WinSCP:` `https://winscp.net/eng/download.php`
+
+When `Vertcoin Core` is finished syncing to the blockchain, exit `Vertcoin Core` so that it safely shuts down ensuring no data is corrupted. 
+
+Proceed by running `WinSCP`, you will be met with a `Login` prompt asking for a Host name, Port number, User name and Password. Login to your Raspberry Pi like so, please note that your Raspberry Pi's `IP` address may be different than what is listed below.
+```
+File protocol: SFTP
+Host name: 192.168.1.2
+Port number: 22
+User name: pi
+Password: yourpasswordhere (default: raspberry)
+```
+![Login](https://i.imgur.com/vWmSoWd.png)  
+![Connection](https://i.imgur.com/SlDMCmN.png)  
+
+Ensure `Optimize connection buffer size` is unchecked for an easy tansfer.
+
+`Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin`  
+
+While logged into your Raspberry Pi, create a new folder named `vertcoin` on your USB Flash Drive, copy the folders `blocks` and `chainstate` to the `/mnt/vertcoin` folder on your USB Flash Drive. This will allow us to side-load the Vertcoin blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. 
+
+![Transfer](https://i.imgur.com/VC7DpDa.png)
+
+Move back over to your `SSH` session with your Raspberry Pi...
 
 \# Change directory to `/mnt/vertcoin`  
 `pi@raspberrypi:~ $ cd /mnt/vertcoin`
@@ -297,7 +345,9 @@ pi@raspberrypi:~ $ ls .vertcoin
 blocks  chainstate  vertcoin.conf
 ```  
 
-#### Create swap file space for Raspberry Pi  
+-----------------------------------------
+
+### 7.) Create swap file space for Raspberry Pi & Start Syncing
 
 Here we ensure that `dphys-swapfile` is installed and configured to save the swap file in `/mnt/swap`, allocate `1024 MB` of swap file space. You can choose a smaller amount of space for a swap file, I would not recommend going lower than `300 MB`. 
 
@@ -399,16 +449,10 @@ Choose 1-3 [2]: 2
 ```  
 `ctrl+x` to save  
 
-\# Reboot and confirm `vertcoind` process spawns on reboot  
-`pi@raspberrypi:~ $ sudo reboot	`  
+\# `NOTE:` Make sure the blockchain has fully transferred to `/mnt/vertcoin` before starting `vertcoind`
 
-\# Wait a minute, then log back in via SSH  
-`ssh 192.168.1.2 -l pi`  
-```
-pi@raspberrypi:~ $ ps aux | grep vertcoin				
-pi         406 99.9  9.5 169160 90256 ?        Rsl  22:43   1:46 vertcoind -daemon
-pi         530  0.0  0.0   4372   560 pts/0    S+   22:45   0:00 grep --color=auto vertcoin
-```
+\# Start the `vertcoin` daemon and begin blockchain sync  
+`pi@raspberrypi:~ $ vertcoind &`  
 
 ### Quick note about blockchain syncing
     Vertcoin Core is now synchronizing to the side-loaded blockchain located in `/mnt/` 
@@ -431,8 +475,9 @@ pi         530  0.0  0.0   4372   560 pts/0    S+   22:45   0:00 grep --color=au
 
 You may continue on while `vertcoind` catches up to the blockchain ...  
 
+-----------------------------------------
 
-### 9.) Configure firewall to allow Vertcoin Core traffic  
+### 8.) Configure firewall to allow Vertcoin Core traffic  
 
 Please note that your `IP` range may be different than what I have listed below. If your router `IP` address is `192.168.1.1` then the instructions above require no alterations. If your `IP` address is something like `192.168.56.1` or `10.0.0.1` then you will need to modify the 'ufw allow from `192.168.1.0/24` to any port 22' to 'ufw allow from `192.168.56.0/24`(...)' or 'ufw allow from `10.0.0.0/24`(...)' respectively. 
 
@@ -482,7 +527,9 @@ Open a browser window and navigate to your router page, from there you can port 
 
 #### This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.
 
-### 10.) Congratulations! Thanks for doing your part and running a Vertcoin full node <3
+-----------------------------------------
+
+### 9.) Congratulations! Thanks for doing your part and running a Vertcoin full node <3
 You have successfully setup a full Vertcoin Core node on a Raspberry Pi. Thank you for following along and contributing to the Vertcoin network by helping keep it populated with nodes and distributed. You help give meaning to "the peoples" coin'!
 ```
 pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
@@ -526,11 +573,196 @@ pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
 
 -----------------------------------------
 
-## `* EXPIRMENTAL:` Setup p2pool-vtc  
+### `* OPTIONAL:`Setup Unitus Full Node for merged mining with p2pool-vtc
 
-If you are serious about mining `Vertcoin` please check out the `One Click Miner: https://github.com/vertcoin-project/One-Click-Miner`. `OCM` gives the best mining experience with the least technical setup. 
+A `Unitus` full node may be setup to allow for merged mining rewards when mining with `p2pool-vtc`. Running two full nodes together on the same Raspberry Pi will mean that you will be storing two blockchains on your USB Flash Drive rather than one, and you will be using more resources on load and at idle. 
 
-This section gives you the techncial know how of setting up an instance of a Vertcoin P2Pool on the Raspberry Pi to run alongside the `vertcoind` daemon. I `DO NOT RECOMMEND` anyone who is serious about mining `Vertcoin` to mine on a `p2pool` setup on the Raspberry Pi `Vertcoin` full node. I have experienced connectivity issues between `p2pool` and the `vertcoin daemon` losing connection to the full node for minutes at a time creating numerous `stratum` timeouts. This section exists only for those wishing to experiment. 
+This step is `optional` but recommended. [Download](https://github.com/unitusdev/unitus/releases) the latest stable release of Unitus Core and launch `unitus-qt.exe` on your Windows machine to begin the syncing process. I use my desktop PC to sync the blockchain first because it has better specs than a $35 Raspberry Pi. The PC will sync headers, download blocks and verify blocks faster than the Raspberry Pi can.
+
+We will use this copy of the blockchain that is syncing to side-load onto our Raspberry Pi later.
+
+-----------------------------------------
+
+\# Download latest `armhf` release of `unitus` and move binaries to `/usr/bin`  
+```
+pi@raspberrypi:~ $ wget https://github.com/unitusdev/unitus/releases/download/0.14.2.2/unitus-0.14.2.2-armhf.tar.xz
+pi@raspberrypi:~ $ tar xf unitus-0.14.2.2-armhf.tar.xz
+pi@raspberrypi:~ $ chmod +x unitusd unitus-cli unitus-tx
+pi@raspberrypi:~ $ sudo mv unitusd unitus-cli unitus-tx /usr/bin
+```
+
+\# Clean up  
+`pi@raspberrypi:~ $ rm *`  
+
+\# Change directory to `/mnt/`  
+`pi@raspberrypi:~ $ cd /mnt/`
+
+\# Create a directory for Unitus Core  
+`pi@raspberrypi:/mnt $ mkdir unitus`  
+
+\# Change to the `unitus` directory  
+`pi@raspberrypi:/mnt $ cd unitus`  
+
+\# Create `unitus.conf` for Unitus Core   
+`pi@raspberrypi:/mnt/vertcoin $ nano unitus.conf`
+```  
+# merged mining values documentation
+# https://cdn.discordapp.com/attachments/370500771168518155/415547042807676929/Merged-Mining_Guide.pdf
+server=1
+rpcuser=unitusnode
+rpcpassword=yoursecurepasswordgoeshere
+rpcport=6699
+rpcallowip=127.0.0.1
+algo=lyra2re2
+
+# makes client run in background
+daemon=1
+
+# https://jlopp.github.io/bitcoin-core-config-generator/ lopp.net optimizations
+dbcache=100
+maxorphantx=10
+maxmempool=50
+maxconnections=40
+maxuploadtarget=5000
+```  
+
+`ctrl+x` to save  
+
+`* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`  
+```
+pi@raspberrypi:/mnt/unitus $ touch randomfilename
+pi@raspberrypi:/mnt/unitus $ md5sum randomfilename
+d41d8cd98f00b204e9800998ecf8427e  randomfilename
+
+# Clean up 
+pi@raspberrypi:/mnt/unitus $ rm randomfilename
+```   
+
+\# Change directory back home  
+```
+pi@raspberrypi:/mnt/unitus $ cd
+pi@raspberrypi:~ $ pwd
+/home/pi
+```  
+ \# Create soft link (symbolic link) connecting `/mnt/unitus/` <---> `/home/pi/.unitus`  
+`pi@raspberrypi:~ $ sudo ln -s /mnt/unitus/ /home/pi/.unitus`  
+
+\# List all files in home  
+```
+pi@raspberrypi:~ $ ls -a
+.   .bash_history  .bashrc  db-4.8.30.NC         .nano     .selected_editor  .vertcoin
+..  .bash_logout   .config  db-4.8.30.NC.tar.gz  .profile  .unitus           .wget-hsts
+```  
+\# List files in `/home/pi/.unitus`, confirm our configuration file `unitus.conf` is there  
+```
+pi@raspberrypi:~ $ ls .unitus
+unitus.conf
+```  
+
+##### Transfer Unitus Blockchain to USB Flash Drive
+
+When `Unitus Core` is finished syncing to the blockchain, exit `Unitus Core` so that it safely shuts down ensuring no data is corrupted. 
+
+Proceed by running `WinSCP`, you will be met with a `Login` prompt asking for a Host name, Port number, User name and Password. Login to your Raspberry Pi like so, please note that your Raspberry Pi's `IP` address may be different than what is listed below.
+```
+File protocol: SFTP
+Host name: 192.168.1.2
+Port number: 22
+User name: pi
+Password: yourpasswordhere (default: raspberry)
+```
+
+`Default Windows Directory (Unitus): C:\Users\%USER%\AppData\Roaming\Unitus`  
+
+Transfer the folders `blocks` and `chainstate` to the `unitus` folder `/mnt/unitus/` on your USB Flash Drive. This will allow us to side-load the Unitus blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. 
+
+
+#### Edit `crontab` file to start Unitus hourly and on reboot to ensure the process is alive
+Here we will configure the crontab file to start vertcoind as a daemon on reboot and on each hour to ensure vertcoind always has a process thats alive. If vertcoind is already running when the hourly crontab executes it will simply fail to spawn a new process.
+
+\# Configure crontab file to start `unitusd` hourly and on reboot  
+`pi@raspberrypi:~ $ crontab -u pi -e`  
+```
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+
+@reboot vertcoind
+@reboot unitusd
+
+# This is optional, this can cause for an annoying execution of a resource heavy 
+# application on load while troubleshooting an issue. Just be mindful that crontab
+# is setup this way if you choose to use it. Uncomment line to enable.
+#@hourly vertcoind
+#@hourly unitusd
+
+
+```
+`ctrl+x` to save
+
+\# Clean up  
+`pi@raspberrypi:~ $ sudo rm *` 
+
+\# NOTE: Make sure the blockchain has fully tansfered to `/mnt/unitus` before starting `unitusd`
+
+\# Start the `unitus` daemon and start blockchain sync  
+`pi@raspberrypi:~ $ unitusd &`  
+
+\# You can monitor resource usage with `htop`  
+`pi@raspberrypi:~ $ htop`  
+
+#### \# Monitor the `debug.log` of `unitusd` to troubleshoot the `unitusd` process if needed.  
+`pi@raspberrypi:~ $ tailf .unitus/debug.log`  
+
+`ctrl+c` to stop
+
+#### Configure firewall to allow `unitus` traffic  
+\# Escalate to `root` and configure `UFW`  
+`pi@raspberrypi:~ $ sudo su`  
+`root@raspberrypi:/home/pi# ufw allow 50603 comment 'allow unitus core'`  
+`root@raspberrypi:/home/pi# ufw enable`  
+`root@raspberrypi:/home/pi# ufw status`  
+  
+```
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       192.168.1.0/24             # allow SSH from local LAN
+5889                       ALLOW       Anywhere                   # allow vertcoin core
+50603                      ALLOW       Anywhere                   # allow unitus core
+5889 (v6)                  ALLOW       Anywhere (v6)              # allow vertcoin core
+50603 (v6)                 ALLOW       Anywhere (v6)              # allow unitus core
+```
+\# Give up `root`  
+`root@raspberrypi:/home/pi# exit`  
+
+Open a browser window and navigate to your router page, from there you can port forward your Raspberry Pi.  
+`TCP/UDP Port: 50603`  
+
+##### This will make your node public, supporting the health of the Unitus network by keeping it decentralized and populated with one more node.
+
+
+### `* OPTIONAL:`Setup p2pool-vtc  
 
 >P2Pool is a decentralized Bitcoin mining pool that works by creating a peer-to-peer network of miner nodes.
 
@@ -542,7 +774,9 @@ This section gives you the techncial know how of setting up an instance of a Ver
 >
 > P2Pool nodes work on a chain of shares similar to Bitcoin's blockchain. Each node works on a block that includes payouts to the previous shares' owners and the node itself, which can also result in a share if it meets P2Pool's difficulty. 
 
-\# Install `p2pool-vtc` dependencies and `python-pip`   
+`https://github.com/vertcoin-project/p2pool-vtc`
+
+\# Install `p2pool-vtc` dependencies and `python-pip` 
 
 `pi@raspberrypi:~ $ sudo apt-get install python-rrdtool python-pygame python-scipy python-twisted python-twisted-web python-imaging python-pip -y`  
 
@@ -611,7 +845,7 @@ Resolving deltas: 100% (5611/5611), done.
 `pi@raspberrypi:~ $ nano start-p2pool.sh`  
 ```
 NOTE: If you want to allow for merged mining please replace python run_p2pool.py --net vertcoin with this:
-python run_p2pool.py --net vertcoin --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699
+python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699
 ```
 ```
 #!/bin/bash
@@ -622,10 +856,10 @@ python run_p2pool.py --net vertcoin --merged http://unitusnode:yourreallysecureR
 # network 2 = --net vertcoin2
 #
 cd p2pool-vtc
-python run_p2pool.py --net vertcoin
+python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere
 
 # !!! NOTE: If you want to allow for merged mining please replace python run_p2pool.py --net vertcoin with this
-# python run_p2pool.py --net vertcoin --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699
+# python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699
 ```
 
 \# Give execute privileges to `start-p2pool.sh`  
@@ -657,210 +891,6 @@ python run_p2pool.py --net vertcoin
 # m h  dom mon dow   command
 
 @reboot vertcoind
-# Uncomment the line to enable.
-#@reboot unitusd 
-
-# This is optional, this can cause for an annoying execution of a resource heavy 
-# application on load while troubleshooting an issue. Just be mindful that crontab
-# is setup this way if you choose to use it. Uncomment the line to enable.
-@hourly vertcoind 
-#@hourly unitusd
-
-# sleep 15 minutes then start p2pool, allow for blockchain(s) to load first
-@reboot sleep 120; /home/pi/start-p2pool.sh
-```
-`Note:` Running P2Pool 2 minutes after reboot allows the Raspberry Pi resources and time to verify, load the `vertcoin` blockchain and catch up if needed.
-
-\# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
-`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`
-
-#### Documentation
-`https://github.com/vertcoin-project/p2pool-vtc`  
-`https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md`  
-
-## `* EXPIRMENTAL:` Setup Unitus Full Node for merged mining with p2pool-vtc
-
-#### Stability issues have been experienced using locally compiled binaries when syncing to the blockchain. An `armhf` release is prefered over compiling from source. 
-
-A `Unitus` full node may be setup to allow for merged mining rewards when mining with `p2pool-vtc`. Running two full nodes together on the same Raspberry Pi will mean that you will be storing two blockchains on your USB Flash Drive rather than one, and you will be using more resources on load and at idle. 
-
-#### `NOTE:` This section will require compiling `unitus` from source, this is a memory intensive process and can take up to ~2 hours and 30 minutes to compile everything 
-
-\# Install `bitcoin` dependencies `https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md`  
-`pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y`
-
-\# Install `boost` dependencies for `bitcoin`  
-`pi@raspberrypi:~ $ sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y`
- 
-\# Install dependencies for `unitus`  
-`pi@raspberrypi:~ $ sudo apt-get install libminiupnpc-dev libzmq3-dev -y`  
-
-\# Clone `unitusdev` repository into `/home/pi/`  `https://github.com/unitusdev/unitus`  
-`pi@raspberrypi:~ $ git clone https://github.com/unitusdev/unitus.git`  
-
-\# Download Berkley database, build from source and install
-```
-# Download and configure BerkleyDB
-pi@raspberrypi:~ $ wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
-pi@raspberrypi:~ $ tar -xzvf db-4.8.30.NC.tar.gz
-pi@raspberrypi:~ $ cd db-4.8.30.NC/build_unix/
-pi@raspberrypi:~/db-4.8.30.NC/build_unix $ ../dist/configure --enable-cxx
-
-# This will take ~10 minutes on the RPi3
-pi@raspberrypi:~/db-4.8.30.NC/build_unix $ make -j4
-
-# Compile and install BerkleyDB
-pi@raspberrypi:~/db-4.8.30.NC/build_unix $ sudo make install
-
-# Change directories to the cloned git repo in home
-pi@raspberrypi:~/db-4.8.30.NC/build_unix $ cd
-```
-\# Download and build `arm-linux-gnueabihf` compiler from source so we can compile `ARM` compatible binaries
-```
-# Download and install arm-linux-gnueabihf ; This will take ~20 minutes on the RPi3
-pi@raspberrypi:~ $ cd unitus/
-pi@raspberrypi:~/unitus $ cd depends
-pi@raspberrypi:~/unitus/depends $ make HOST=arm-linux-gnueabihf NO_QT=1
-pi@raspberrypi:~/unitus/depends $ cd ..
-```
-\# Configure `unitus` source and build
-
-```
-# Run the autogen.sh to allow for ./configure
-pi@raspberrypi:~/unitus $ ./autogen.sh
-
-# Configure without GUI, use only static libraries, and minimize memory usage for building 
-./configure --without-gui --with-incompatible-bdb --disable-shared --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++ CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768"
-
-# Compile ; This will take ~1 hour 20 minutes to compile on the RPi3
-pi@raspberrypi:~/unitus $ sudo make clean && make
-
-# Copy unitus tools to /usr/bin/ 
-pi@raspberrypi:~/unitus $ cd src
-pi@raspberrypi:~/unitus/src $ sudo cp unitusd unitus-cli unitus-tx /usr/bin/
-
-# Copy unitus tools to USB Flash Drive to avoid having to compile this again
-pi@raspberrypi:~/unitus/src $ sudo cp unitusd unitus-cli unitus-tx /mnt/
-```
-
-\# Change directory to `/mnt/`  
-`pi@raspberrypi:~ $ cd /mnt/`
-
-\# Create a directory for Unitus Core  
-`pi@raspberrypi:/mnt $ sudo mkdir unitus`  
-
-\# Change to the `unitus` directory  
-`pi@raspberrypi:/mnt $ cd unitus`  
-
-\# Create `unitus.conf` for Unitus Core   
-`pi@raspberrypi:/mnt/vertcoin $ sudo nano unitus.conf`
-```
-# merged mining values documentation
-# https://cdn.discordapp.com/attachments/370500771168518155/415547042807676929/Merged-Mining_Guide.pdf
-server=1
-rpcuser=unitusnode
-rpcpassword=yoursecurepasswordgoeshere
-rpcport=6699
-rpcallowip=127.0.0.1
-algo=lyra2re2
-
-# makes client run in background
-daemon=1
-
-# https://jlopp.github.io/bitcoin-core-config-generator/ lopp.net optimizations
-dbcache=100
-maxorphantx=10
-maxmempool=50
-maxconnections=40
-maxuploadtarget=5000
-```  
-`ctrl+x` to save  
-
-`* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`  
-```
-pi@raspberrypi:/mnt/unitus $ touch randomfilename
-pi@raspberrypi:/mnt/unitus $ md5sum randomfilename
-d41d8cd98f00b204e9800998ecf8427e  randomfilename
-
-# Clean up 
-pi@raspberrypi:/mnt/unitus $ rm randomfilename
-```   
-
-\# Change directory back home  
-```
-pi@raspberrypi:/mnt/unitus $ cd
-pi@raspberrypi:~ $ pwd
-/home/pi
-```  
- \# Create soft link (symbolic link) connecting `/mnt/unitus/` <---> `/home/pi/.unitus`  
-`pi@raspberrypi:~ $ sudo ln -s /mnt/unitus/ /home/pi/.unitus`  
-
-\# List all files in home  
-```
-pi@raspberrypi:~ $ ls -a
-.   .bash_history  .bashrc  db-4.8.30.NC         .nano     .selected_editor  .vertcoin
-..  .bash_logout   .config  db-4.8.30.NC.tar.gz  .profile  .unitus           .wget-hsts
-```  
-\# List files in `/home/pi/.unitus`, confirm our configuration file `unitus.conf` is there  
-```
-pi@raspberrypi:~ $ ls .unitus
-unitus.conf
-```  
-
-\# `poweroff` the Raspberry Pi so we can copy the Unitus blockchain over to the USB Flash Drive
-```
-pi@raspberrypi:~ $ vertcoin-cli stop
-pi@raspberrypi:~ $ sudo poweroff
-```
-
-##### Copy Unitus Blockchain to USB Flash Drive
-Once the Raspberry Pi is powered off unplug the micro USB power cable from it, then remove the USB Flash Drive from the Pi and insert it into the computer that you synced Unitus Core on. When Unitus Core is finished syncing the blockchain please navigate to the data directory for Unitus.
-
-`Default Windows Directory (Unitus): C:\Users\%USER%\AppData\Roaming\Unitus`
-
-Copy the folders `blocks` and `chainstate` to the `unitus` folder on your USB Flash Drive. This will allow us to side-load the Unitus blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. Once you have copied the `blocks` and `chainstate` folders for Unitus to the `unitus` folder on the USB Flash Drive please safely remove it as to make sure we do not corrupt the drive. 
-
-Place the USB Flash Drive back into the Raspberry Pi and plug the micro USB cable back into the Raspberry Pi. It will begin to boot, return to your `ssh` command window
-
-\# Wait a minute, then log back in via `SSH`   
-`ssh 192.168.1.2 -l pi`
-
-\# Confirm the Unitus blockchain is in `/home/pi/.unitus`  
-```
-pi@raspberrypi:~ $ ls .unitus
-blocks  chainstate  unitus.conf
-```  
-
-#### Edit `crontab` file to start Unitus hourly and on reboot to ensure the process is alive
-Here we will configure the crontab file to start vertcoind as a daemon on reboot and on each hour to ensure vertcoind always has a process thats alive. If vertcoind is already running when the hourly crontab executes it will simply fail to spawn a new process.
-
-\# Configure crontab file to start `unitusd` hourly and on reboot
-`pi@raspberrypi:~ $ crontab -u pi -e`  
-```
-# Edit this file to introduce tasks to be run by cron.
-#
-# Each task to run has to be defined through a single line
-# indicating with different fields when the task will be run
-# and what command to run for the task
-#
-# To define the time you can provide concrete values for
-# minute (m), hour (h), day of month (dom), month (mon),
-# and day of week (dow) or use '*' in these fields (for 'any').#
-# Notice that tasks will be started based on the cron's system
-# daemon's notion of time and timezones.
-#
-# Output of the crontab jobs (including errors) is sent through
-# email to the user the crontab file belongs to (unless redirected).
-#
-# For example, you can run a backup of all your user accounts
-# at 5 a.m every week with:
-# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
-#
-# For more information see the manual pages of crontab(5) and cron(8)
-#
-# m h  dom mon dow   command
-
-@reboot vertcoind
 @reboot unitusd
 
 # This is optional, this can cause for an annoying execution of a resource heavy 
@@ -869,66 +899,71 @@ Here we will configure the crontab file to start vertcoind as a daemon on reboot
 #@hourly vertcoind
 #@hourly unitusd
 
+# sleep 10 minutes then start p2pool, allow for blockchain(s) to load first
+@reboot sleep 600; /home/pi/start-p2pool.sh
+```
+`Note:` Running P2Pool 10 minutes after reboot allows the Raspberry Pi resources and time to verify, load the `vertcoin` blockchain, `unitus` blockchain and catch up if needed.
+
+\# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
+`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`
+
+#### Start p2pool-vtc
+
+\# Change directories to `p2pool-vtc/`  
+`pi@raspberrypi:~ $ cd p2pool-vtc`  
+
+> If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
+
+\# Network 1: `-net vertcoin`     
+\# Network 2: `-net vertcoin2`   
+
+\# Launch `p2pool` without merged mining  
+`python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere`
+
+\# Launch `p2pool` with merged mining  
+`python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699`
+
+#### `NOTE:` Wait until p2pool is caught up to the shares on the p2pool network before trying to mine or you will recieve stratum timeouts. If the `unitusd` daemon is not fully synced you will not be able to properly merge mine.
 
 ```
-`ctrl+x` to save
-
-\# Clean up  
-`pi@raspberrypi:~ $ sudo rm -r db-4.8.30.NC db-4.8.30.NC.tar.gz unitus` 
-
-\# Reboot and allow `crontab` to execute `unitusd` and `vertcoind`  
-`pi@raspberrypi:~ $ sudo reboot`
-
-\# Wait a minute, then log back in via `SSH`  
-`ssh 192.168.1.2 -l pi`  
-
-\# You can monitor your processes in real time with `htop` to confirm the processes spawn as expected  
-`pi@raspberrypi:~ $ htop`  
-
-#### \# Monitor the `debug.log` of `unitusd` to troubleshoot the `unitusd` process if needed.  
-`pi@raspberrypi:~ $ tailf .unitus/debug.log`  
-
-`ctrl+c` to stop
-
+pi@raspberrypi:~ $ unitus-cli getblockchaininfo
+{
+  "chain": "main",
+  "blocks": 1393285,
+  "headers": 1393285,
+  "bestblockhash": "9b4fcc8482e164e7a9a60b5f24ea1532662919634cd8dd9effeadd656b5bb24a",
+  "difficulty": 47777.40182882061,
+  "difficulty_lyra2re2": 47777.40182882061,
+  "difficulty_skein": 190247.1287273991,
+  "difficulty_argon2d": 0.06362806683689816,
+  "difficulty_yescrypt": 0.9089585153746931,
+  "difficulty_x11": 18000603.30642917,
+  "mediantime": 1525309320,
+  "verificationprogress": 0.9999996620202053,
+  "chainwork": "13b350000000000000000000000000000000000000000010d37b576f4191dc2a",
+  "pruned": false,
+  "softforks": [
+    {
+      "id": "bip34, bip65, bip66",
+      "version": 4,
+      "enforce": {
+        "status": false,
+        "found": 539,
+        "required": 850,
+        "window": 1000
+      },
+      "reject": {
+        "status": false,
+        "found": 539,
+        "required": 900,
+        "window": 1000
+      }
+    }
+  ],
+  "bip9_softforks": {
+  }
+}
 ```
-# Troubleshooting example:
-pi@raspberrypi:~ $ tailf .unitus/debug.log
-2018-04-27 02:29:02 * Using 90.0MiB for in-memory UTXO set (plus up to 47.7MiB of unused mempool space)
-2018-04-27 02:29:02 init message: Loading block index...
-2018-04-27 02:29:02 Opening LevelDB in /home/pi/.unitus/blocks/index
-2018-04-27 02:29:02 Corruption: 1 missing files; e.g.: /home/pi/.unitus/blocks/index/000005.ldb
-2018-04-27 02:29:02 : Error opening block database.
-Please restart with -reindex or -reindex-chainstate to recover.
-2018-04-27 02:29:02 Aborted block database rebuild. Exiting.
-2018-04-27 02:29:02 scheduler thread interrupt
-2018-04-27 02:29:02 Shutdown: In progress...
-2018-04-27 02:29:02 Shutdown: done
-```
-
-##### Configure firewall to allow `unitus` traffic  
-\# Escalate to `root` and configure `UFW`  
-`pi@raspberrypi:~ $ sudo su`  
-`root@raspberrypi:/home/pi# ufw allow 50603 comment 'allow unitus core'`  
-`root@raspberrypi:/home/pi# ufw enable`  
-`root@raspberrypi:/home/pi# ufw status`  
-```
-Status: active
-
-To                         Action      From
---                         ------      ----
-22                         ALLOW       192.168.1.0/24             # allow SSH from local LAN
-5889                       ALLOW       Anywhere                   # allow vertcoin core
-50603                      ALLOW       Anywhere                   # allow unitus core
-5889 (v6)                  ALLOW       Anywhere (v6)              # allow vertcoin core
-50603 (v6)                 ALLOW       Anywhere (v6)              # allow unitus core
-```
-\# Give up `root`  
-`root@raspberrypi:/home/pi# exit`  
-
-Open a browser window and navigate to your router page, from there you can port forward your Raspberry Pi.  
-`TCP/UDP Port: 50603`  
-
-##### This will make your node public, supporting the health of the Unitus network by keeping it decentralized and populated with one more node.
 
 ## References
 `[1] How to Create Your Own Bitcoin Full Node With a Raspberry Pi http://www.raspberrypifullnode.com/`  
