@@ -134,8 +134,9 @@ Open a web browser page and navigate to your router page and identify the `IP` a
 
 \# Download and install useful software packages  
 ```
-pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get install git 
+pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get install git fail2ban
 ```
+`Fail2ban` is a daemon that can be run on your server to dynamically block clients that fail to authenticate correctly with your services repeatedly. This can help mitigate the affect of brute force attacks and illegitimate users of your services like `SSH`.
 
 \# Install `bitcoin` dependencies `https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md`  
 ```
