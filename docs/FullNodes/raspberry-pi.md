@@ -659,7 +659,7 @@ Use `WinSCP` to transfer the `bootstrap.dat` file to the now empty directory `/m
 
 \# Reasons to use P2Pool as your mining pool `[4]`
 
-    1. You are in charge.
+    1. You are in charge
     2. No single point of failure in the pool
     3. It's fun for geeks to learn
     4. There are small statistical advantages increasing income vs traditional pools
@@ -860,8 +860,8 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 Network 1: `--net vertcoin`     
 Network 2: `--net vertcoin2`   
 
-\# Launch `p2pool` without merged mining, ignore the hangup signal and keep running.
-`nohup python run_p2pool.py --net vertcoin2 -a Vd1QbVRkY79EXDFCEhp2fhTpWc6pFUADSp --max-conns 8 --outgoing-conns 4 &`  
+\# Launch `p2pool` without merged mining, ignore the hangup signal and keep running     
+`pi@raspberrypi:~/p2pool-vtc $ nohup python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4 &`  
 
 \# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
 
