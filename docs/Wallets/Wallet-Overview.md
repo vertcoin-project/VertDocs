@@ -35,7 +35,7 @@ Desktop wallets fall into two main categories known as "full nodes" or "light" c
  
 #### Mobile Wallets
 
-Mobile wallets are simply vertcoin wallets designed for a mobile device. This means they can easily scan QR codes, are easy to navigate with a touch screen, and are accessible while on the move. The [Coinomi](https://twitter.com/kimionis/status/982314290244878336) mobile wallet for iOS and Android allows you access to send and receive Vertcoin.
+Mobile wallets are simply vertcoin wallets designed for a mobile device. This means they can easily scan QR codes, are easy to navigate with a touch screen, and are accessible while on the move. The Coinomi mobile wallet for [iOS](https://itunes.apple.com/us/app/coinomi-wallet/id1333588809) and [Android](https://play.google.com/store/apps/details?id=com.coinomi.wallet) allows you access to send and receive Vertcoin.
 
 Mobile wallets are almost always "light" clients in that they do not store a full copy of the blockchain.
  
