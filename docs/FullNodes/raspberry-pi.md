@@ -373,7 +373,10 @@ blocks  chainstate  vertcoin.conf
 
 ### 7.) Create swap file space for Raspberry Pi & Start Syncing
 
-Here we ensure that `dphys-swapfile` is installed and configured to save the swap file in `/mnt/swap`, allocate `1024 MB` of swap file space. You can choose a smaller amount of space for a swap file, I would not recommend going lower than `300 MB`. 
+>Swap space in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space. While swap space can help machines with a small amount of RAM, it should not be considered a replacement for more RAM. Swap space is located on hard drives, which have a slower access time than physical memory.  
+`https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s1-swap-what-is.html`
+
+Ensure that `dphys-swapfile` is installed and configured to save the swap file in `/mnt/swap`, allocate `1024 MB` of swap file space. You can choose a smaller amount of space for a swap file, I would not recommend going lower than `300 MB`.  
 
 \# Install `dphys-swapfile` 
 ```
