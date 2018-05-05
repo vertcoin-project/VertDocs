@@ -836,9 +836,6 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 ```
 `Merged Mining P2Pool Note:` Running P2Pool 10 minutes after reboot allows the Raspberry Pi resources and time to verify, load the `vertcoin` blockchain, `unitus` blockchain and catch up if needed.
 
-\# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
-`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`
-
 #### Start p2pool-vtc
 
 \# Change directories to `p2pool-vtc/`  
@@ -849,9 +846,11 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 \# Network 1: `-net vertcoin`     
 \# Network 2: `-net vertcoin2`   
 
-\# Launch `p2pool` without merged mining  
-`python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere`
+\# Launch `p2pool` without merged mining, ignore the hangup signal and keep running.
+`nohup python run_p2pool.py --net vertcoin2 -a Vd1QbVRkY79EXDFCEhp2fhTpWc6pFUADSp --max-conns 8 --outgoing-conns 4 &`  
 
+\# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
+`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`
 
 -----------------------------------------
 
