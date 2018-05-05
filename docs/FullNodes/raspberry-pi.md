@@ -842,8 +842,8 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 
 > If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
 
-Network 1: `-net vertcoin`     
-Network 2: `-net vertcoin2`   
+Network 1: `--net vertcoin`     
+Network 2: `--net vertcoin2`   
 
 \# Launch `p2pool` without merged mining, ignore the hangup signal and keep running.
 `nohup python run_p2pool.py --net vertcoin2 -a Vd1QbVRkY79EXDFCEhp2fhTpWc6pFUADSp --max-conns 8 --outgoing-conns 4 &`  
@@ -909,9 +909,10 @@ daemon=1
 dbcache=100
 maxorphantx=10
 maxmempool=50
-maxconnections=40
+maxconnections=15
 maxuploadtarget=5000
 ```  
+>The more connections, the faster your node is notified of new blocks and avoids wasting work, and the faster it can include transactions with fees in the coinbase, the faster it will propagate a P2Pool block minimizing chances it would become orphan. The less connections, the less bandwidth used and the lower the latency. `[4]`
 
 `ctrl+x` to save  
 
@@ -1049,9 +1050,9 @@ Open a browser window and navigate to your router page, from there you can port 
 This will make your node public, supporting the health of the Unitus network by keeping it decentralized and populated with one more node.
 
 \# Launch `p2pool` with merged mining  
-`python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699`
+`nohup python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699 &`
 
-`NOTE:` Wait until p2pool is caught up to the shares on the p2pool network before trying to mine or you will recieve stratum timeouts. If the `unitusd` daemon is not fully synced you will not be able to properly merge mine.
+`NOTE:` Wait until p2pool is caught up to about 1/3 of the shares on the p2pool network before trying to mine or you will recieve stratum timeouts. If the `unitusd` daemon is not fully synced you will not be able to properly merge mine.
 
 ```
 pi@raspberrypi:~ $ unitus-cli getblockchaininfo
