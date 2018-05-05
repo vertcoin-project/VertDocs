@@ -613,7 +613,7 @@ pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
   "warnings": ""
 }
 pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
-30
+14
 ```
 
 #### Failing to connect to peers  
@@ -1095,6 +1095,8 @@ pi@raspberrypi:~ $ unitus-cli getblockchaininfo
   "bip9_softforks": {
   }
 }
+pi@raspberrypi:~ $ unitus-cli getconnectioncount
+14
 ```
 
 ## References
