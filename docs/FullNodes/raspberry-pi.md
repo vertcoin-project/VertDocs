@@ -829,7 +829,6 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 # application on load while troubleshooting an issue. Just be mindful that crontab
 # is setup this way if you choose to use it. Uncomment line to enable.
 #@hourly vertcoind
-#@hourly unitusd
 
 # sleep 2 minutes then start p2pool, allow for vertcoin blockchain to load first
 @reboot sleep 120; /home/pi/start-p2pool.sh
@@ -843,14 +842,19 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 
 > If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
 
-\# Network 1: `-net vertcoin`     
-\# Network 2: `-net vertcoin2`   
+Network 1: `-net vertcoin`     
+Network 2: `-net vertcoin2`   
 
 \# Launch `p2pool` without merged mining, ignore the hangup signal and keep running.
 `nohup python run_p2pool.py --net vertcoin2 -a Vd1QbVRkY79EXDFCEhp2fhTpWc6pFUADSp --max-conns 8 --outgoing-conns 4 &`  
 
 \# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
-`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`
+
+Network 1:  
+`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`  
+
+Network 2:    
+`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin2/log`
 
 -----------------------------------------
 
