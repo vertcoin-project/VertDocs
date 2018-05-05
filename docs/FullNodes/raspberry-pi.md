@@ -141,27 +141,26 @@ Open a web browser page and navigate to your router page and identify the `IP` a
 \# Change `root` password  
 `pi@raspberrypi:~ $ sudo passwd root`  
 ```
-    # *[ OPTIONAL ]: DISABLE WIRELESS & BLUETOOTH
+# *[ OPTIONAL ]: DISABLE WIRELESS & BLUETOOTH
   
-    # Create our blacklist file  
-    pi@raspberrypi:~ $ cd /etc/modprobe.d/
-    pi@raspberrypi:/etc/modprobe.d $ sudo nano raspi-blacklist.conf
+# Create our blacklist file  
+pi@raspberrypi:~ $ cd /etc/modprobe.d/
+pi@raspberrypi:/etc/modprobe.d $ sudo nano raspi-blacklist.conf
+   
+# disable wireless
+blacklist brcmfmac
+blacklist brcmutil
 
+# disable bluetooth
+blacklist btbcm
+blacklist hci_uart
     
-    # disable wireless
-    blacklist brcmfmac
-    blacklist brcmutil
+ctrl+x to save
+    
+# Change directories back home    
+pi@raspberrypi:/etc/modprobe.d $ cd
 
-    # disable bluetooth
-    blacklist btbcm
-    blacklist hci_uart
-    
-    ctrl+x to save
-    
-    # Change directories back home    
-    pi@raspberrypi:/etc/modprobe.d $ cd
-
-    # NOTE: Changes will not take effect until after reboot.
+# NOTE: Changes will not take effect until after reboot.
 ```
 \# Download latest stable version of vertcoin-core for `ARM` architecture to Raspberry Pi  
 `pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.0/vertcoind-v0.13.0-linux-armhf.zip`  
@@ -291,6 +290,8 @@ Ensure `Optimize connection buffer size` is unchecked for an easy tansfer.
 `Default Windows Directory (Vertcoin): C:\Users\%USER%\AppData\Roaming\Vertcoin`  
 
 While logged into your Raspberry Pi, create a new folder named `vertcoin` on your USB Flash Drive, copy the folders `blocks` and `chainstate` to the `/mnt/vertcoin` folder on your USB Flash Drive. This will allow us to side-load the Vertcoin blockchain and bootstrap faster than if we had the Raspberry Pi do all the work. 
+
+Consider transferring the `peers.dat` file found in Vertcoin's data directory, this can help prevent failing to connect to peers during initial bootstrapping process. 
 
 ![Transfer](https://i.imgur.com/VC7DpDa.png)
 
