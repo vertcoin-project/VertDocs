@@ -307,6 +307,23 @@ Move back over to your `SSH` session with your Raspberry Pi...
 \# Change directory to `/mnt/vertcoin`  
 `pi@raspberrypi:~ $ cd /mnt/vertcoin`
 
+`NOTE:` If you plan on making your Raspberry Pi just a full node please consider leaving `maxconnections` set to 40, as the more peers you connect to, the greater amount of peers you can propagate blocks to. The network benefits greatly from peers with many connections. If you plan on setting up a P2Pool the documentation below says to set `maxconnections=15` in your `vertcoin.conf` This has been done to minimize the DOA % rate and maximize share efficency on less powerful hardware like the Raspberry Pi. 
+```
+Raspberry Pi Config: 
+# Set database cache size in megabytes; machines sync faster with a larger cache. Recommend 
+# setting as high as possible based upon machine's available RAM
+dbcache=100
+# Keep at most <n> unconnectable transactions in memory
+maxorphantx=10
+# Keep the transaction memory pool below <n> megabytes
+maxmempool=50
+
+Low Bandwidth Usage Config: 
+# Maintain at most N connections to peers
+maxconnections=20  
+# Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit  
+maxuploadtarget=500  
+```
 \# Create `vertcoin.conf` for Vertcoin Core  
 `pi@raspberrypi:/mnt/vertcoin $ sudo nano vertcoin.conf`
 ```
@@ -321,7 +338,8 @@ daemon=1
 dbcache=100
 maxorphantx=10
 maxmempool=50
-maxconnections=15
+# leave maxconnections at 40 for full node; 15 for full node + p2pool
+maxconnections=40
 maxuploadtarget=5000
 ```  
 `ctrl+x` to save   
