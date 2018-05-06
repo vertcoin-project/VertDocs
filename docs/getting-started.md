@@ -2,7 +2,7 @@
 
 ## What is Vertcoin?
 
-Vertcoin is a decentralized digital currency that can be sent from peer-to-peer over the internet. Though similar to Litecoin and Bitcoin, Vertcoin has one major difference; pledged ASIC resistance and user governance. An enforced social contract that exists in the Vertcoin community promising to fork proof-of-work algorithms in order to resist ASIC miners from being used on the Vertcoin network allows for user governance of the Vertcoin network. Discouraging development of ASIC's via this enforced social contract keeps the barrier to entry for mining accessible. While this may seem like a minor change, it has larger implications when it comes to the fair distribution, politics, and decentralization of the coin. Vertcoin stays true to the original vision of cryptocurrency: a financial system owned by its users, the people’s coin.
+Vertcoin is a decentralized digital currency that can be sent from peer-to-peer over the internet. Though similar to Litecoin and Bitcoin, Vertcoin has one major difference; pledged ASIC resistance and user governance. An enforced social contract that exists in the Vertcoin community promising to fork proof-of-work algorithms in order to resist ASIC miners from being used on the Vertcoin network allows for user governance of the Vertcoin network. Discouraging development of ASICs via this enforced social contract keeps the barrier to entry for mining accessible. While this may seem like a minor change, it has larger implications when it comes to the fair distribution, politics, and decentralization of the coin. Vertcoin stays true to the original vision of cryptocurrency: a financial system owned by its users, the people’s coin.
 
 
 
