@@ -115,10 +115,15 @@ Open a web browser page and navigate to your router page and identify the `IP` a
 \# Download and install useful software packages  
 `pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get install git fail2ban`
 
-`Fail2ban` is a daemon that can be run on your server to dynamically block clients that fail to authenticate correctly with your services repeatedly. This can help mitigate the affect of brute force attacks and illegitimate users of your services like `SSH`.  
-`Fail2ban documentation: https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server`
+>`Fail2ban` is a daemon that can be run on your server to dynamically block clients that fail to authenticate correctly with your services repeatedly. This can help mitigate the affect of brute force attacks and illegitimate users of your services like `SSH`.  
+```
+Fail2ban Documentation: https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server`
+```
 
-\# Install `bitcoin` dependencies `https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md`  
+\# Install `bitcoin` dependencies 
+```
+Bitcoin Unix Build Notes: https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+```  
 `pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 -y`  
 
 
@@ -270,6 +275,8 @@ lost+found  vertcoin
 
 ### 6.) Transfer Blockchain to USB Flash Drive, Create `vertcoin.conf` & Soft Link to USB Flash Drive
 
+>WinSCP (Windows Secure Copy) is a free and open-source SFTP, FTP, WebDAV, Amazon S3 and SCP client for Microsoft Windows. Its main function is secure file transfer between a local and a remote computer. Beyond this, WinSCP offers basic file manager and file synchronization functionality. For secure transfers, it uses Secure Shell (SSH) and supports the SCP protocol in addition to SFTP.
+
 Download and install `WinSCP:` `https://winscp.net/eng/download.php`
 
 When `Vertcoin Core` is finished syncing to the blockchain, exit `Vertcoin Core` so that it safely shuts down ensuring no data is corrupted. 
@@ -300,6 +307,23 @@ Move back over to your `SSH` session with your Raspberry Pi...
 \# Change directory to `/mnt/vertcoin`  
 `pi@raspberrypi:~ $ cd /mnt/vertcoin`
 
+`NOTE:` If you plan on making your Raspberry Pi just a full node please consider leaving `maxconnections` set to 40, as the more peers you connect to, the greater amount of peers you can propagate blocks to. The network benefits greatly from peers with many connections. If you plan on setting up a P2Pool the documentation below says to set `maxconnections=15` in your `vertcoin.conf` This has been done to minimize the DOA % rate and maximize share efficency on less powerful hardware like the Raspberry Pi. 
+```
+Raspberry Pi Config: 
+# Set database cache size in megabytes; machines sync faster with a larger cache. Recommend 
+# setting as high as possible based upon machine's available RAM
+dbcache=100
+# Keep at most <n> unconnectable transactions in memory
+maxorphantx=10
+# Keep the transaction memory pool below <n> megabytes
+maxmempool=50
+
+Low Bandwidth Usage Config: 
+# Maintain at most N connections to peers
+maxconnections=20  
+# Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit  
+maxuploadtarget=500  
+```
 \# Create `vertcoin.conf` for Vertcoin Core  
 `pi@raspberrypi:/mnt/vertcoin $ sudo nano vertcoin.conf`
 ```
@@ -314,7 +338,8 @@ daemon=1
 dbcache=100
 maxorphantx=10
 maxmempool=50
-maxconnections=15
+# leave maxconnections at 40 for full node; 15 for full node + p2pool
+maxconnections=40
 maxuploadtarget=5000
 ```  
 `ctrl+x` to save   
@@ -337,6 +362,8 @@ You can do the same by passing parameters to `P2Pool`:
 >`NOTE:` Orphans will quickly rise if you have very few connections (they are the means to be notified of other shares after all). I would prefer reducing bitcoind connections before P2Pool's. `[4]`
 
 >In my experience you can get as low as 6 total connections (3 in, 3 out) without noticeable efficiency changes. The default values seem overkill (6 outgoing, 40 incoming). The large number of incoming connections (--max-conns) is designed to help the whole network (some nodes are behind firewalls that don't allow incoming connections). You probably should allow more incoming connections (and check that your network setup allows incoming connections) to do your part in helping the network. `[4]`
+
+`PERFORMANCE INFO:` Using the above tunings for `vertcoind` and `p2pool-vtc` reflects a 1.5% DOA rate over 14 hours of hashing with a GTX 1070 with 114% shares efficiency.
 
 -----------------------------------------
 
@@ -650,7 +677,7 @@ Use `WinSCP` to transfer the `bootstrap.dat` file to the now empty directory `/m
 
 \# Reasons to use P2Pool as your mining pool `[4]`
 
-    1. You are in charge.
+    1. You are in charge
     2. No single point of failure in the pool
     3. It's fun for geeks to learn
     4. There are small statistical advantages increasing income vs traditional pools
@@ -701,6 +728,8 @@ You can do the same by passing parameters to `P2Pool`:
 
 >In my experience you can get as low as 6 total connections (3 in, 3 out) without noticeable efficiency changes. The default values seem overkill (6 outgoing, 40 incoming). The large number of incoming connections (--max-conns) is designed to help the whole network (some nodes are behind firewalls that don't allow incoming connections). You probably should allow more incoming connections (and check that your network setup allows incoming connections) to do your part in helping the network. `[4]`
 
+`PERFORMANCE INFO:` Using the above tunings for `vertcoind` and `p2pool-vtc` reflects a 1.5% DOA rate over 14 hours of hashing with a GTX 1070 with 114% shares efficiency.
+![PoolPerformance](http://i.imgur.com/xOhYXh8.png)
 -----------------------------------------
 
 `p2pool-vtc Documentation: https://github.com/vertcoin-project/p2pool-vtc`
@@ -849,8 +878,8 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 Network 1: `--net vertcoin`     
 Network 2: `--net vertcoin2`   
 
-\# Launch `p2pool` without merged mining, ignore the hangup signal and keep running.
-`nohup python run_p2pool.py --net vertcoin2 -a Vd1QbVRkY79EXDFCEhp2fhTpWc6pFUADSp --max-conns 8 --outgoing-conns 4 &`  
+\# Launch `p2pool` without merged mining, ignore the hangup signal and keep running     
+`pi@raspberrypi:~/p2pool-vtc $ nohup python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4 &`  
 
 \# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
 
