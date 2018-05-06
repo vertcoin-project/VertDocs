@@ -23,4 +23,4 @@ While that is mostly up to preference, there are three primary programs that are
 
 ## References
 `[1] Mastering Bitcoin 2nd Edition - Bitcoin Mining - https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch02.asciidoc#bitcoin-mining`  
-`[2] Mastering Bitcoin 2nd Edition - Mining Transactions in Blocks - https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch02.asciidoc#bitcoin-mining`
+`[2] Mastering Bitcoin 2nd Edition - Mining Transactions in Blocks - https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch02.asciidoc#mining-transactions-in-blocks`
