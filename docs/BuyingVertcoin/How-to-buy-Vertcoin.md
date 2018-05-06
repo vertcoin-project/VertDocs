@@ -79,6 +79,8 @@ Now that you have withdrawn your Vertcoin from Bittrex you will see the coins ar
 ### LiteBit
 If you do no want to or cannot use Coinbase and Bittrex, you can use [LiteBit](https://litebit.eu). Here it is possible to buy and sell Vertcoin (and other coins) without converting to Bitcoin first. There is a catch, however: LiteBit has a spread between buy and sell prices of about 5%. This means that using $100 USD to purchase VTC will give the buyer $95 USD worth of it. Selling this Vertcoin immediately (on Litebit) will give the user $90 USD.
 
+Please observe that you also can buy LiteBit Credits from the same site. Each LiteBit Credit costs 1 Eur. The upside of using LiteBit Credits is that if you directly wire, or send via SEPA, money from your bank account to LiteBit it'll buy from that exact moments price. This in cryptocurrency can mean huge difference for you as a buyer. By using LiteBit Credits you as a buyer can choose the exact moment to buy, and at a better price hopefully. As with cryptocurrencies, you have the freedom to sell your unused LiteBit Credits back to the exchange at a very slight loss, if you later on decide against investing.  
+
 
 #### Creating an account
 Creating an account on Litebit requires basic details like your name and e-mail address. There are 3 verification tiers. A higher verification tier allows a user to make greater purchases. Verification methods vary from bank account validation to copying a bill or bank note. These processes are straightforward and can be done in a couple of minutes.
