@@ -9,7 +9,7 @@ Vertcoin’s peer-to-peer network is composed of network "nodes," run mostly by 
 
 Running a node, however, requires a permanently connected system with enough resources to process all vertcoin transactions. Vertcoin nodes also transmit and receive vertcoin transactions and blocks, consuming internet bandwidth. If your internet connection is limited, has a low data cap, or is metered (charged by the gigabit), you should probably not run a vertcoin node on it, or run it in a way that limits its bandwidth usage. `[1]`
 
-Despite these resource requirements, hundreds of volunteers run vertcoin nodes. Some are running on systems as simple as a Raspberry Pi (a $35 USD computer the size of a pack of cards). Many volunteers also run vertcoin nodes on rented servers, usually some variant of Linux. A Virtual Private Server (VPS) or Cloud Computing Server instance can be used to run a vertcoin node. Such servers can be rented for $25 to $50 USD per month from a variety of providers. `[1]`
+Despite these resource requirements, hundreds of volunteers run vertcoin nodes. Some are running on systems as simple as a [Raspberry Pi](/FullNodes/raspberry-pi/) (a $35 USD computer the size of a pack of cards). Many volunteers also run vertcoin nodes on rented servers, usually some variant of Linux. A Virtual Private Server (VPS) or Cloud Computing Server instance can be used to run a vertcoin node. Such servers can be rented for $25 to $50 USD per month from a variety of providers. `[1]`
 
 ### Why run a node?
 
