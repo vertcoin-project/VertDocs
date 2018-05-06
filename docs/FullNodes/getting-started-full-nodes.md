@@ -1,6 +1,6 @@
 # Getting Started with Full Nodes
 
-![NodeMap](https://i.imgur.com/Y30Sl9L.png)
+![NodeMap](https://i.imgur.com/rzj5SU2.png)
 [Vertcoin Node Scanner](https://scanner.vertcoin.org/nodes) 
 
 ### What is a Full Node?
