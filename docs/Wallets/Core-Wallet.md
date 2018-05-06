@@ -74,9 +74,9 @@ The first time you run Vertcoin Core, it wil ask where you would like to store i
 
 
 !!!caution "Note"
-    The Vertcoin Core Wallet requires at least 2 GB of space on your computer to store the blockchain. Downloading the entire chain for the for time may take a while.
+    The Vertcoin Core Wallet requires at least 2 GB of space on your computer to store the blockchain. Downloading the entire chain may take a while.
 
-As the blockchain downloads, you'll see progress displayed as well as the latest block synced. Every time Vertcoin Core is launced, your local copy of the blockchain will need to be synced to the current block.
+As the blockchain downloads, you'll see progress displayed as well as the latest block synced. Every time Vertcoin Core is launched, your local copy of the blockchain will need to be synced to the current block.
 
 
 
