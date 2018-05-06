@@ -1,5 +1,5 @@
-# Vertcoin Hardware Wallets
-Hardware wallets are devices that operate a secure self-contained bitcoin wallet on special-purpose hardware. They are operated via USB with a desktop web browser or via near-field-communication (NFC) on a mobile device. By handling all vertcoin-related operations on the specialized hardware, these wallets are considered very secure and suitable for storing large amounts of bitcoin.`[1]`
+# Hardware Wallets
+Hardware wallets are devices that operate a secure self-contained bitcoin wallet on special-purpose hardware. They are operated via USB with a desktop web browser or via near-field-communication (NFC) on a mobile device. By handling all bitcoin-related operations on the specialized hardware, these wallets are considered very secure and suitable for storing large amounts of bitcoin.`[1]`
 
 ## Ledger
 Currently the only Hardware Wallet that supports Vertcoin is [Ledger](https://www.ledgerwallet.com/). Ledger has included detailed instructions to accompany their hardware wallet found [here](https://www.ledgerwallet.com/start/ledger-nano-s), the wallet interface managed via Google Chrome apps. Similar to other wallets, Ledger requires you write down a 24 word seed phrase and safeguard in the event that you lose or damage the device.
