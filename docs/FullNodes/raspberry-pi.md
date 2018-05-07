@@ -728,8 +728,8 @@ You can do the same by passing parameters to `P2Pool`:
 
 >In my experience you can get as low as 6 total connections (3 in, 3 out) without noticeable efficiency changes. The default values seem overkill (6 outgoing, 40 incoming). The large number of incoming connections (--max-conns) is designed to help the whole network (some nodes are behind firewalls that don't allow incoming connections). You probably should allow more incoming connections (and check that your network setup allows incoming connections) to do your part in helping the network. `[4]`
 
-`PERFORMANCE INFO:` Using the above tunings for `vertcoind` and `p2pool-vtc` reflects a 1.5% DOA rate over 14 hours of hashing with a GTX 1070 with 114% shares efficiency.
-![PoolPerformance](http://i.imgur.com/xOhYXh8.png)
+`PERFORMANCE INFO:` Using the above tunings for `vertcoind` and `p2pool-vtc` reflects a 1.6% DOA rate over 47 hours of hashing with a GTX 1070 with 103% shares efficiency, 17 shares total with 1 orphaned share.
+![PoolPerformance](https://i.imgur.com/Ekxpa0Y.png)
 -----------------------------------------
 
 `p2pool-vtc Documentation: https://github.com/vertcoin-project/p2pool-vtc`
