@@ -185,3 +185,4 @@ $ mkdocs build --help
 - [] Update Getting Started
 - [] Update How to Buy Vertcoin
 - [] Update Contributions
+- [] Nvidia Mining on Linux - Sam Sepiol
