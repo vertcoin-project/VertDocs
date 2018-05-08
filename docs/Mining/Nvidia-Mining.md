@@ -275,14 +275,17 @@ Once Ubuntu Server 16.04 has been successfully written to the USB Flash Drive, s
 ### Install Ubuntu Server 16.04 to Mining Rig
 Power on your Nvidia mining rig and access your `BIOS` screen, this is typically performed with the `DEL` or `ESC` key during the boot sequence. Ensure the USB Flash Drive that contains Ubuntu Server is set to the first position in the boot priority. Exit and save your `BIOS` changes if any needed to be made. 
 
-![](https://i.imgur.com/if05jsI.png)
-![](https://i.imgur.com/2XXwRFh.png)
-![](https://i.imgur.com/HAjrTpp.png)
-![](https://i.imgur.com/CBEh1Us.png)
-![](https://i.imgur.com/QAaTmbz.png)
-![](https://i.imgur.com/EpoEH34.png)
-![](https://i.imgur.com/mesAFSa.png)
-![](https://i.imgur.com/nVzzmXj.png)
+![Boot](https://i.imgur.com/if05jsI.png)
+![Hostname](https://i.imgur.com/2XXwRFh.png)
+![User](https://i.imgur.com/HAjrTpp.png)
+![HomeDir](https://i.imgur.com/CBEh1Us.png)
+![Partition](https://i.imgur.com/QAaTmbz.png)
+![Updates](https://i.imgur.com/EpoEH34.png)  
+
+Select `OpenSSH` server using the spacebar and continue. `OpenSSH` will allow us to control the mining rig over the LAN connection.  
+
+![PkgSelect](https://i.imgur.com/mesAFSa.png)
+![GrubLoader](https://i.imgur.com/nVzzmXj.png)
 
 -----------------------------------------
 
@@ -301,19 +304,19 @@ enp1s0    Link encap:Ethernet  HWaddr 00:00:00:00:00:00
           collisions:0 txqueuelen:1000 
           RX bytes:159926011 (159.9 MB)  TX bytes:12029142 (12.0 MB)
 ```
-`NOTE` the `IP` address of your mining rig, you will login to the miner via this address.  
+`NOTE` the `IP` address of your mining rig, you will login to the miner using this address.  
 
 We will access the Nvidia mining rig through an `SSH` session on our Windows computer. I like to use `Git Bash` which is included in the Windows [download](https://git-scm.com/downloads) of `Git`.
 
 `Git download link: https://git-scm.com/downloads`  
 
 \# Open `Git Bash` and ...  
-`~ $ ssh 192.168.1.2 -l miner`  
+`~ $ ssh 192.168.1.11 -l miner`  
 
 \# Download and install latest system updates  
 `miner@vertminer:~$ sudo apt-get update ; sudo apt-get upgrade -y `
 
-\# Add Vertcoin PPA; install Vertcoin & create data directory
+\# Add Vertcoin PPA; install Vertcoin & create data directory  
 `miner@vertminer:~$ sudo add-apt-repository ppa:vertcoin/ppa`  
 `miner@vertminer:~$ sudo apt-get update`  
 `miner@vertminer:~$ sudo apt-get install vertcoind`  
@@ -336,7 +339,7 @@ driver   : nvidia-390 - third-party free
 driver   : xserver-xorg-video-nouveau - distro free builtin
 driver   : nvidia-384 - third-party free
 ```  
-\# Install Nvidia graphics driver 
+\# Install Nvidia graphics driver   
 `miner@vertminer:~$ sudo apt-get install nvidia-396`  
 
 \# Download and install latest CUDA toolkit `https://developer.nvidia.com/cuda-toolkit`  
@@ -360,7 +363,7 @@ miner@vertminer:~$ mv cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64 cuda-repo-ub
 `miner@vertminer:~$ sudo nvidia-xconfig ; sudo reboot`  
 
 \# Wait a minute, then log back in via `SSH`  
-`~ ssh 192.168.1.2 -l miner` 
+`~ ssh 192.168.1.11 -l miner` 
 
 \# Enable fan speed adjustment for multiple GPUs  
 ```
@@ -435,22 +438,22 @@ miner@vertminer:~$ DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-setting
 
 -----------------------------------------
 
-## 4.) Transfer Blockchain to Ubuntu Server
+### 4.) Transfer Blockchain to Ubuntu Server
 >WinSCP (Windows Secure Copy) is a free and open-source SFTP, FTP, WebDAV, Amazon S3 and SCP client for Microsoft Windows. Its main function is secure file transfer between a local and a remote computer. Beyond this, WinSCP offers basic file manager and file synchronization functionality. For secure transfers, it uses Secure Shell (SSH) and supports the SCP protocol in addition to SFTP.
 
 Download and install `WinSCP:` `https://winscp.net/eng/download.php`
 
 When `Vertcoin Core` is finished syncing to the blockchain, exit `Vertcoin Core` so that it safely shuts down ensuring no data is corrupted. 
 
-Proceed by running `WinSCP`, you will be met with a `Login` prompt asking for a Host name, Port number, User name and Password. Login to your Raspberry Pi like so, please note that your Raspberry Pi's `IP` address may be different than what is listed below.
+Proceed by running `WinSCP`, you will be met with a `Login` prompt asking for a Host name, Port number, User name and Password. Login to your mining rig like so, please note that your miner's `IP` address may be different than what is listed below.
 ```
 File protocol: SFTP
-Host name: 192.168.1.2
+Host name: 192.168.1.11
 Port number: 22
 User name: miner
 Password: yourpasswordhere
 ```
-![Login](https://i.imgur.com/vWmSoWd.png)  
+![Login](https://i.imgur.com/WGFA2pg.png)  
 ![Connection](https://i.imgur.com/SlDMCmN.png)  
 
 Ensure `Optimize connection buffer size` is unchecked for an easy tansfer.
@@ -524,9 +527,8 @@ miner@vertminer:~$ tail -f .vertcoin/debug.log
 
 ```
 
-### Quick note about blockchain syncing
-    Vertcoin Core is now synchronizing to the side-loaded blockchain located in `/mnt/` 
-    (linked to `/home/pi/.vertcoin`). This process can take up to an hour to sync 
+#### Quick note about blockchain syncing
+    Vertcoin Core is now synchronizing, this process can take up to an hour to sync 
     headers and verify all of the downloaded blocks. Vertcoin 0.13.0 has shown major
     improvements to loading time of the blockchain and can take as little as 
     two minutes to fully load.
@@ -535,19 +537,19 @@ miner@vertminer:~$ tail -f .vertcoin/debug.log
     vertcoind by issuing the following commands: 
     
     # Display output of Vertcoin debug.log; ctrl+c to stop  
-    pi@raspberrypi:~ $ tailf .vertcoin/debug.log
+    miner@vertminer:~$ tail -f .vertcoin/debug.log
     
     # Show blockchain information  
-    pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
+    miner@vertminer:~$ vertcoin-cli getblockchaininfo
     
     # Show current block  
-    pi@raspberrypi:~ $ vertcoin-cli getblockcount  
+    miner@vertminer:~$ vertcoin-cli getblockcount  
 
 You may continue on while `vertcoind` catches up to the blockchain ...  
 
 -----------------------------------------
 
-## 5.) Download and configure `p2pool-vtc`
+### 5.) Download and configure `p2pool-vtc`
 >P2Pool is a decentralized Bitcoin mining pool that works by creating a peer-to-peer network of miner nodes.
 
 >P2Pool creates a new block chain in which the difficulty is adjusted so a new block is found every 30 seconds. The blocks that get into the P2Pool block chain (called the "share chain") are the same blocks that would get into the Bitcoin block chain, only they have a lower difficulty target. Whenever a peer announces a new share found (new block in the P2Pool block chain), it is received by the other peers, and the other peers verify that this block contains payouts for all the previous miners who found a share (and announced it) that made it into the P2Pool share chain. This continues until some peer finds a block that has a difficulty that meets the Bitcoin network's difficulty target. This peer announces this block to the Bitcoin network and miners who have submitted shares for this block are paid in the generation transaction, proportionally to how many shares they have found in the last while. - Unknown author [3]
@@ -568,7 +570,7 @@ Resolving deltas: 100% (5611/5611), done.
 Checking connectivity... done.
 ```
 
-\# Change directories to `p2pool-vtc` 
+\# Change directories to `p2pool-vtc`   
 `miner@vertminer:~$ cd p2pool-vtc/`  
 
 \# Install `requirements.txt` dependencies  
@@ -605,7 +607,7 @@ Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
 
 -----------------------------------------
 
-## 6.) Configure firewall for Vertcoin Core & P2Pool traffic
+### 6.) Configure firewall for Vertcoin Core & P2Pool traffic
 
 Please note that your `IP` range may be different than what I have listed below. If your router `IP` address is `192.168.1.1` then the instructions above require no alterations. If your `IP` address is something like `192.168.56.1` or `10.0.0.1` then you will need to modify the 'ufw allow from `192.168.1.0/24` to any port 22' to 'ufw allow from `192.168.56.0/24`(...)' or 'ufw allow from `10.0.0.0/24`(...)' respectively. 
 
@@ -674,7 +676,7 @@ Open a browser window and navigate to your router page, from there you can port 
 
 -----------------------------------------
 
-## 7.) Download, configure, and compile latest `ccminer`
+### 7.) Download, configure, and compile latest `ccminer`
 \# Clone `ccminer` github repo 
 ```
 miner@vertminer:~$ git clone https://github.com/tpruvot/ccminer.git
@@ -721,7 +723,7 @@ make[1]: Leaving directory '/home/miner/ccminer'
 
 -----------------------------------------
 
-## 8.) Create miner script, `p2pool-vtc` script, Configure boot settings
+### 8.) Create miner script, `p2pool-vtc` script, Configure boot settings
 \# Create miner script  
 `miner@vertminer:~$ nano start-mining.sh`  
 ```
@@ -770,6 +772,10 @@ cd ccminer
 # m h  dom mon dow   command
 
 @reboot vertcoind
+
+# Optional, uncomment to make active
+#@reboot /home/miner/start-p2pool.sh
+#@reboot /home/miner/start-mining.sh
 ```
 `ctrl+x` to save
 
@@ -799,7 +805,7 @@ nohup python run_p2pool.py --net vertcoin2 -a legacyvertcoinaddressgoeshere &
 
 -----------------------------------------
 
-## 9.) Start mining!
+### 9.) Start mining!
 
 ```
 miner@vertminer:~$ ls
