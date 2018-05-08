@@ -6,15 +6,25 @@ Vertcoin is a protocol that can be accessed using a client application that spea
 
 Though similar to Litecoin and Bitcoin, Vertcoin has one major difference; pledged ASIC resistance and user governance. An enforced social contract that exists in the Vertcoin community promising to fork proof-of-work algorithms in order to resist ASIC miners from being used on the Vertcoin network allows for user governance of the Vertcoin network. Discouraging development of ASICs via this enforced social contract keeps the barrier to entry for mining accessible. While this may seem like a minor change, it has larger implications when it comes to the fair distribution, politics, and decentralization of the coin. Vertcoin stays true to the original vision of cryptocurrency: a financial system owned by its users, the people’s coin.
 
+### Details
+Vertcoin is a fork of Bitcoin that is designed to resist the monopolisation of mining power.
+* 2.5 minute block targets
+subsidy halves in 840k blocks (~4 years)
+* ~84 million total coins
+* 50 coins per block (25 after block 840,000)
+* Difficulty retargeting every block to recover from large hashrate swings
+* Lyra2REv2 proof of work algorithm for ASIC resistance
+
 ## Choosing a Vertcoin Wallet
 
 To get started, the first thing you'll need is choose a Vertcoin Wallet. Wallets are used to store, receive and send coins to other addresses. Most importantly the wallet you choose plays the important role of storing your private key. You can think of a private key as the unique code that is cryptographically derived from your wallet and links your transaction history, granting the user in possession of the private key access to the funds that exist on chain.
 
 Though there are many wallets to chose from, we recommend using the Vertcoin Core wallet. Vertcoin Core is the only wallet to currently support P2Pool mining. You can find a complete list of Vertcoin wallets on the [Vertcoin.org](https://vertcoin.org/download/) website.
 
+
 !!!important
      Never share your private keys with anyone. Whoever owns the private key has the access to spend the funds in your wallet. Keep it safe and back it up to multiple locations.
-
+     
 ## What is ASIC resistance?
 
 ASIC resistance in a technical sense means that there will be no significant increase in hashing speed by implementing the proof-of-work algorithm in an ASIC, as compared to a CPU based proof-of-work implementation.
