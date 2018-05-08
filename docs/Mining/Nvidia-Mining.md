@@ -223,8 +223,8 @@ That is all for the Vertcoin Nvidia mining guide! I hope you've enjoy this guide
 5. Download and configure `p2pool-vtc`
 6. Configure firewall for Vertcoin Core & P2Pool traffic
 7. Download, configure, and compile latest `ccminer`
-9. Create miner script, Configure boot settings
-10. Start mining!
+8. Create miner script, `p2pool-vtc` script, Configure boot settings
+9. Start mining!
 
 ### 1.) Introduction  
 This section of the **Vertcoin Nvidia Mining Guide** will walk through the steps of setting up P2Pool on your mining rig using the a headless **Ubuntu Server 16.04 LTS** Linux distribution. Ubuntu Server 16.04 was chosen for this for it's ease of use and setup for mining Vertcoin. You may use whatever distribution suits you but please note the commands for this walk through may not apply for you. 
@@ -253,9 +253,6 @@ This guide also assumes the user has access to a Windows computer. If you do not
 ### 2.) Download and Install Ubuntu Server 16.04
 
 >Ubuntu is a free and open source operating system and Linux distribution based on Debian. Ubuntu has a server edition that uses the same APT repositories as the Ubuntu Desktop Edition. The differences between them are the absence of an X Window environment in a default installation of the server edition.
-
-htop
-
 
 #### Download Ubuntu 16.04 Server   
 `http://releases.ubuntu.com/16.04/`
@@ -724,7 +721,7 @@ make[1]: Leaving directory '/home/miner/ccminer'
 
 -----------------------------------------
 
-## 9.) Create miner script, `p2pool-vtc` script, Configure boot settings
+## 8.) Create miner script, `p2pool-vtc` script, Configure boot settings
 \# Create miner script  
 `miner@vertminer:~$ nano start-mining.sh`  
 ```
@@ -802,7 +799,7 @@ nohup python run_p2pool.py --net vertcoin2 -a legacyvertcoinaddressgoeshere &
 
 -----------------------------------------
 
-## 10.) Start mining!
+## 9.) Start mining!
 
 ```
 miner@vertminer:~$ ls
