@@ -8,16 +8,20 @@ Though similar to Litecoin and Bitcoin, Vertcoin has one major difference; pledg
 
 ### Details
 Vertcoin is a fork of Bitcoin that is designed to resist the monopolisation of mining power.
-* 2.5 minute block targets
-subsidy halves in 840k blocks (~4 years)
+
+* 2.5 minute block targets, subsidy halves in 840k blocks (~4 years)
+
 * ~84 million total coins
+
 * 50 coins per block (25 after block 840,000)
+
 * Difficulty retargeting every block to recover from large hashrate swings
+
 * Lyra2REv2 proof of work algorithm for ASIC resistance
 
 ## Choosing a Vertcoin Wallet
 
-To get started, the first thing you'll need is choose a Vertcoin Wallet. Wallets are used to store, receive and send coins to other addresses. Most importantly the wallet you choose plays the important role of storing your private key. You can think of a private key as the unique code that is cryptographically derived from your wallet and links your transaction history, granting the user in possession of the private key access to the funds that exist on chain.
+To get started, the first thing you'll need to do is choose a Vertcoin Wallet. Wallets are used to store, receive and send coins to other addresses. Most importantly the wallet you choose plays the important role of storing your private key. You can think of a private key as the unique code that is cryptographically derived from your wallet and links your transaction history, granting the user in possession of the private key access to the funds that exist on chain.
 
 Though there are many wallets to chose from, we recommend using the Vertcoin Core wallet. Vertcoin Core is the only wallet to currently support P2Pool mining. You can find a complete list of Vertcoin wallets on the [Vertcoin.org](https://vertcoin.org/download/) website.
 
