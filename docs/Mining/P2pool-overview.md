@@ -8,6 +8,8 @@ Decentralized payout pooling solves the problem of centralized mining pools degr
 
 P2Pool nodes work on a chain of shares similar to Bitcoin's blockchain. Each node works on a block that includes payouts to the previous shares' owners and the node itself, which can also result in a share if it meets P2Pool's difficulty. `[3]`
 
+#### If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
+
 --------------------------------------------
 
 ## Why use P2Pool?
