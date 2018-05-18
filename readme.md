@@ -181,8 +181,8 @@ $ mkdocs build --help
 ## WIP
 
 ## To Do List
-- [] P2Pool Overview
-- [] Update Getting Started
-- [] Update How to Buy Vertcoin
-- [] Update Contributions
-- [] Nvidia Mining on Linux - Sam Sepiol
+- [ ] P2Pool Overview
+- [ ] Update Getting Started
+- [ ] Update How to Buy Vertcoin
+- [ ] Update Contributions
+- [ ] Nvidia Mining on Linux - Sam Sepiol
