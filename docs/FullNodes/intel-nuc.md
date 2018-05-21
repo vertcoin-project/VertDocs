@@ -682,9 +682,6 @@ If you are a larger miner with multiple cards and/or a hash rate larger than 100
 `root@nuc:/home/nuc# ufw allow 9346 comment 'allow --network 1 p2p port'`  
 `root@nuc:/home/nuc# ufw allow 9171 comment 'allow --network 1 mining port'`  
 
-\# Give up `root`  
-`root@nuc:/home/nuc# exit`
-
 #### Network 2 - Firewall Configuration  
 If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2.
 
