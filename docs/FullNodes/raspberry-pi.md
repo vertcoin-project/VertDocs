@@ -1,13 +1,18 @@
-# Raspberry Pi 3 B/B+ Vertcoin full node installation done on Windows
+# Raspberry Pi 3 B/B+ Vertcoin full node installation done using Windows
 
-![Raspberry Pi 3 Zebra Black Ice Case](https://i.imgur.com/zgx4uiu.jpg) 
+<p align="center">
+  <img src="https://i.imgur.com/eJyg30C.png" width="343" height="68" />
+</p>
+<p align="center">
+  <img src="https://i.imgur.com/zgx4uiu.jpg">
+</p>
 
 #### Why a Vertcoin Full node?
 >Vertcoin is a digital currency supported by a peer-to-peer network. In order to run efficiently and effectively, it needs peers run by different people... and the more the better. [1]
 
 >This tutorial will describe how to create a Vertcoin “full node” (a Vertcoin server that contains the full blockchain and propagates transactions throughout the Vertcoin network via peers). This system will not mine for Vertcoins... it will play its part to keep the Vertcoin peer-to-peer network healthy and strong. For a detailed explanation for why it is important to have a healthy Vertcoin peer-to-peer network, read this [article](https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf) about Bitcoin full nodes. [2]
 
->Also please note this will be a “headless” server... meaning we will not be using a GUI to configure Vertcoin or check to see how things are running. In fact, once the server is set up, you will only interact with it using command line calls over SSH. The idea is to have this full node be simple, low-power, and something that “just runs” in your basement, closet, etc.
+`NOTE:` This will be a “headless” server... meaning we will not be using a GUI to configure Vertcoin or check to see how things are running. In fact, once the server is set up, you will only interact with it using command line calls over `SSH`. The idea is to have this full node be simple, low-power, with optimized memory usage and something that “just runs” in your basement, closet, etc.
 
 #### Why a Raspberry Pi?
 >Raspberry Pi is an inexpensive computing hardware platform that generates little heat, draws little power, and can run silently 24 hours a day without having to think about it. [1]
@@ -23,8 +28,8 @@
 8. `Configure firewall to allow Vertcoin Core traffic`  
 9. `Congratulations! Thanks for doing your part and running a Vertcoin full node <3`
 
-`*[ OPTIONAL ] Setup p2pool-vtc`  
-`**[ EXPERIMENTAL ] Setup Unitus Full Node for merged mining with p2pool-vtc`   
+`*OPTIONAL Setup p2pool-vtc`  
+`**EXPERIMENTAL Setup Unitus Full Node for merged mining with p2pool-vtc`   
 
 -----------------------------------------
 
@@ -146,7 +151,7 @@ Bitcoin Unix Build Notes: https://github.com/bitcoin/bitcoin/blob/master/doc/bui
 \# Change `root` password  
 `pi@raspberrypi:~ $ sudo passwd root`  
 ```
-# *[ OPTIONAL ]: DISABLE WIRELESS & BLUETOOTH
+# *OPTIONAL: DISABLE WIRELESS & BLUETOOTH
   
 # Create our blacklist file  
 pi@raspberrypi:~ $ cd /etc/modprobe.d/
@@ -367,7 +372,7 @@ You can do the same by passing parameters to `P2Pool`:
 
 -----------------------------------------
 
-`* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`
+`*OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`
 ```
 pi@raspberrypi:/mnt/vertcoin $ touch randomfilename
 pi@raspberrypi:/mnt/vertcoin $ md5sum randomfilename
@@ -660,10 +665,9 @@ Use `WinSCP` to transfer the `bootstrap.dat` file to the now empty directory `/m
 
 `pi@raspberrypi:~ $ vertcoind &`
 
-
 -----------------------------------------
 
-### `*[ OPTIONAL ]` Setup p2pool-vtc  
+### `*OPTIONAL` Setup p2pool-vtc  
 
 >P2Pool is a decentralized Bitcoin mining pool that works by creating a peer-to-peer network of miner nodes.
 
@@ -891,7 +895,7 @@ Network 2:
 
 -----------------------------------------
 
-### `**[ EXPERIMENTAL ]` Setup Unitus Full Node for merged mining with p2pool-vtc
+### `**EXPERIMENTAL` Setup Unitus Full Node for merged mining with p2pool-vtc
 
 `NOTE:` This has proven to be an unstable experience, this section is experimental and is only for those who wish to experimental with their Raspberry Pi and are comfortable with troubleshooting their node and possibly breaking their node. 
 
@@ -949,7 +953,7 @@ maxuploadtarget=5000
 
 `ctrl+x` to save  
 
-`* OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`  
+`*OPTIONAL: A quick and easy way to generate a random password is taking the md5sum of a file`  
 ```
 pi@raspberrypi:/mnt/unitus $ touch randomfilename
 pi@raspberrypi:/mnt/unitus $ md5sum randomfilename
