@@ -234,7 +234,7 @@ That is all for the Vertcoin Nvidia mining guide! I hope you've enjoy this guide
   **Recommend at minimum 3GB of RAM for merged mining**
 
 ### 1.) Introduction  
-This section of the **Vertcoin Nvidia Mining Guide** will walk through the steps of setting up P2Pool on your mining rig using the a headless **Ubuntu Server 16.04 LTS** Linux distribution. Ubuntu Server 16.04 was chosen for this for it's ease of use and setup for mining Vertcoin. You may use whatever distribution suits you but please note the commands for this walk through may not apply for you. 
+This section of the **Vertcoin Nvidia Mining Guide** will walk through the steps of setting up P2Pool on your mining rig using a headless **Ubuntu Server 16.04 LTS** Linux distribution. Ubuntu Server 16.04 was chosen because of it's ease of use and setup for mining Vertcoin. You may use whatever distribution suits you but please note the commands for this walk through may not apply to your distribution. 
 
 Before you get started consider downloading and installing the latest stable release of [Vertcoin Core](https://github.com/vertcoin-project/vertcoin-core/releases) wallet onto a computer you use that is not part of a mining rig. This step is `OPTIONAL` but recommended. Doing so will speed up the process of syncing `vertcoind` later for a functioning P2Pool to mine on. 
 
@@ -288,8 +288,7 @@ Power on your Nvidia mining rig and access your `BIOS` screen, this is typically
 ![HomeDir](https://i.imgur.com/CBEh1Us.png)
 ![Partition](https://i.imgur.com/QAaTmbz.png)
 ![Updates](https://i.imgur.com/EpoEH34.png)  
-
-Select `OpenSSH` server using the spacebar and continue. `OpenSSH` will allow us to control the mining rig over the LAN connection.  
+Select `OpenSSH` server using the spacebar and continue. `OpenSSH` will allow us to control the mining rig over the LAN connection. 
 
 ![PkgSelect](https://i.imgur.com/mesAFSa.png)
 ![GrubLoader](https://i.imgur.com/nVzzmXj.png)
@@ -587,7 +586,7 @@ Port number: 22
 User name: miner
 Password: yourpasswordhere
 ```
-![Login](https://i.imgur.com/WGFA2pg.png)  
+![Login](https://i.imgur.com/odekZ32.png)  
 ![Connection](https://i.imgur.com/SlDMCmN.png)  
 
 Ensure `Optimize connection buffer size` is unchecked for an easy tansfer.
@@ -744,7 +743,19 @@ Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
 Please note that your `IP` range may be different than what I have listed below. If your router `IP` address is `192.168.1.1` then the instructions above require no alterations. If your `IP` address is something like `192.168.56.1` or `10.0.0.1` then you will need to modify the 'ufw allow from `192.168.1.0/24` to any port 22' to 'ufw allow from `192.168.56.0/24`(...)' or 'ufw allow from `10.0.0.0/24`(...)' respectively. 
 
 \# Install `UFW`  
-`miner@vertminer:~$ sudo apt-get install ufw`  
+`miner@vertminer:~$ sudo apt-get install ufw` 
+
+-----------------------------------------
+
+>`Fail2ban` is a daemon that can be run on your server to dynamically block clients that fail to authenticate correctly with your services repeatedly. This can help mitigate the affect of brute force attacks and illegitimate users of your services like `SSH`.  
+```
+Fail2ban Documentation: https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server`
+```
+ 
+\# Download and install `fail2ban` package  
+`pi@raspberrypi:~ $ sudo apt-get update ; sudo apt-get install fail2ban`
+
+-----------------------------------------
 
 \# Escalate to `root` and configure `UFW`
 
