@@ -8,6 +8,8 @@ Decentralized payout pooling solves the problem of centralized mining pools degr
 
 P2Pool nodes work on a chain of shares similar to Bitcoin's blockchain. Each node works on a block that includes payouts to the previous shares' owners and the node itself, which can also result in a share if it meets P2Pool's difficulty. `[3]`
 
+#### If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
+
 --------------------------------------------
 
 ## Why use P2Pool?
@@ -40,6 +42,23 @@ To ensure that everyone plays fair, shares are assembled into a share chain in t
 
 Payouts should be the same as other pools with a higher variance (payouts are inconsistently smaller or larger days after days). Payouts can even be slightly higher because blocks propagation time is sometime faster on P2Pool. `[2]`
 
+### How do P2Pool payouts work?
+
+**P2Pool miners are paid every time a block is found by the pool for any confirmed shares they currently have in the P2Pool sharechain.**
+
+This is known as a Pay Per Last N Shares (PPLNS) payout system, and is the mechanism P2Pool uses to both determine payouts and discourage pool hopping. In P2Pool the N in PPLNS is 8,640, each of the last 8,640 shares are paid each time a Bitcoin block is found. A share in the P2Pool sharechain can be expected to last about 3 days (8,640 shares * 30 seconds = 3 days).
+
+Confirmed shares are valid, and paid whenever a block is found, for as long as they remain in the sharechain (about 3 days). Payouts in P2Pool are made immediately, directly from the block generation transaction. Newly generated coins require 100 confirmations before they can be spent, so P2Pool payouts cannot be spent for about 16.5 hours. 
+
+As a miner on P2Pool you are competing with other P2Pool miners for a portion of the 8,640 active shares. The more shares (and the higher the difficulty of those shares) you have in the sharechain, the greater your reward when a block is found. `[5]`
+
+### Can anyone mine on P2Pool?
+Yes. However, unlike some centralized pools, P2Pool has a minimum hash rate threshold to expect regular payouts when blocks are found. The minimum hash rate to expect regular payouts changes based on the total speed of all the miners in the pool at any given time. A good rule of thumb to expect a payout when a block is found: If your expected time to share is over 1.5 days you are unlikely to be able to maintain a valid share in the sharechain. `[5]`
+
+**Patience is a virtue.**
+
+**One last important tip:** When you start mining on P2Pool, exercise patience. Until you get a confirmed share in the sharechain, and the pool subsequently finds a Bitcoin block, you will not receive a payout. As you add more shares to the sharechain your payout will increase, when a share is older then 3 days (8,640 shares) it will fall off the end of the chain and no longer be paid. P2Pool will tell you your expected time to share, but keep in mind this is an estimate and is subject to the same luck/variance that Vertcoin blocks are. `[5]`
+
 ### What are the advantages of using P2Pool? 
 
     Small statistical advantages increasing income
@@ -66,3 +85,4 @@ Miners' payouts are not affected so long as they have a proportional number of r
 `[2] P2Pool The official homepage of the p2pool software - http://p2pool.in/#faq`  
 `[3] Bitcoin Wiki P2Pool - https://en.bitcoin.it/wiki/P2Pool`  
 `[4] Stackexchange What is P2pool - https://bitcoin.stackexchange.com/questions/3626/what-is-the-p2pool`  
+`[5] P2Pool The official homepage of the p2pool software - learn - http://p2pool.org/learn/`
