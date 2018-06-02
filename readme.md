@@ -181,8 +181,9 @@ $ mkdocs build --help
 ## WIP
 
 ## To Do List
-- [ ] P2Pool Overview
-- [ ] Update Getting Started
 - [ ] Update How to Buy Vertcoin
 - [ ] Update Contributions
-- [ ] Nvidia Mining on Linux - Sam Sepiol
+- [ ] Nvidia Mining on Linux (Windows Section Formatting)
+- [ ] Raspberry Pi Zero Full Node Setup Guide (512MB RAM) - Sam Sepiol
+- [ ] Orange Pi One Full Node Setup Guide (512MB RAM) - Sam Sepiol
+- [ ] Libre Computer Board ROC-RK3328-CC Full Node Setup Guide (1GB RAM) - Sam Sepiol 
