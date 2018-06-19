@@ -45,11 +45,11 @@ extra:
       link: 'https://www.reddit.com/r/vertcoin/'
     - type: 'slack'
       link: 'https://slack.vtconline.org/'
-    - type: 'facebook'
-      link: 'https://linkedin.com/in/squidfunk'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/vertcoincore/'
       
    
-copyright: 'Copyright &copy; 2017 Vertcoin'
+copyright: 'Copyright &copy; 2017-present Vertcoin'
 
 
 markdown_extensions:
