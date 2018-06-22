@@ -486,22 +486,29 @@ root@nuc:/home/nuc# ufw default deny incoming
 Default incoming policy changed to 'deny'
 (be sure to update your rules accordingly)
 ```
+
 `root@nuc:/home/nuc# ufw default allow outgoing`  
 ```
 Default outgoing policy changed to 'allow'
 (be sure to update your rules accordingly)
 ```
+
 `root@nuc:/home/nuc# ufw allow from 192.168.1.0/24 to any port 22 comment 'allow SSH from local LAN'`  
 `root@nuc:/home/nuc# ufw allow 5889 comment 'allow vertcoin core'`  
+
+`root@nuc:/home/nuc# ufw enable`  
 ```
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 ```
+
+
 `root@nuc:/home/nuc# systemctl enable ufw`  
 ```
 Synchronizing state of ufw.service with SysV init with /lib/systemd/systemd-sysv-install...
 Executing /lib/systemd/systemd-sysv-install enable ufw
 ```
+
 `root@nuc:/home/nuc# ufw status`  
 ```
 Status: active
