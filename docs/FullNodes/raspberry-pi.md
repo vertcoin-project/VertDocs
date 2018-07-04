@@ -648,23 +648,6 @@ pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
 pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
 14
 ```
-
-#### Failing to connect to peers  
-If you find that your node is not connecting to peers try stopping the `vertcoin` daemon and transferring the `peers.dat` file that was created earlier on the Windows machine that ran `vertcoin-qt.exe` to initially sync the blockchain to `/mnt/vertcoin/`  
-
-A second option is to download the `bootstrap.dat` file provided below, if you choose to use the `bootstrap.dat` file you will want to change directories to `/mnt/vertcoin/` and remove all files in the directory.  
-```
-bootstrap.dat Download: https://www.reddit.com/r/vertcoin/comments/77eojk/sync_your_wallet_faster_with_the_bootstrapdat/
-```
-```
-pi@raspberrypi:~ $ cd /mnt/vertcoin/
-pi@raspberrypi:/mnt/vertcoin $ sudo rm -r *
-pi@raspberrypi:/mnt/vertcoin $ cd
-```
-Use `WinSCP` to transfer the `bootstrap.dat` file to the now empty directory `/mnt/vertcoin`, once the `.dat` file has been trasnferred you are ready to start the `vertcoin` daemon.  
-
-`pi@raspberrypi:~ $ vertcoind &`
-
 -----------------------------------------
 
 ### `*OPTIONAL` Setup p2pool-vtc  
