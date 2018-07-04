@@ -173,7 +173,7 @@ pi@raspberrypi:/etc/modprobe.d $ cd
 # NOTE: Changes will not take effect until after reboot.
 ```
 \# Download latest stable version of vertcoin-core for `ARM` architecture to Raspberry Pi  
-`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.0/vertcoind-v0.13.0-linux-armhf.zip`  
+`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.2/vertcoind-v0.13.2-linux-armhf.zip`  
 
 \# Unzip `vertcoind-v0.13.0-linux-armhf.zip`  
 ```
