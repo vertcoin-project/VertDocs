@@ -632,25 +632,26 @@ server are not a good idea.
 
 -----------------------------------------
 
-\# Install `p2pool-vtc` dependencies and `python-pip`  
-`pi@raspberrypi:~ $ sudo apt-get install python-rrdtool python-pygame python-scipy python-twisted python-twisted-web python-imaging python-pip`  
+\# Install `p2pool-vtc` dependencies and `python-pip` 
 
-\# Clone `p2pool-vtc`  
-```
-nuc@nuc:~$ git clone https://github.com/vertcoin-project/p2pool-vtc.git
-Cloning into 'p2pool-vtc'...
-remote: Counting objects: 8393, done.
-remote: Total 8393 (delta 0), reused 0 (delta 0), pack-reused 8393
-Receiving objects: 100% (8393/8393), 2.54 MiB | 0 bytes/s, done.
-Resolving deltas: 100% (5611/5611), done.
-Checking connectivity... done.
-```
+`nuc@nuc:~ $ sudo apt-get install python-rrdtool python-pygame python-scipy python-twisted python-twisted-web python-imaging python-pip -y`  
 
-\# Change directories to `p2pool-vtc`   
-`nuc@nuc:~$ cd p2pool-vtc/`  
+\# Install `bitcoin` dependencies and `libffi-dev` 
+
+`nuc@nuc:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libffi-dev libssl-dev libevent-dev bsdmainutils python3 -y`
+
+\# Grab latest `p2pool-vtc` release  
+```
+nuc@nuc:~ $ wget "https://github.com/vertcoin-project/p2pool-vtc/archive/v0.3.0-rc1.zip"  
+```
+\# Unzip `p2pool-vtc` release
+`nuc@nuc:~ $ unzip v0.3.0-rc1.zip`  
+
+\# Change directory to `p2pool-vtc-0.3.0-rc1`  
+```nuc@nuc:~ $ cd p2pool-vtc-0.3.0-rc1/```
 
 \# Install `requirements.txt` dependencies  
-`nuc@nuc:~/p2pool-vtc$ pip install -r requirements.txt`  
+`nuc@nuc:~/p2pool-vtc-0.3.0-rc1 $ pip install -r requirements.txt`   
 ```
 Collecting Twisted>=12.2.0 (from -r requirements.txt (line 1))
   Downloading https://files.pythonhosted.org/packages/12/2a/e9e4fb2e6b2f7a75577e0614926819a472934b0b85f205ba5d5d2add54d0/Twisted-18.4.0.tar.bz2 (3.0MB)
@@ -663,19 +664,17 @@ Collecting pyOpenSSL>=0.13 (from -r requirements.txt (line 3))
 Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
   Downloading https://files.pythonhosted.org/packages/17/6a/1baf488c2015ecafda48c03ca984cf0c48c254622668eb1732dbe2eae118/Automat-0.6.0-py2.py3-none-any.whl
 ```
-\# Configure P2Pool  
-`nuc@nuc:~/p2pool-vtc$ cd lyra2re-hash-python/`  
-`nuc@nuc:~/p2pool-vtc/lyra2re-hash-python$ git submodule init`  
-`nuc@nuc:~/p2pool-vtc/lyra2re-hash-python$ git submodule update`  
-`nuc@nuc:~/p2pool-vtc/lyra2re-hash-python$ sudo python setup.py install`
+
+\# Install P2Pool   
+`nuc@nuc:~/p2pool-vtc-0.3.0-rc1 $ sudo python setup.py install`  
 
 \# Download alternate  web frontend for P2Pool  
-`nuc@nuc:~/p2pool-vtc/lyra2re-hash-python$ cd`  
-`nuc@nuc:~$ git clone https://github.com/hardcpp/P2PoolExtendedFrontEnd.git`  
-`nuc@nuc:~$ cd P2PoolExtendedFrontEnd`  
+`nuc@nuc:~/p2pool-vtc-0.3.0-rc1 $ cd`  
+`nuc@nuc:~ $ git clone https://github.com/hardcpp/P2PoolExtendedFrontEnd.git`  
+`nuc@nuc:~ $ cd P2PoolExtendedFrontEnd`  
 
 \# Move all files in `P2PoolExtendedFrontEnd` to the `web-static` folder in `p2pool-vtc`  
-`nuc@nuc:~/P2PoolExtendedFrontEnd$ mv * /home/nuc/p2pool-vtc/web-static/`  
+`nuc@nuc:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc-0.3.0-rc1/web-static/`  
 `nuc@nuc:~/P2PoolExtendedFrontEnd $ cd`  
 
 \# Clean up  
