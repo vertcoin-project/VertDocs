@@ -173,7 +173,7 @@ pi@raspberrypi:/etc/modprobe.d $ cd
 # NOTE: Changes will not take effect until after reboot.
 ```
 \# Download latest stable version of vertcoin-core for `ARM` architecture to Raspberry Pi  
-`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.0/vertcoind-v0.13.0-linux-armhf.zip`  
+`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.2/vertcoind-v0.13.2-linux-armhf.zip`  
 
 \# Unzip `vertcoind-v0.13.0-linux-armhf.zip`  
 ```
@@ -648,23 +648,6 @@ pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
 pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
 14
 ```
-
-#### Failing to connect to peers  
-If you find that your node is not connecting to peers try stopping the `vertcoin` daemon and transferring the `peers.dat` file that was created earlier on the Windows machine that ran `vertcoin-qt.exe` to initially sync the blockchain to `/mnt/vertcoin/`  
-
-A second option is to download the `bootstrap.dat` file provided below, if you choose to use the `bootstrap.dat` file you will want to change directories to `/mnt/vertcoin/` and remove all files in the directory.  
-```
-bootstrap.dat Download: https://www.reddit.com/r/vertcoin/comments/77eojk/sync_your_wallet_faster_with_the_bootstrapdat/
-```
-```
-pi@raspberrypi:~ $ cd /mnt/vertcoin/
-pi@raspberrypi:/mnt/vertcoin $ sudo rm -r *
-pi@raspberrypi:/mnt/vertcoin $ cd
-```
-Use `WinSCP` to transfer the `bootstrap.dat` file to the now empty directory `/mnt/vertcoin`, once the `.dat` file has been trasnferred you are ready to start the `vertcoin` daemon.  
-
-`pi@raspberrypi:~ $ vertcoind &`
-
 -----------------------------------------
 
 ### `*OPTIONAL` Setup p2pool-vtc  
@@ -746,21 +729,18 @@ You can do the same by passing parameters to `P2Pool`:
 
 `pi@raspberrypi:~ $ sudo apt-get install build-essential libtool autotools-dev automake pkg-config libffi-dev libssl-dev libevent-dev bsdmainutils python3 -y`
 
-\# Clone `p2pool-vtc`  
+\# Grab latest `p2pool-vtc` release  
 ```
-pi@raspberrypi:~ $ git clone https://github.com/vertcoin-project/p2pool-vtc.git
-Cloning into 'p2pool-vtc'...
-remote: Counting objects: 8393, done.
-remote: Total 8393 (delta 0), reused 0 (delta 0), pack-reused 8393
-Receiving objects: 100% (8393/8393), 2.54 MiB | 0 bytes/s, done.
-Resolving deltas: 100% (5611/5611), done.
+pi@raspberrypi:~ $ wget "https://github.com/vertcoin-project/p2pool-vtc/archive/v0.3.0-rc1.zip"  
 ```
+\# Unzip `p2pool-vtc` release
+`pi@raspberrypi:~ $ unzip v0.3.0-rc1.zip`  
 
-\# Change directory to `p2pool-vtc`  
-`pi@raspberrypi:~ $ cd p2pool-vtc/`  
+\# Change directory to `p2pool-vtc-0.3.0-rc1`  
+```pi@raspberrypi:~ $ cd p2pool-vtc-0.3.0-rc1/```
 
 \# Install `requirements.txt` dependencies  
-`pi@raspberrypi:~/p2pool-vtc $ pip install -r requirements.txt`  
+`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ pip install -r requirements.txt`   
 ```
 Collecting Twisted>=12.2.0 (from -r requirements.txt (line 1))
   Downloading https://files.pythonhosted.org/packages/12/2a/e9e4fb2e6b2f7a75577e0614926819a472934b0b85f205ba5d5d2add54d0/Twisted-18.4.0.tar.bz2 (3.0MB)
@@ -774,19 +754,16 @@ Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
   Downloading https://files.pythonhosted.org/packages/17/6a/1baf488c2015ecafda48c03ca984cf0c48c254622668eb1732dbe2eae118/Automat-0.6.0-py2.py3-none-any.whl
 ```
 
-\# Configure P2Pool  
-`pi@raspberrypi:~/p2pool-vtc $ cd lyra2re-hash-python/`  
-`pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ git submodule init`  
-`pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ git submodule update`  
-`pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ sudo python setup.py install`  
+\# Install P2Pool   
+`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ sudo python setup.py install`  
 
 \# Download alternate  web frontend for P2Pool  
-`pi@raspberrypi:~/p2pool-vtc/lyra2re-hash-python $ cd`  
+`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ cd`  
 `pi@raspberrypi:~ $ git clone https://github.com/hardcpp/P2PoolExtendedFrontEnd.git`  
 `pi@raspberrypi:~ $ cd P2PoolExtendedFrontEnd`  
 
 \# Move all files in `P2PoolExtendedFrontEnd` to the `web-static` folder in `p2pool-vtc`  
-`pi@raspberrypi:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc/web-static/`  
+`pi@raspberrypi:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc-0.3.0-rc1/web-static/`  
 `pi@raspberrypi:~/P2PoolExtendedFrontEnd $ cd`  
 
 \# Clean up  
