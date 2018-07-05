@@ -654,3 +654,7 @@ pi@raspberrypi:~ $ vertcoin-cli getblockchaininfo
 pi@raspberrypi:~ $ vertcoin-cli getconnectioncount
 14
 ```
+
+## References
+`[1] How to Create Your Own Bitcoin Full Node With a Raspberry Pi http://www.raspberrypifullnode.com/`  
+`[2] Jameson Lopp - Bitcoin Nodes, how many is enough? https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf`
