@@ -47,6 +47,12 @@ extra:
       link: 'https://slack.vtconline.org/'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/vertcoincore/'
+    - type: 'youtube'
+      link: 'https://www.youtube.com/channel/UC7lBpTciARdSuRCQlFSe7Hw'
+    - type: 'discord'
+      link: 'https://discord.gg/vertcoin'
+    - type: 'medium'
+      link: 'https://medium.com/vertcoin-blog'
       
    
 copyright: 'Copyright &copy; 2017-present Vertcoin'
