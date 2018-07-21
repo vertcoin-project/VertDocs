@@ -22,7 +22,7 @@ Vertcoin currently uses the Lyra2REv2 hashing algorithm created to maintain ASIC
 In order to mine Vertcoin you will need a [Vertcoin Core Wallet](/Wallets/Core-Wallet/). You will also need a mining program of your choice that supports the Lyra2REv2 hashing algorithm. If you do not plan on hosting a local p2pool node, this is all you need. If you do plan on hosting a p2pool node, you can find out more about the installation from the [GitHub page](https://github.com/vertcoin/p2pool-vtc).  
 
 ## What program should I use?
-While that is mostly up to preference, there are three primary programs that are used for mining. The recommended program for users new to mining and that own a NVidia or AMD card is the official One Click Miner (OCM) developed by the Vertcoin team. The OCM is a wrapper for the miners, and should yield similar results in hashrate. The OCM is under continiued development.
+While that is mostly up to preference, there are three primary programs that are used for mining. The recommended program for users new to mining and that own a NVidia or AMD card is the official One Click Miner (OCM) developed by the Vertcoin team. The OCM is a wrapper for the miners, and should yield similar results in hashrate. The OCM is under continued development.
 
 
 ## References
