@@ -38,13 +38,11 @@ extra:
     
   social:
     - type: 'github'
-      link: 'https://github.com/vertcoin'
+      link: 'https://github.com/vertcoin-project'
     - type: 'twitter'
       link: 'https://twitter.com/vertcoin'
     - type: 'reddit'
       link: 'https://www.reddit.com/r/vertcoin/'
-    - type: 'slack'
-      link: 'https://slack.vtconline.org/'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/vertcoincore/'
     - type: 'youtube'
@@ -55,7 +53,7 @@ extra:
       link: 'https://medium.com/vertcoin-blog'
       
    
-copyright: 'Copyright &copy; 2017-present Vertcoin'
+copyright: 'Copyright &copy; 2018-present Vertcoin'
 
 
 markdown_extensions:
