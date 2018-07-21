@@ -16,7 +16,7 @@ Mining is the act of verifying transactions into blocks to add to the Vertcoin b
 | GTX 1070     | ~ 35 - 40 Mh/s  | 150 watts             |
 | GTX 1070ti   | ~ 40 - 45 Mh/s  | 180 - 250 watts       |
 | GTX 1080     | ~ 45 - 50 Mh/s  | 250 watts             |
-
+| GTX 1080ti   | ~ 65 - 70 Mh/s  | 250-300 watts         |
 ----------------------------------------------------------
 
 ## Windows
@@ -64,6 +64,8 @@ Assuming you have a Standard Desktop with 1 GPU, calculate your power as 100W (f
 | GTX 1070     | ~ 35 - 40 Mh/s  | 150 watts             |
 | GTX 1070ti   | ~ 40 - 45 Mh/s  | 180 - 250 watts       |
 | GTX 1080     | ~ 45 - 50 Mh/s  | 250 watts             |
+| GTX 1080ti   | ~ 65 - 70 Mh/s  | 250-300 watts         |
+----------------------------------------------------------
 
 Note that the values above are only estimates, and can be a lot better with proper [optimization](#Optimization). For example, an optimized GTX 1070 (limit to 65% power, core overclock +130) can achieve 34 Mh/s while only drawing ~100 watts. As miner software and better graphic drivers gets released overtime, it is likely that you will see more (slight) increases in your card's mining efficiency.
 

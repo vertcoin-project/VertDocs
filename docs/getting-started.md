@@ -13,7 +13,7 @@ Vertcoin is a fork of Bitcoin that is designed to resist the monopolisation of m
 
 * ~84 million total coins
 
-* 50 coins per block (25 after block 840,000)
+* 25 coins per block
 
 * Difficulty retargeting every block to recover from large hashrate swings
 
