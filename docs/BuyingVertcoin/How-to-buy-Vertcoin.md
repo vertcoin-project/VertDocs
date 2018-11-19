@@ -85,6 +85,24 @@ Please observe that you also can buy LiteBit Credits from the same site. Each Li
 #### Creating an account
 Creating an account on Litebit requires basic details like your name and e-mail address. There are 3 verification tiers. A higher verification tier allows a user to make greater purchases. Verification methods vary from bank account validation to copying a bill or bank note. These processes are straightforward and can be done in a couple of minutes.
 
-
 #### Wallets
 You can store your Vertcoins in two ways: in your own wallet or in the online wallet provided by LiteBit. Trading is a lot easier when using the wallet provided, but do keep in mind that having your Vertcoins in their wallet might be a security risk. They would not be the first exchange to fall prey to hackers, so bear that in mind when making your decision.
+
+### Vertbase
+Another means to purchase Vertcoin is by using the [Vertbase](https://www.vertbase.com/) exchange. It is currently the first and only direct fiat onramp for Vertcoin and accepts payments in USD. The minimum purchase at the exchange is 50 USD and the exchange price tends to run a bit higher than other exchanges. Purchases take a minimum of 5 days to arrive to the address provided at the time of purchase. 
+Many exchanges require a waiting period to be able to move a currency off an exchange after a fiat purchase, Vertbase allows a means to bypass this problem. Vertbase enables one to purchase Vertcoin quickly without needing another crypto-currency such as btc, ltc, or eth, as an intermediary, thus reducing associated fees and confirmation times of such transactions. 
+ 
+#### Signup
+The signup process for Vertbase is much the same as with Coinbase. The exchange utilizes two-factor authentication, which is obtained via the Authy app or can be sent via SMS, when signing into an account for increased security. After creating an account and verifying your identity the account is linked to a provided bank account. 
+
+#### Wallets
+Purchases are deposited directly into a Vertcoin wallet using the provided address at time of purchase and coins are not held on the exchange until you move them off as with most exchanges.
+
+### Vertpig 
+[Vertpig](https://www.vertpig.com/) is a swap only service enabling the user to swap between Vertcoin, Bitcoin, Litecoin, Digibyte, Ravencoin, and Dogecoin.
+
+#### Signup
+To us this service there is no required sign up or user account necessary.
+
+#### Wallets
+Vertcoins are deposited into a Vertcoin wallet address that the user provides at the time of the swap.
