@@ -496,7 +496,7 @@ This will limit your eth0 interface to operate only at 10Mbps or 10000Kbps which
 #### This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.
 
 If you are an advanced usesr and want to disable the root user run the command `sudo passwd -d root` and `sudo passwd -l root`.
-If you are unsuare of this, there is no need to run those commands.
+If you are unsure of this, there is no need to run those commands.
 
 -----------------------------------------
 
