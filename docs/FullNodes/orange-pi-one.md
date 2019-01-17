@@ -567,4 +567,4 @@ pi@armbian:~ $ vertcoin-cli getconnectioncount
 `[2] Jameson Lopp - Bitcoin Nodes, how many is enough? https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf`  
 `[3] Bitcoin Wiki - P2Pool https://en.bitcoin.it/wiki/P2Pool`  
 `[4] A guide for mining efficiently on P2Pool, includes FUD repellent and FAQ - https://bitcointalk.org/index.php?topic=153232.0`
-`[5] 7 days of bandwidth usage on a full node with ~100 connections - https://www.reddit.com/r/Bitcoin/comments/5s6zak/info_7_days_of_bandwidth_usage_on_a_full_node/'
+`[5] 7 days of bandwidth usage on a full node with ~100 connections - https://www.reddit.com/r/Bitcoin/comments/5s6zak/info_7_days_of_bandwidth_usage_on_a_full_node/`
