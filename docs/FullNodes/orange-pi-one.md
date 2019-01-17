@@ -481,6 +481,17 @@ To                         Action      From
 Open a browser window and navigate to your router page, from there you can port forward your Orange Pi One.  
 `TCP/UDP Port: 5889`  
 
+As we are already discussing network/traffic and firewalls, if you want to limit bandwidth on your Orange Pi One you can do so with an easy to use program
+
+\# Install `wondershaper`  
+`pi@armbian:~ $ sudo apt-get install wondershaper`  
+
+\# Limit bandwidth of eth0 to 10Mbps (command is in kilobytes)
+`pi@armbian:~ $ sudo wondershaper eth0 10000 10000`  
+
+This will limit your eth0 interface to operate only at 10Mbps or 10000Kbps which is more than enough for a Vertcoin node. A bitcoin full node does not even average 10Mbps rather requires/averages around 4-6Mbps, since there is a lot less activity on Vertcoin this should be safe. [5]
+
+
 #### This will make your node public, supporting the health of the Vertcoin network by keeping it decentralized and populated with one more node.
 
 If you are an advanced usesr and want to disable the root user run the command `sudo passwd -d root` and `sudo passwd -l root`.
@@ -555,3 +566,4 @@ pi@armbian:~ $ vertcoin-cli getconnectioncount
 `[2] Jameson Lopp - Bitcoin Nodes, how many is enough? https://medium.com/@lopp/bitcoin-nodes-how-many-is-enough-9b8e8f6fd2cf`  
 `[3] Bitcoin Wiki - P2Pool https://en.bitcoin.it/wiki/P2Pool`  
 `[4] A guide for mining efficiently on P2Pool, includes FUD repellent and FAQ - https://bitcointalk.org/index.php?topic=153232.0`
+`[5] 7 days of bandwidth usage on a full node with ~100 connections - https://www.reddit.com/r/Bitcoin/comments/5s6zak/info_7_days_of_bandwidth_usage_on_a_full_node/'
