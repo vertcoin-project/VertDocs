@@ -506,12 +506,15 @@ If you are unsuare of this, there is no need to run those commands.
 It is important for your node to have it's time synchorized as it helps reduce the time difference bewteen blocks and difficulty adjustments.
 
 \# Install `ntp`
+
 `pi@armbian:~ # sudo apt install ntp`  
 
 \# Run ntp command. which will start start ntp now and enable it on boot
+
 `pi@armbian:~ # sudo ntpq -p`  
 
 \# Check if date is correct
+
 `pi@armbian:~ # date`
 
 
