@@ -4,7 +4,7 @@
   <img src="https://i.imgur.com/eJyg30C.png" width="343" height="68" />
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/xu4AYIQ.gif>
+  <img src="https://i.imgur.com/o2zfEE7.jpg>
 </p>
 
 #### Why a Vertcoin Full node?
