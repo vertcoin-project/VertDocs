@@ -486,7 +486,8 @@ As we are already discussing network/traffic and firewalls, if you want to limit
 \# Install `wondershaper`  
 `pi@armbian:~ $ sudo apt-get install wondershaper`  
 
-\# Limit bandwidth of eth0 to 10Mbps (command is in kilobytes)
+\# Limit bandwidth of eth0 to 10Mbps 
+
 `pi@armbian:~ $ sudo wondershaper eth0 10000 10000`  
 
 This will limit your eth0 interface to operate only at 10Mbps or 10000Kbps which is more than enough for a Vertcoin node. A bitcoin full node does not even average 10Mbps rather requires/averages around 4-6Mbps, since there is a lot less activity on Vertcoin this should be safe. [5]
