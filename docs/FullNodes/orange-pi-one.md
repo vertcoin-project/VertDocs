@@ -146,7 +146,7 @@ I like to use `Git Bash` which is included in the Windows [download](https://git
 
 Open a web browser page and navigate to your router page and identify the `IP` address of the freshly powered on Orange PI One. In my case the `IP` address is `192.168.1.2`, please make note of your Orange Pi One's `IP` address as we will need to use it to login via `SSH`.  
 
-\# Open `Git Bash` and ...  
+\# Open `Git Bash` and ...
 `~ $ ssh 192.168.1.2@DESIREDUSERNAME`  
 
 Test that you have sudo access with `sudo apt update`.
@@ -154,7 +154,6 @@ Test that you have sudo access with `sudo apt update`.
 If you can SSH and have sudo access, you can finally unplug the HDMI and keyboard cables on your Orange Pi One and do any future configurations via SSH.
 
 
-```
 \# Install `bitcoin` dependencies 
 ```
 Bitcoin Unix Build Notes: https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
@@ -250,7 +249,6 @@ Move back over to your `SSH` session with your Orange Pi One...
 `NOTE:` If you plan on making your Orange Pi One just a full node please consider leaving `maxconnections` set to 30, as the more peers you connect to, the greater amount of peers you can propagate blocks to. The network benefits greatly from peers with many connections. If you plan on setting up a P2Pool the documentation below says to set `maxconnections=15` in your `vertcoin.conf` This has been done to minimize the DOA % rate and maximize share efficency on less powerful hardware like the Orange Pi One. 
 
 ```
-
 Orange Pi One Config: 
 # Set database cache size in megabytes; machines sync faster with a larger cache. Recommend 
 # setting as high as possible based upon machine's available RAM
@@ -261,10 +259,10 @@ maxorphantx=10
 maxmempool=50
 # Maintain at most N connections to peers
 maxconnections=30  
-
 ```
 \# Create and populate `vertcoin.conf` for Vertcoin Core  
 `pi@armbian:~/.vertcoin $ nano vertcoin.conf`
+
 ```
 server=1
 rpcuser=vertnode
@@ -281,6 +279,7 @@ maxmempool=50
 maxconnections=30
 maxuploadtarget=5000
 ```  
+
 `ctrl+x` to save   
 
 You should still be inside the `.vertcoin` folder. As a final step, run the below command to remove any unwanted executable bits that may have been set by Windows.
