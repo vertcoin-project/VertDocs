@@ -173,17 +173,17 @@ pi@raspberrypi:/etc/modprobe.d $ cd
 # NOTE: Changes will not take effect until after reboot.
 ```
 \# Download latest stable version of vertcoin-core for `ARM` architecture to Raspberry Pi  
-`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.13.2/vertcoind-v0.13.2-linux-armhf.zip`  
+`pi@raspberrypi:~ $ wget https://github.com/vertcoin-project/vertcoin-core/releases/download/0.14.0/vertcoind-v0.14.0-linux-armhf.zip`  
 
-\# Unzip `vertcoind-v0.13.0-linux-armhf.zip`  
+\# Unzip `vertcoind-v0.14.0-linux-armhf.zip`  
 ```
-pi@raspberrypi:~ $ unzip vertcoind-v0.13.0-linux-armhf.zip
-Archive:  vertcoind-v0.13.0-linux-armhf.zip
+pi@raspberrypi:~ $ unzip vertcoind-v0.14.0-linux-armhf.zip
+Archive:  vertcoind-v0.14.0-linux-armhf.zip
   inflating: vertcoin-cli
   inflating: vertcoind
   inflating: vertcoin-tx
 ```  
-\# Remove `vertcoind-v0.13.0-linux-armhf.zip`  
+\# Remove `vertcoind-v0.14.0-linux-armhf.zip`  
 `pi@raspberrypi:~ $ rm *.zip`  
 
 \# Give privileges to `vertcoin` binaries  
@@ -731,16 +731,16 @@ You can do the same by passing parameters to `P2Pool`:
 
 \# Grab latest `p2pool-vtc` release  
 ```
-pi@raspberrypi:~ $ wget "https://github.com/vertcoin-project/p2pool-vtc/archive/v0.3.0-rc1.zip"  
+pi@raspberrypi:~ $ wget "https://github.com/vertcoin-project/p2pool-vtc/archive/v2.0.0.zip"  
 ```
 \# Unzip `p2pool-vtc` release
-`pi@raspberrypi:~ $ unzip v0.3.0-rc1.zip`  
+`pi@raspberrypi:~ $ unzip v2.0.0.zip`  
 
-\# Change directory to `p2pool-vtc-0.3.0-rc1`  
-```pi@raspberrypi:~ $ cd p2pool-vtc-0.3.0-rc1/```
+\# Change directory to `p2pool-vtc-2.0.0`  
+```pi@raspberrypi:~ $ cd p2pool-vtc-2.0.0/```
 
 \# Install `requirements.txt` dependencies  
-`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ pip install -r requirements.txt`   
+`pi@raspberrypi:~/p2pool-vtc-2.0.0 $ pip install -r requirements.txt`   
 ```
 Collecting Twisted>=12.2.0 (from -r requirements.txt (line 1))
   Downloading https://files.pythonhosted.org/packages/12/2a/e9e4fb2e6b2f7a75577e0614926819a472934b0b85f205ba5d5d2add54d0/Twisted-18.4.0.tar.bz2 (3.0MB)
@@ -755,15 +755,15 @@ Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
 ```
 
 \# Install P2Pool   
-`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ sudo python setup.py install`  
+`pi@raspberrypi:~/p2pool-vtc-2.0.0 $ sudo python setup.py install`  
 
 \# Download alternate  web frontend for P2Pool  
-`pi@raspberrypi:~/p2pool-vtc-0.3.0-rc1 $ cd`  
+`pi@raspberrypi:~/p2pool-vtc-2.0.0 $ cd`  
 `pi@raspberrypi:~ $ git clone https://github.com/hardcpp/P2PoolExtendedFrontEnd.git`  
 `pi@raspberrypi:~ $ cd P2PoolExtendedFrontEnd`  
 
-\# Move all files in `P2PoolExtendedFrontEnd` to the `web-static` folder in `p2pool-vtc`  
-`pi@raspberrypi:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc-0.3.0-rc1/web-static/`  
+\# Move all files in `P2PoolExtendedFrontEnd` to the `web-static` folder in `p2pool-vtc-2.0.0`  
+`pi@raspberrypi:~/P2PoolExtendedFrontEnd $ mv * /home/pi/p2pool-vtc-2.0.0/web-static/`  
 `pi@raspberrypi:~/P2PoolExtendedFrontEnd $ cd`  
 
 \# Clean up  
@@ -803,7 +803,7 @@ Collecting Automat>=0.3.0 (from Twisted>=12.2.0->-r requirements.txt (line 1))
 # network 2 = --net vertcoin2
 #
 cd p2pool-vtc
-python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4
+python run_p2pool.py --net vertcoin2 -a yourvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4
 
 # !!! * EXPIRMENTAL NOTE: If you want to allow for merged mining please replace python run_p2pool.py --net vertcoin with...
 # python run_p2pool.py --net vertcoin -a yourvertcoinaddressgoeshere --merged http://unitusnode:yourreallysecureRPCpasswordhere@127.0.0.1:6699
@@ -851,8 +851,8 @@ python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-
 
 #### Start p2pool-vtc
 
-\# Change directories to `p2pool-vtc/`  
-`pi@raspberrypi:~ $ cd p2pool-vtc`  
+\# Change directories to `p2pool-vtc-2.0.0/`  
+`pi@raspberrypi:~ $ cd p2pool-vtc-2.0.0`  
 
 > If you are a smaller miner with 2 graphics cards or less or are using your CPU, it is recommended to use Network 2. If you are a larger miner with multiple cards and/or a hash rate larger than 100Mh, it is recommended to use Network 1.
 
@@ -860,19 +860,21 @@ Network 1: `--net vertcoin`
 Network 2: `--net vertcoin2`   
 
 \# Launch `p2pool` without merged mining, ignore the hangup signal and keep running     
-`pi@raspberrypi:~/p2pool-vtc $ nohup python run_p2pool.py --net vertcoin2 -a yourlegacyvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4 &`  
+`pi@raspberrypi:~/p2pool-vtc-2.0.0 $ nohup python run_p2pool.py --net vertcoin2 -a yourvertcoinaddressgoeshere --max-conns 8 --outgoing-conns 4 &`  
 
 \# Display output of P2Pool's `debug` log; `ctrl+c` to stop  
 
 Network 1:  
-`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin/log`  
+`pi@raspberrypi:~ $ tailf p2pool-vtc-2.0.0/data/vertcoin/log`  
 
 Network 2:    
-`pi@raspberrypi:~ $ tailf p2pool-vtc/data/vertcoin2/log`
+`pi@raspberrypi:~ $ tailf p2pool-vtc-2.0.0/data/vertcoin2/log`
 
 -----------------------------------------
 
 ### `**EXPERIMENTAL` Setup Unitus Full Node for merged mining with p2pool-vtc
+
+Unfortunately, due to the fork that happened at block 1080001, implementing the new mining algorithm Lyra2REv3, made Unitus merged-mining support impossible.
 
 `NOTE:` This has proven to be an unstable experience, this section is experimental and is only for those who wish to experimental with their Raspberry Pi and are comfortable with troubleshooting their node and possibly breaking their node. 
 
